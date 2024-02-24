@@ -1,7 +1,14 @@
 <template>
   <div>
+    <el-row :gutter="20">
+      <el-col :span="6"><h1>奔跑</h1></el-col>
+      <el-col :span="6"><h1>思考</h1></el-col>
+      <el-col :span="6"><h1>射击</h1></el-col>
+      <el-col :span="6"><h1>生存</h1></el-col>
+    </el-row>
     <div class="button">
       <el-button
+        id="refresh"
         plain
         @click="
           queryServerList();
@@ -18,7 +25,8 @@
       empty-text=" "
       v-loading="loading"
       element-loading-text="正在为您获取服务器信息"
-      border
+      :header-cell-style="{ background: '#4c5847', color: 'white' }"
+      :cell-style="{ background: '#3e4537', color: 'white' }"
     >
       <el-table-column prop="success" label="是否在线">
         <template slot-scope="scope">
@@ -59,7 +67,13 @@
             :destroy-on-close="true"
             :before-close="stopTimer"
           >
-            <el-table :data="serverinfo.data" stripe border>
+            <el-table
+              :data="serverinfo.data"
+              stripe
+              :header-cell-style="{ background: '#4c5847', color: 'white' }"
+              :cell-style="{ background: '#3e4537', color: 'white' }"
+              border
+            >
               <el-table-column property="name" label="玩家名"></el-table-column>
               <el-table-column property="score" label="分数"></el-table-column>
               <el-table-column label="游玩时间"
@@ -74,11 +88,15 @@
       <el-table-column label="加入游戏" prop="ip"
         ><template slot-scope="scope">
           <a :href="'steam://connect/' + scope.row.ip + '?appid=70'">
-            <el-button v-if="scope.row.data.map !== '访问超时'" type="success" round>加入游戏</el-button>  
+            <el-button
+              v-if="scope.row.data.map !== '访问超时'"
+              type="success"
+              round
+              >加入游戏</el-button
+            >
             <el-button v-else disabled type="warning" round>无法加入</el-button>
           </a>
-            </template
-        ></el-table-column
+        </template></el-table-column
       >
     </el-table>
   </div>
@@ -97,6 +115,11 @@ export default {
         "114.132.168.4:27022",
         "114.132.168.4:27016",
         "47.100.71.67:27015",
+        "47.100.71.67:27018",
+        "114.132.168.4:27016",
+        "119.91.204.139:27017",
+        "119.91.204.139:27018",
+        "119.91.204.139:27019",
       ],
       data: [],
       serverinfo: [],
@@ -110,7 +133,6 @@ export default {
   },
   mounted: function () {},
   methods: {
-
     //获取服务器列表
     async queryServerList() {
       this.data.length = 0;
@@ -144,10 +166,11 @@ export default {
     //启动计时器
     enableTimer() {
       this.timerid = setInterval(() => {
-        for (let i = 0; i < this.serverinfo['data'].length; i++) {
-          this.serverinfo['data'][i]['time'] = Math.floor(this.serverinfo['data'][i]['time']) + 1;
+        for (let i = 0; i < this.serverinfo["data"].length; i++) {
+          this.serverinfo["data"][i]["time"] =
+            Math.floor(this.serverinfo["data"][i]["time"]) + 1;
           console.log("abcd", this.serverinfo);
-          console.log(this.serverinfo['data'][i]['time']);
+          console.log(this.serverinfo["data"][i]["time"]);
         }
       }, 1000);
     },
@@ -182,7 +205,7 @@ export default {
       this.handleJsonSort(res.data.data, "score");
       this.serverinfo = res.data;
       this.enableTimer();
-      console.log('data',this.serverinfo.data);
+      console.log("data", this.serverinfo.data);
     },
 
     //插入排序
@@ -225,5 +248,20 @@ export default {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+#refresh {
+  background: #4b5745;
+  color: white;
+  border-radius: 0;
+}
+
+.el-row {
+  margin: auto;
+  text-align: center;
+}
+
+.el-table__body tr:hover > td {
+  background-color: #958831 !important;
 }
 </style>

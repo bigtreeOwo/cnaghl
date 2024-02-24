@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+    wadtexture
+  </div>
 </template>
 <script>
 export default {

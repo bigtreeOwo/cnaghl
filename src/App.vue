@@ -27,8 +27,8 @@ html,body {
 }
 
 .app-container {
-  height: 100%;
   background: url("assets/images/main/background.jpg");
   background-attachment: fixed;
+  background-size: cover;
 }
 </style>

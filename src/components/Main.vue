@@ -7,11 +7,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      minHeight: window.screen.height,
+    };
+  },
+};
 </script>
 
 <style>
 .el-main {
   opacity: 100%;
+  margin: auto;
+
 }
 </style>
