@@ -83,7 +83,7 @@
     <div id="videocarousel">
       <h1>游戏截图</h1>
       <el-carousel indicator-position="outside" height="520px">
-        <el-carousel-item v-for="img in imgList" :key="img.id">
+        <el-carousel-item v-for="img in imgList" :key="img.id" class="indexcarousel">
           <img :src="img.url" alt="图片加载错误" :title="img.title" />
         </el-carousel-item>
       </el-carousel>
@@ -200,7 +200,7 @@ a {
   height: auto;
 }
 
-.el-carousel__item img {
+.indexcarousel img {
   object-fit: cover; /* or object-fit: cover; */
   border: #4b5745 solid 10px;
 }

@@ -16,7 +16,7 @@
         ></el-avatar
         >&nbsp;主页
       </el-menu-item>
-      <el-menu-item index="/servers">服务器</el-menu-item>
+      <el-menu-item index="/server">服务器</el-menu-item>
       <el-submenu index="/download" text-color="#ffffff">
         <template slot="title">下载</template>
         <el-menu-item index="/model">自定义模型</el-menu-item>
@@ -38,7 +38,7 @@
       </el-submenu>
       <el-submenu index="/tutorial" text-color="#ffffff">
         <template slot="title">教程</template>
-        <el-menu-item index="/tutorial/other">游戏参数和命令</el-menu-item>
+        <el-menu-item index="/tutorial/command">游戏参数和命令</el-menu-item>
         <el-menu-item index="/tutorial/weapon">武器使用</el-menu-item>
         <el-menu-item index="/tutorial/basicskills">基础技巧</el-menu-item>
         <el-menu-item index="/tutorial/advancedskills">进阶技巧</el-menu-item>

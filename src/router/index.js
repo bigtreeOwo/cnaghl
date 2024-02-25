@@ -23,7 +23,7 @@ const router = new VueRouter({
       path: "/index", name: "index", component: Index
     },
     {
-      path: "/servers", name: "serverlist", component: Serverlist
+      path: "/server", name: "serverlist", component: Serverlist
     },
     {
       path: "/tournament", name: "tournament", component: Tournament
