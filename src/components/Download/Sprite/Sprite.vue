@@ -33,8 +33,7 @@
         </div>
         <div class="ItemTitle">{{ item.name }}</div>
         <div class="SplitLine"></div>
-        <div class="ItemDesrcp">
-          {{ item.description }}
+        <div class="ItemDesrcp" v-html="item.description">
         </div>
         <a :href="filepath + item.name" :download="item.name"
           ><div class="DLButton"></div
@@ -81,7 +80,7 @@ export default {
           id: 5,
           name: "HLRedux_Spr.rar",
           description:
-            "从HL:Redux（Moddb主页： https://www.moddb.com/mods/half-life-redux-v2）中提取的Spr，主打BMS的HUD、武器图标以及一些高清的贴图例如枪口火焰、血液等。",
+            "从HL:Redux（Moddb主页： <a href='https://www.moddb.com/mods/half-life-redux-v2' target='_blank'>https://www.moddb.com/mods/half-life-redux-v2</a>）中提取的Spr，主打BMS的HUD、武器图标以及一些高清的贴图例如枪口火焰、血液等。",
           imgurl: require("@/assets/images/download/sprites/HLR.gif"),
         },
       ],
@@ -90,5 +89,6 @@ export default {
 };
 </script>
 
-<style>
+<style src="@/assets/css/download.css" scoped>
+
 </style>

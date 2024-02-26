@@ -1,0 +1,35 @@
+#discription {
+  float: left;
+  width: 45%;
+}
+
+#select {
+  float: right;
+  width: 50%;
+  background: pink;
+}
+
+.el-row {
+  margin: auto;
+  text-align: center;
+}
+
+.el-button {
+  width: 150px;
+  background: #4b5745;
+  color: white;
+  border-radius: 0;
+  margin: 10px;
+}
+
+.el-button.is-active,
+.el-button:active{
+  background: #ffa500;
+  color: white;
+}
+
+.el-button:hover,
+.el-button:focus {
+  background: #ffa500;
+  color: white;
+}

@@ -1,0 +1,530 @@
+.WeaponsSelBlock {
+  width: 1250px;
+  height: 350px;
+  position: relative;
+  left: 50%;
+  margin-left: -610px;
+  padding-top: 5px;
+  overflow: hidden;
+  /* background-color: black; */
+}
+
+.WeaponsSlots {
+  width: 240px;
+  height: 30px;
+  display: inline-block;
+  position: relative;
+  padding-top: 5px;
+  margin-bottom: -4px;
+  overflow: hidden;
+  /* background-color: black; */
+}
+
+/* 样式未被选中的选项卡 */
+.tab {
+  display: none;
+}
+
+/* 样式被选中的选项卡 */
+.tab.active {
+  width: 1200px;
+  height: auto;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -600px;
+  padding-bottom: 30px;
+  border: #ffffff 2px solid;
+  background-color: #4b5745;
+}
+
+.tab.active:hover {
+  box-shadow: 4px 4px 15px;
+}
+
+.tab.active h1 {
+  width: 600px;
+  height: 50px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -300px;
+  padding-top: 20px;
+  font-family: 微软雅黑;
+  font-size: 40px;
+  text-align: center;
+}
+
+.tab .WpnCode {
+  width: 400px;
+  height: 30px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -230px;
+  padding-top: 10px;
+  font-family: 微软雅黑;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.tab .SplitLine {
+  width: 1000px;
+  height: 2px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -500px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  background-color: #3e4537;
+}
+
+.tab .WpnDescrp {
+  width: 1000px;
+  height: auto;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -500px;
+  font-family: 微软雅黑;
+  font-size: 20px;
+}
+
+.tab .WpnImg {
+  width: 200px;
+  height: 100px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: 15px;
+}
+
+.tab .WpnImgCaption {
+  width: 400px;
+  height: 30px;
+  display: block;
+  position: relative;
+  left: 50%;
+  margin-left: -230px;
+  padding-top: 10px;
+  font-family: 微软雅黑;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+}
+
+.tab .WpnPrimBlock {
+  width: 800px;
+  height: 270px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-left: 40px;
+  margin-top: 30px;
+  /* background-color: antiquewhite; */
+}
+
+.WpnPrimBlock .el-image {
+  width: 300px;
+  height: 270px;
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  background-color: black;
+}
+
+.WpnPrimBlock h1 {
+  width: 600px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  margin-top: 10px;
+  padding-left: 15px;
+  font-family: 微软雅黑;
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.WpnPrimBlock .SplitLine {
+  width: 400px;
+  height: 3px;
+  display: inline-block;
+  position: absolute;
+  margin-left: -70px;
+  margin-top: -10px;
+  background-color: #3e4537;
+}
+
+.WpnPrimBlock p {
+  width: 420px;
+  height: 150px;
+  display: inline-block;
+  position: absolute;
+  left: 310px;
+  font-family: 微软雅黑;
+  font-size: 18px;
+}
+
+.tab .WpnSecdBlock {
+  width: 800px;
+  height: 270px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin-left: 360px;
+  margin-top: 30px;
+}
+
+.WpnSecdBlock .el-image {
+  width: 300px;
+  height: 270px;
+  display: inline-block;
+  position: absolute;
+  left: 500px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.WpnSecdBlock h1 {
+  width: 600px;
+  height: 20px;
+  display: inline-block;
+  position: absolute;
+  margin-top: 10px;
+  font-family: 微软雅黑;
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.WpnSecdBlock .SplitLine {
+  width: 400px;
+  height: 3px;
+  display: inline-block;
+  position: absolute;
+  margin-left: -320px;
+  margin-top: -10px;
+  background-color: #3e4537;
+}
+
+.WpnSecdBlock p {
+  width: 420px;
+  height: 150px;
+  display: inline-block;
+  position: absolute;
+  left: 30px;
+  font-family: 微软雅黑;
+  font-size: 18px;
+}
+
+.WpnTab {
+  width: 240px;
+  height: 64px;
+  display: inline-block;
+  position: relative;
+  margin-left: 0;
+  margin-bottom: -4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: none;
+  /* background-color: black; */
+}
+
+/* Crowbar */
+.WpnTab.tab1:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/Crowbar.webp");
+}
+
+.WpnTab.tab1:hover {
+  background-image: url("@/assets/images/tutorial/weapons/Crowbar_s.webp");
+}
+
+.WpnTab.tab1.active {
+  background-image: url("@/assets/images/tutorial/weapons/Crowbar_s.webp");
+}
+
+/* 9mmhandgun */
+.WpnTab.tab2:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/9mmhandgun.webp");
+}
+
+.WpnTab.tab2:hover {
+  background-image: url("@/assets/images/tutorial/weapons/9mmhandgun_s.webp");
+}
+
+.WpnTab.tab2.active {
+  background-image: url("@/assets/images/tutorial/weapons/9mmhandgun_s.webp");
+}
+
+/* 9mmAR */
+.WpnTab.tab3:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/9mmar.webp");
+}
+
+.WpnTab.tab3:hover {
+  background-image: url("@/assets/images/tutorial/weapons/9mmar_s.webp");
+}
+
+.WpnTab.tab3.active {
+  background-image: url("@/assets/images/tutorial/weapons/9mmar_s.webp");
+}
+
+/* rpg */
+.WpnTab.tab4:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/rpg.webp");
+}
+
+.WpnTab.tab4:hover {
+  background-image: url("@/assets/images/tutorial/weapons/rpg_s.webp");
+}
+
+.WpnTab.tab4.active {
+  background-image: url("@/assets/images/tutorial/weapons/rpg_s.webp");
+}
+
+/* Grenade */
+.WpnTab.tab5:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/grenade.webp");
+}
+
+.WpnTab.tab5:hover {
+  background-image: url("@/assets/images/tutorial/weapons/grenade_s.webp");
+}
+
+.WpnTab.tab5.active {
+  background-image: url("@/assets/images/tutorial/weapons/grenade_s.webp");
+}
+
+/* 357 */
+.WpnTab.tab6:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/357.webp");
+}
+
+.WpnTab.tab6:hover {
+  background-image: url("@/assets/images/tutorial/weapons/357_s.webp");
+}
+
+.WpnTab.tab6.active {
+  background-image: url("@/assets/images/tutorial/weapons/357_s.webp");
+}
+
+/* Shotgun */
+.WpnTab.tab7:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/shotgun.webp");
+}
+
+.WpnTab.tab7:hover {
+  background-image: url("@/assets/images/tutorial/weapons/shotgun_s.webp");
+}
+
+.WpnTab.tab7.active {
+  background-image: url("@/assets/images/tutorial/weapons/shotgun_s.webp");
+}
+
+/* Gauss */
+.WpnTab.tab8:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/gauss.webp");
+}
+
+.WpnTab.tab8:hover {
+  background-image: url("@/assets/images/tutorial/weapons/gauss_s.webp");
+}
+
+.WpnTab.tab8.active {
+  background-image: url("@/assets/images/tutorial/weapons/gauss_s.webp");
+}
+
+/* Satchel */
+.WpnTab.tab9:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/satchel.webp");
+}
+
+.WpnTab.tab9:hover {
+  background-image: url("@/assets/images/tutorial/weapons/satchel_s.webp");
+}
+
+.WpnTab.tab9.active {
+  background-image: url("@/assets/images/tutorial/weapons/satchel_s.webp");
+}
+
+/* Crossbow */
+.WpnTab.tab10:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/crossbow.webp");
+}
+
+.WpnTab.tab10:hover {
+  background-image: url("@/assets/images/tutorial/weapons/crossbow_s.webp");
+}
+
+.WpnTab.tab10.active {
+  background-image: url("@/assets/images/tutorial/weapons/crossbow_s.webp");
+}
+
+/* Egon */
+.WpnTab.tab11:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/egon.webp");
+}
+
+.WpnTab.tab11:hover {
+  background-image: url("@/assets/images/tutorial/weapons/egon_s.webp");
+}
+
+.WpnTab.tab11.active {
+  background-image: url("@/assets/images/tutorial/weapons/egon_s.webp");
+}
+
+/* Tripmine */
+.WpnTab.tab12:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/tripmine.webp");
+}
+
+.WpnTab.tab12:hover {
+  background-image: url("@/assets/images/tutorial/weapons/tripmine_s.webp");
+}
+
+.WpnTab.tab12.active {
+  background-image: url("@/assets/images/tutorial/weapons/tripmine_s.webp");
+}
+
+/* Hgun */
+.WpnTab.tab13:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/hornetgun.webp");
+}
+
+.WpnTab.tab13:hover {
+  background-image: url("@/assets/images/tutorial/weapons/hornetgun_s.webp");
+}
+
+.WpnTab.tab13.active {
+  background-image: url("@/assets/images/tutorial/weapons/hornetgun_s.webp");
+}
+
+/* Snark */
+.WpnTab.tab14:not(.active) {
+  background-image: url("@/assets/images/tutorial/weapons/snark.webp");
+}
+
+.WpnTab.tab14:hover {
+  background-image: url("@/assets/images/tutorial/weapons/snark_s.webp");
+}
+
+.WpnTab.tab14.active {
+  background-image: url("@/assets/images/tutorial/weapons/snark_s.webp");
+}
+
+.AGTricksNavBlock {
+  width: 200px;
+  height: 4000px;
+  background-color: black;
+  display: inline-block;
+  position: absolute;
+}
+
+.AGTrickTab {
+  width: 200px;
+  height: 60px;
+  position: relative;
+  background-color: black;
+  overflow: hidden;
+  font-family: 微软雅黑;
+  font-size: 20px;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.AGTrickTab:hover {
+  background-color: red;
+  cursor: pointer
+}
+
+.AGTrickTab.active {
+  background-color: red;
+}
+
+.AGTricksContent {
+  width: 1090px;
+  min-height: 600px;
+  position: relative;
+  left: 200px;
+  padding-bottom: 10px;
+  background-color: white;
+  overflow: hidden;
+  display: none;
+}
+
+.AGTricksContent h1 {
+  width: 500px;
+  height: 40px;
+  display: inline-block;
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  left: 300px;
+  font-family: 微软雅黑;
+  font-size: 28px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.AGTricksContent p {
+  width: 1000px;
+  height: auto;
+  display: inline-block;
+  position: relative;
+  left: 20px;
+  margin-bottom: 10px;
+  font-family: 微软雅黑;
+  font-size: 19px;
+}
+
+.AGTricksContent img {
+  width: 350px;
+  height: 315px;
+  display: block;
+  position: relative;
+  margin-top: 40px;
+  left: 320px;
+  overflow: hidden;
+  background-color: black;
+}
+
+.AGTricksContent .ImgCaption {
+  width: 380px;
+  height: auto;
+  display: inline-block;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  left: 270px;
+  font-family: 微软雅黑;
+  font-size: 16px;
+  text-align: center;
+}
+
+.AGTricksContent .Code {
+  width: 800px;
+  height: auto;
+  display: block;
+  position: relative;
+  left: 100px;
+  margin-top: 20px;
+  padding-bottom: 10px;
+  background-color: lightgray;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace
+}
+
+.AGTricksContent #Longimg {
+  width: 850px;
+  height: auto;
+  display: block;
+  position: relative;
+  margin-top: 40px;
+  left: 120px;
+  overflow: hidden;
+  background-color: black;
+}

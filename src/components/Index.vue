@@ -79,11 +79,15 @@
         style="width: 100px; margin-left: 50%"
       />
     </div>
-    
+
     <div id="videocarousel">
       <h1>游戏截图</h1>
       <el-carousel indicator-position="outside" height="520px">
-        <el-carousel-item v-for="img in imgList" :key="img.id" class="indexcarousel">
+        <el-carousel-item
+          v-for="img in imgList"
+          :key="img.id"
+          class="indexcarousel"
+        >
           <img :src="img.url" alt="图片加载错误" :title="img.title" />
         </el-carousel-item>
       </el-carousel>
@@ -157,7 +161,7 @@ export default {
 h1,
 h2 {
   color: #ffa500;
-
+  text-align: center;
 }
 
 .router-link-active {
@@ -169,7 +173,8 @@ a {
   text-decoration: none;
   color: red;
 }
-
+</style>
+<style scoped>
 #welcome {
   margin-left: 20%;
   font-family: "微软雅黑";

@@ -29,8 +29,7 @@
         </div>
         <div class="ItemTitle">{{ item.name }}</div>
         <div class="SplitLine"></div>
-        <div class="ItemDesrcp">
-          {{ item.description }}
+        <div class="ItemDesrcp" v-html="item.description">
         </div>
         <a :href="filepath + item.name" :download="item.name"><div class="DLButton"></div></a>
       </div>
@@ -118,74 +117,6 @@ export default {
 };
 </script>
 
-<style>
-.ItemBlockMdl {
-  width: 1200px;
-  height: 250px;
-  position: relative;
-  left: 50%;
-  margin-left: -600px;
-  margin-bottom: 35px;
-  background-color: #4b5745;
-  border: #ffffff 2px solid;
-  box-shadow: 4px 4px 15px;
-}
-
-.ItemBlockMdl .ImgDiv {
-  width: 230px;
-  height: 230px;
-  display: inline-block;
-  margin-left: 10px;
-  margin-top: 10px;
-  overflow: hidden;
-  background-color: brown;
-}
-
-.ItemBlockMdl .ItemTitle {
-  display: inline-block;
-  position: absolute;
-  width: 600px;
-  height: 30px;
-  margin-left: 50px;
-  margin-top: 25px;
-  font-family: "微软雅黑";
-  font-size: 35px;
-}
-
-.ItemBlockMdl .SplitLine {
-  display: inline-block;
-  position: absolute;
-  width: 850px;
-  height: 4px;
-  margin-left: 50px;
-  margin-top: 80px;
-  background-color: #3e4537;
-}
-
-.ItemBlockMdl .ItemDesrcp {
-  display: inline-block;
-  position: absolute;
-  width: 850px;
-  height: 30px;
-  margin-left: 70px;
-  margin-top: 100px;
-  font-family: "微软雅黑";
-  font-size: 18px;
-}
-
-.ItemBlockMdl .DLButton {
-  display: inline-block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 870px;
-  margin-top: 180px;
-  overflow: hidden;
-  background-image: url("@/assets/images/download/DLbutton.png");
-}
-
-.ItemBlockMdl .DLButton:hover {
-  background-image: url("@/assets/images/download/DLbutton2.png");
-}
+<style src="@/assets/css/download.css" scoped>
 
 </style>

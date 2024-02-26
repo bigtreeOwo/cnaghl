@@ -2,6 +2,7 @@
   <div>
     <el-main>
       <router-view></router-view>
+      
     </el-main>
   </div>
 </template>
@@ -16,7 +17,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .el-main {
   opacity: 100%;
   margin: auto;

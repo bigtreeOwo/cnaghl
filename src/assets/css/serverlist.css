@@ -1,0 +1,47 @@
+.serverlist {
+  margin: auto;
+  width: 95%;
+}
+
+.button {
+  width: 95%;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#refresh {
+  background: #4b5745;
+  color: white;
+  border-radius: 0;
+}
+
+.el-row {
+  margin: auto;
+  text-align: center;
+}
+
+.el-table__body tr:hover > td {
+  background-color: #958831 !important;
+}
+
+.el-button {
+  width: 150px;
+  background: #4b5745;
+  color: white;
+  border-radius: 0;
+  margin: 10px;
+}
+
+
+.el-button.is-active,
+.el-button:active{
+  background: #ffa500;
+  color: white;
+}
+
+.el-button:hover,
+.el-button:focus {
+  background: #ffa500;
+  color: white;
+}

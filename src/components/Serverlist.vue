@@ -237,31 +237,6 @@ export default {
 };
 </script>
 
-<style>
-.serverlist {
-  margin: auto;
-  width: 95%;
-}
+<style src="@/assets/css/serverlist.css" scoped>
 
-.button {
-  width: 95%;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-#refresh {
-  background: #4b5745;
-  color: white;
-  border-radius: 0;
-}
-
-.el-row {
-  margin: auto;
-  text-align: center;
-}
-
-.el-table__body tr:hover > td {
-  background-color: #958831 !important;
-}
 </style>

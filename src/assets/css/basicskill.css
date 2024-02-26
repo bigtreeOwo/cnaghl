@@ -1,0 +1,23 @@
+.el-menu {
+  width: 10%;
+  background: #4b5745;
+  border: white 1px solid;
+}
+
+.el-submenu__title:hover,
+.el-menu-item:focus,
+.el-menu-item:hover {
+  background-color: #ffa500 !important;
+  color: white !important;
+  box-shadow: 2px 2px 10px !important;
+}
+
+.el-menu .el-menu-item.is-active {
+  background-color: #ffa500 !important;
+  color: white !important;
+  border-bottom-color: #ffa500 !important;
+}
+
+.el-submenu .el-submenu__title {
+  color: white !important;
+}

@@ -1,0 +1,148 @@
+.ItemBlockMdl {
+  width: 1200px;
+  height: 250px;
+  position: relative;
+  left: 50%;
+  margin-left: -600px;
+  margin-bottom: 35px;
+  background-color: #4b5745;
+  border: #ffffff 2px solid;
+}
+
+.ItemBlockMdl:hover {
+  box-shadow: 4px 4px 15px;
+}
+
+.ItemBlockMdl .ImgDiv {
+  width: 230px;
+  height: 230px;
+  display: inline-block;
+  margin-left: 10px;
+  margin-top: 10px;
+  overflow: hidden;
+  background-color: brown;
+}
+
+.ItemBlockMdl .ItemTitle {
+  display: inline-block;
+  position: absolute;
+  width: 600px;
+  height: 30px;
+  margin-left: 50px;
+  margin-top: 25px;
+  font-family: "微软雅黑";
+  font-size: 35px;
+}
+
+.ItemBlockMdl .SplitLine {
+  display: inline-block;
+  position: absolute;
+  width: 850px;
+  height: 4px;
+  margin-left: 50px;
+  margin-top: 80px;
+  background-color: #3e4537;
+}
+
+.ItemBlockMdl .ItemDesrcp {
+  display: inline-block;
+  position: absolute;
+  width: 850px;
+  height: 30px;
+  margin-left: 70px;
+  margin-top: 100px;
+  font-family: "微软雅黑";
+  font-size: 18px;
+}
+
+.ItemBlockMdl .DLButton {
+  display: inline-block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin-left: 870px;
+  margin-top: 180px;
+  overflow: hidden;
+  background-image: url("@/assets/images/download/DLbutton.png");
+}
+
+.ItemBlockMdl .DLButton:hover {
+  background-image: url("@/assets/images/download/DLbutton2.png");
+}
+
+.ItemBlockWad {
+  width: 1200px;
+  height: 500px;
+  position: relative;
+  left: 50%;
+  margin-left: -600px;
+  margin-bottom: 35px;
+  background-color: #4b5745;
+  border: #ffffff 2px solid;
+}
+
+.ItemBlockWad:hover {
+  box-shadow: 4px 4px 15px;
+}
+
+.ItemBlockWad .ImgDiv {
+  width: 360px;
+  height: 216px;
+  display: inline-block;
+  margin-left: 27px;
+  margin-top: 20px;
+  overflow: hidden;
+  background-color: brown;
+}
+
+.ItemBlockWad img {
+  width: 360px;
+  height: auto;
+}
+
+.ItemBlockWad .SplitLine {
+  display: block;
+  position: absolute;
+  width: 1000px;
+  height: 4px;
+  margin-left: 100px;
+  margin-top: 80px;
+  background-color: #3e4537;
+}
+
+.ItemBlockWad .ItemTitle {
+  display: block;
+  position: absolute;
+  width: 1200px;
+  height: 30px;
+  margin-top: 20px;
+  font-family: "微软雅黑";
+  font-size: 35px;
+  text-align: center;
+}
+
+.ItemBlockWad .ItemDesrcp {
+  display: block;
+  position: absolute;
+  width: 900px;
+  height: 30px;
+  margin-left: 150px;
+  margin-top: 100px;
+  font-family: "微软雅黑";
+  font-size: 18px;
+}
+
+.ItemBlockWad .DLButton {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin-left: 1120px;
+  margin-top: 190px;
+  overflow: hidden;
+  background-image: url("@/assets/images/download/DLbutton.png");
+}
+
+.ItemBlockWad .DLButton:hover {
+  background-image: url("@/assets/images/download/DLbutton2.png");
+}

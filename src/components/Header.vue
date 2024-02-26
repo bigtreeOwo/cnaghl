@@ -38,10 +38,10 @@
       </el-submenu>
       <el-submenu index="/tutorial" text-color="#ffffff">
         <template slot="title">教程</template>
-        <el-menu-item index="/tutorial/command">游戏参数和命令</el-menu-item>
-        <el-menu-item index="/tutorial/weapon">武器使用</el-menu-item>
-        <el-menu-item index="/tutorial/basicskills">基础技巧</el-menu-item>
-        <el-menu-item index="/tutorial/advancedskills">进阶技巧</el-menu-item>
+        <el-menu-item index="/command">游戏参数和命令</el-menu-item>
+        <el-menu-item index="/weapon">武器使用</el-menu-item>
+        <el-menu-item index="/basicskill">基础技巧</el-menu-item>
+        <el-menu-item index="/advancedskill">进阶技巧</el-menu-item>
       </el-submenu>
       <el-menu-item index="/tournament">赛事</el-menu-item>
     </el-menu>
@@ -50,9 +50,7 @@
 <script>
 export default {
   data() {
-    return {
-      
-    };
+    return {};
   },
   methods: {
     handleSelect(key, keyPath) {
@@ -67,16 +65,23 @@ export default {
   border: 0 !important;
 }
 
-.el-submenu {
-  transition-duration: 0.3s;
-}
 
-.el-submenu__title:hover, .el-menu-item:focus, .el-menu-item:hover{
-background-color: #ffa500 !important;
-}
-
-.el-menu .el-menu-item.is-active {
+.el-submenu__title:hover,
+.el-menu-item:focus,
+.el-menu-item:hover {
   background-color: #ffa500 !important;
+  color: white !important;
+  box-shadow:2px 2px 10px !important;
+}
+
+.el-menu .el-menu-item.is-active{
+  background-color: #ffa500 !important;
+  color: white !important;
+  border-bottom-color: #ffa500 !important;
+}
+
+.el-submenu .el-submenu__title {
+  color: white !important;
 }
 
 .router-link-active {

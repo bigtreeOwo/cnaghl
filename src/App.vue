@@ -3,6 +3,9 @@
     <Header></Header>
     <Main></Main>
     <Footer></Footer>
+    <el-backtop :bottom="100">
+
+    </el-backtop>
   </div>
 </template>
 
@@ -19,7 +22,8 @@ export default {
 </script>
 
 <style>
-html,body {
+html,
+body {
   height: 100%;
   margin: 0;
   border: 0;

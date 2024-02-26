@@ -27,8 +27,7 @@
         </div>
         <div class="ItemTitle">{{ item.name }}</div>
         <div class="SplitLine"></div>
-        <div class="ItemDesrcp">
-          {{ item.description }}
+        <div class="ItemDesrcp" v-html="item.description">
         </div>
         <a :href="HDWadLink" :download="item.name" target="_blank"
           ><div class="DLButton"></div
@@ -70,78 +69,6 @@ export default {
 };
 </script>
 
-<style>
-.ItemBlockWad {
-  width: 1200px;
-  height: 500px;
-  position: relative;
-  left: 50%;
-  margin-left: -600px;
-  margin-bottom: 35px;
-  background-color: #4b5745;
-  border: #ffffff 2px solid;
-  box-shadow: 4px 4px 15px;
-}
+<style src="@/assets/css/download.css" scoped>
 
-.ItemBlockWad .ImgDiv {
-  width: 360px;
-  height: 216px;
-  display: inline-block;
-  margin-left: 27px;
-  margin-top: 20px;
-  overflow: hidden;
-  background-color: brown;
-}
-
-.ItemBlockWad img {
-  width: 360px;
-  height: auto;
-}
-
-.ItemBlockWad .SplitLine {
-  display: block;
-  position: absolute;
-  width: 1000px;
-  height: 4px;
-  margin-left: 100px;
-  margin-top: 80px;
-  background-color: #3e4537;
-}
-
-.ItemBlockWad .ItemTitle {
-  display: block;
-  position: absolute;
-  width: 1200px;
-  height: 30px;
-  margin-top: 20px;
-  font-family: "微软雅黑";
-  font-size: 35px;
-  text-align: center;
-}
-
-.ItemBlockWad .ItemDesrcp {
-  display: block;
-  position: absolute;
-  width: 900px;
-  height: 30px;
-  margin-left: 150px;
-  margin-top: 100px;
-  font-family: "微软雅黑";
-  font-size: 18px;
-}
-
-.ItemBlockWad .DLButton {
-  display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 1120px;
-  margin-top: 190px;
-  overflow: hidden;
-  background-image: url("@/assets/images/download/DLbutton.png");
-}
-
-.ItemBlockWad .DLButton:hover {
-  background-image: url("@/assets/images/download/DLbutton2.png");
-}
 </style>

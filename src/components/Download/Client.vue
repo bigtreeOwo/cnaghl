@@ -4,7 +4,9 @@
     <br />
     <div id="discription">
       <el-card class="box-card" shadow="hover">
-        <div slot="header"><h2>What are these ?</h2></div>
+        <div slot="header">
+          <h2>What are these ?</h2>
+        </div>
         <div class="text item">
           这里提供了多种AG相关资源的介绍、下载地址和安装方式。包括BFHL、BFHL、AG
           MOD X以及AG的训练插件Teylo Tranning
@@ -13,7 +15,9 @@
       </el-card>
       <br />
       <el-card class="box-card" shadow="hover">
-        <div slot="header"><h2>该选哪个？</h2></div>
+        <div slot="header">
+          <h2>该选哪个？</h2>
+        </div>
         <div class="text item">
           如果你只考虑游玩AG而不考虑开服务器，那么可以选择下载BFHL和OpenAG。两者的主要区别在于：BFHL是HL1的一个补丁，而OpenAG是独立模组。两者可以同时安装不产生冲突。
         </div>
@@ -55,22 +59,13 @@
 <script>
 export default {
   name: "client",
+
 };
 </script>
 
+<style src="@/assets/css/client.css" scoped>
+</style>
 <style>
-
-#discription {
-  float: left;
-  width: 45%;
-}
-
-#select {
-  float: right;
-  width: 50%;
-  background: pink;
-}
-
 .text {
   font-size: 1.5rem;
 }
@@ -86,26 +81,6 @@ export default {
 
 .box-card .el-card__body {
   background-color: #3e4537;
-  color: white;
-}
-
-.el-button {
-  width: 150px;
-  background: #4b5745;
-  color: white;
-  border-radius: 0;
-  margin: 10px;
-}
-
-.el-button.is-active,
-.el-button:active{
-  background: #ffa500;
-  color: white;
-}
-
-.el-button:hover,
-.el-button:focus {
-  background: #ffa500;
   color: white;
 }
 </style>
