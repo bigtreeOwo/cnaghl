@@ -36,6 +36,12 @@ import weapon_satchel from "../components/Tutorial/Weapons/weapon_satchel.vue";
 import weapon_shotgun from "../components/Tutorial/Weapons/weapon_shotgun.vue";
 import weapon_snark from "../components/Tutorial/Weapons/weapon_snark.vue";
 import weapon_tripmine from "../components/Tutorial/Weapons/weapon_tripmine.vue";
+
+// Tutorial Command
+import Command from "../components/Tutorial/Command.vue";
+
+// Tutorial BasicSkills
+import BasicSkill from "../components/Tutorial/BasicSkill.vue";
 import Devicesetting from "../components/Tutorial/BasicSkills/Devicesetting.vue";
 import Dropweapon from "../components/Tutorial/BasicSkills/Dropweapon.vue";
 import Fasterswitch from "../components/Tutorial/BasicSkills/Fasterswitch.vue";
@@ -44,25 +50,20 @@ import Headshot from "../components/Tutorial/BasicSkills/Headshot.vue";
 import Longjump from "../components/Tutorial/BasicSkills/Longjump.vue";
 import Quickbow from "../components/Tutorial/BasicSkills/Quickbow.vue";
 
-
-
-// Tutorial Command
-import Command from "../components/Tutorial/Command.vue";
-
-// Tutorial BasicSkills
-import BasicSkill from "../components/Tutorial/BasicSkill.vue";
-
 // Tutorial AdvancedSkills
 import AdvancedSkill from "../components/Tutorial/AdvancedSkill.vue";
 
-
+import Intro from "../components/Intro.vue";
 
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: "history",
   routes: [
     {
-      path: "/", redirect: "/index"
+      path: "/intro", component: Intro
+    },
+    {
+      path: "/", redirect: "/Intro"
     },
     {
       path: "/index", name: "index", component: Index

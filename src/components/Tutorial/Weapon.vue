@@ -7,19 +7,19 @@
         <h1>点击选择</h1>
         <div class="WeaponsSelBlock">
           <div class="WeaponsSlots">
-            <img src="@/assets/images/tutorial/weapons/slot_1.webp" alt="" />
+            <el-image :src="require('@/assets/images/tutorial/weapons/slot_1.webp')" alt="slot1" lazy></el-image>
           </div>
           <div class="WeaponsSlots">
-            <img src="@/assets/images/tutorial/weapons/slot_2.webp" alt="" />
+            <el-image :src="require('@/assets/images/tutorial/weapons/slot_2.webp')" alt="slot2" lazy></el-image>
           </div>
           <div class="WeaponsSlots">
-            <img src="@/assets/images/tutorial/weapons/slot_3.webp" alt="" />
+            <el-image :src="require('@/assets/images/tutorial/weapons/slot_3.webp')" alt="slot3" lazy></el-image>
           </div>
           <div class="WeaponsSlots">
-            <img src="@/assets/images/tutorial/weapons/slot_4.webp" alt="" />
+            <el-image :src="require('@/assets/images/tutorial/weapons/slot_4.webp')" alt="slot4" lazy></el-image>
           </div>
           <div class="WeaponsSlots">
-            <img src="@/assets/images/tutorial/weapons/slot_5.webp" alt="" />
+            <el-image :src="require('@/assets/images/tutorial/weapons/slot_5.webp')" alt="slot5" lazy></el-image>
           </div>
           
           <router-link to="/weapon/weapon_crowbar"><el-button class="WpnTab tab1"></el-button></router-link>
