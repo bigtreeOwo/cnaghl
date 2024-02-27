@@ -74,6 +74,10 @@ export default {
   padding: 10px 0;
 }
 
+.box-card {
+  background: #3e4537;
+}
+
 .box-card .el-card__header {
   background-color: #4b5745;
   color: white;
@@ -82,5 +86,6 @@ export default {
 .box-card .el-card__body {
   background-color: #3e4537;
   color: white;
+  height: 100%;
 }
 </style>

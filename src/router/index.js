@@ -36,6 +36,13 @@ import weapon_satchel from "../components/Tutorial/Weapons/weapon_satchel.vue";
 import weapon_shotgun from "../components/Tutorial/Weapons/weapon_shotgun.vue";
 import weapon_snark from "../components/Tutorial/Weapons/weapon_snark.vue";
 import weapon_tripmine from "../components/Tutorial/Weapons/weapon_tripmine.vue";
+import Devicesetting from "../components/Tutorial/BasicSkills/Devicesetting.vue";
+import Dropweapon from "../components/Tutorial/BasicSkills/Dropweapon.vue";
+import Fasterswitch from "../components/Tutorial/BasicSkills/Fasterswitch.vue";
+import Gausstrick from "../components/Tutorial/BasicSkills/Gausstrick.vue";
+import Headshot from "../components/Tutorial/BasicSkills/Headshot.vue";
+import Longjump from "../components/Tutorial/BasicSkills/Longjump.vue";
+import Quickbow from "../components/Tutorial/BasicSkills/Quickbow.vue";
 
 
 
@@ -43,7 +50,7 @@ import weapon_tripmine from "../components/Tutorial/Weapons/weapon_tripmine.vue"
 import Command from "../components/Tutorial/Command.vue";
 
 // Tutorial BasicSkills
-import BasicSkill from  "../components/Tutorial/BasicSkill.vue";
+import BasicSkill from "../components/Tutorial/BasicSkill.vue";
 
 // Tutorial AdvancedSkills
 import AdvancedSkill from "../components/Tutorial/AdvancedSkill.vue";
@@ -76,7 +83,7 @@ const router = new VueRouter({
       path: "/wadtexture", name: "wadtexture", component: Wadtexture
     },
     {
-      path: "/client",name: "client", redirect: "/client/bugfixedhl" ,component: Client, children: [
+      path: "/client", name: "client", redirect: "/client/bugfixedhl", component: Client, children: [
         {
           path: "agmodx", name: "agmodx", component: AGMODX
         },
@@ -92,7 +99,7 @@ const router = new VueRouter({
       ]
     },
     {
-      path: "/weapon", name : "tutorial", redirect: "/weapon/weapon_crowbar" ,component: Weapon, children: [
+      path: "/weapon", name: "tutorial", redirect: "/weapon/weapon_crowbar", component: Weapon, children: [
         {
           path: "weapon_9mmAR", name: "weapon_9mmAR", component: weapon_9mmAR
         },
@@ -141,7 +148,29 @@ const router = new VueRouter({
       path: "/command", name: "command", component: Command
     },
     {
-      path: "/basicskill", name: "basicskills", component: BasicSkill
+      path: "/basicskill", name: "basicskills", redirect: "/basicskill/devicesetting" ,component: BasicSkill, children: [
+        {
+          path: "dropweapon", name: "dropweapon", component: Dropweapon
+        },
+        {
+          path: "devicesetting", name: "devicesetting", component: Devicesetting
+        },
+        {
+          path: "fasterswitch", name: "fasterswitch", component: Fasterswitch
+        },
+        {
+          path: "gausstrick", name: "gausstrick", component: Gausstrick
+        },
+        {
+          path: "headshot", name: "headshot", component: Headshot
+        },
+        {
+          path: "longjump", name: "longjump", component: Longjump
+        },
+        {
+          path: "quickbow", name: "quickbow", component: Quickbow
+        },
+      ]
     },
     {
       path: "/advancedskill", name: "advancedskills", component: AdvancedSkill

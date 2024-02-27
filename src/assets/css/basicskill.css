@@ -1,7 +1,17 @@
 .el-menu {
   width: 10%;
+  float: left;
+  background: #3e4537;
+  border: white 1px solid;
+}
+
+.el-menu-item {
   background: #4b5745;
   border: white 1px solid;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  font-size: medium;
 }
 
 .el-submenu__title:hover,
@@ -20,4 +30,75 @@
 
 .el-submenu .el-submenu__title {
   color: white !important;
+}
+
+#skilldescription {
+  width: 80%;
+  margin-left: 15vw;
+  border-radius: 5px;
+  border: #ffffff 2px solid;
+  background: #4b5745;
+}
+
+#skilldescription:hover {
+  box-shadow: 4px 4px 15px;
+}
+
+.AGTricksContent {
+  position: relative;
+  padding-bottom: 10px;
+  overflow: hidden;
+}
+
+.AGTricksContent p {
+  margin-left: 1rem;
+  margin-bottom: 10px;
+  font-family: 微软雅黑;
+  font-size: 1.5rem;
+}
+
+.AGTricksContent .el-image {
+  width: 350px;
+  height: 315px;
+  display: block;
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  background-color: black;
+}
+
+.AGTricksContent .ImgCaption {
+
+  display: inline-block;
+  position: relative;
+  margin: 10px 10px 10px 625px;
+  font-family: 微软雅黑;
+  font-size: 16px;
+  text-align: center;
+}
+
+.AGTricksContent .Code {
+  width: 500px;
+  height: auto;
+  display: block;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  background-color: black;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
+}
+
+.AGTricksContent #Longimg {
+  width: 850px;
+  height: auto;
+  display: block;
+  position: relative;
+  margin-top: 40px;
+  left: 120px;
+  overflow: hidden;
+  background-color: black;
 }

@@ -2,7 +2,8 @@
   <div>
     <el-card class="box-card">
       <div slot="header">
-        <h1>将 你 自 己 武 装 起 来！</h1>
+        <h1>基础技巧</h1>
+        <h2>将 你 自 己 武 装 起 来！</h2>
         <p class="text item">
           初来乍到，不会玩AG？又或是自己玩了一段时间后玩不明白？没有关系！这里提供了一些AG的基本游戏技能，以及对游戏的一些原理的简单解释，是专门为刚起步的萌新玩家准备的，只要你有一定的FPS游戏基础，就一定能快速上手这个游戏！
         </p>
@@ -14,22 +15,34 @@
           如果你是第一次游玩AG，最好确保你已经了解了<span><a href="/weapon" style="color: red; font-weight: bold;">武器的使用</a></span>！
         </p>
       </div>
-      <div>
-        <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose">
-          <el-menu-item index="1">
-            <span slot="title">导航一</span>
+  
+      <div id="skillnav">
+        <el-menu default-active="/basicskill/devicesetting" @open="handleOpen" @close="handleClose" router>
+          <el-menu-item index="/basicskill/devicesetting">
+            <span slot="title">游戏设备设置</span>
           </el-menu-item>
-          <el-menu-item index="2">
-            <span slot="title">导航一</span>
+          <el-menu-item index="/basicskill/headshot">
+            <span slot="title">爆头</span>
           </el-menu-item>
-          <el-menu-item index="3">
-            <span slot="title">导航一</span>
+          <el-menu-item index="/basicskill/fasterswitch">
+            <span slot="title">快速切枪</span>
           </el-menu-item>
-          <el-menu-item index="4">
-            <span slot="title">导航一</span>
+          <el-menu-item index="/basicskill/longjump">
+            <span slot="title">长跳</span>
           </el-menu-item>
-          
+          <el-menu-item index="/basicskill/quickbow">
+            <span slot="title">瞬弩</span>
+          </el-menu-item>
+          <el-menu-item index="/basicskill/dropweapon">
+            <span slot="title">丢弃武器</span>
+          </el-menu-item>
+          <el-menu-item index="/basicskill/gausstrick">
+            <span slot="title">高斯穿墙</span>
+          </el-menu-item>
         </el-menu>
+        <div id="skilldescription">
+          <router-view></router-view>
+        </div>
       </div>
     </el-card>
 
