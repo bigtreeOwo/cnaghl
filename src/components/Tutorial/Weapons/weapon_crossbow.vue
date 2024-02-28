@@ -6,9 +6,9 @@
     <div class="WpnDescrp">
       能够发射爆炸性弹头的弩，安静且致命。在开镜模式下指哪打哪，并且拥有任意部位一发秒杀无护甲敌人的能力，因此是一把名副其实的“狙”。开镜的同时开火可实现“瞬弩”操作，是实战中极具实用性和观赏性的操作。武器弹药上限为5/50。
     </div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_crossbow.jpg')" alt="w_crossbow" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_crossbow.png')" alt="w_crossbow" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_crossbow_clip.jpg')" alt="w_crossbow_clip" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_crossbow_clip.png')" alt="w_crossbow_clip" lazy></el-image></div>
     <p class="WpnImgCaption">武器弹药，一份为5发</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">

@@ -6,9 +6,9 @@
     <div class="WpnDescrp">
       全游戏最强、机制最复杂、使用上限最高的武器。AG的强竞技性和高操作上限有非常大一部分都是因为高斯枪的存在，甚至可以毫不夸张地说，没有高斯枪就没有AG。该武器伤害大、无需换弹、可提供高速移动、还能穿墙，在某些地图（点名批评gayfire）是堪称变态的存在。然而同时由于上手难度大，该武器具有相当明显的技术区分度，这也是某些高手能够在noob房屠房，成为萌新噩梦的原因。武器最大弹药携带量为100。
     </div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_gauss.jpg')" alt="w_gauss" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_gauss.png')" alt="w_gauss" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_gaussammo.jpg')" alt="w_gaussammo" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_gaussammo.png')" alt="w_gaussammo" lazy></el-image></div>
     <p class="WpnImgCaption">武器弹药，一份为20发</p>
     <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/GaussReflect.jpg')" alt="gaussreflect" lazy></el-image></div>
     <p class="WpnImgCaption">高斯的折射</p>

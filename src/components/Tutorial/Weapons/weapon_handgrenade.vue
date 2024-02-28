@@ -4,7 +4,7 @@
     <p class="WpnCode">武器代码：weapon_grenade</p>
     <div class="SplitLine"></div>
     <div class="WpnDescrp">威力小、引信时间长、投掷距离短，炸别人还不如用来炸飞自己。你可以拿这个东西来羞辱你的对手。最大携带量为10颗。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_grenade.jpg')" alt="w_grenade" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_grenade.png')" alt="w_grenade" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模，一份5颗。</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">

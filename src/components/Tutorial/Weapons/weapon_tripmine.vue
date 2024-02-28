@@ -4,7 +4,7 @@
     <p class="WpnCode">武器代码：weapon_tripmine</p>
     <div class="SplitLine"></div>
     <div class="WpnDescrp">使用激光触发的地雷，当激光路径上检测到物体变化时即会发生爆炸。伤害和范围较为可观。最大携带量为5个。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_tripmine.jpg')" alt="w_tripmine" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_tripmine.png')" alt="w_tripmine" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
     <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_tripmine2.jpg')" alt="w_tripmine" lazy></el-image></div>
     <p class="WpnImgCaption">已部署的激光伴雷</p>

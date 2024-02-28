@@ -5,13 +5,13 @@
     <div class="SplitLine"></div>
     <div class="WpnDescrp">
       拥有大容量弹匣的速射武器，同时还带有一个榴弹发射器。武器原型为加装了M203的MP5SD，使用9mm口径子弹，即与小手枪共用弹药。弹药上限为50/250，榴弹最大携带量为10颗。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_9mmar.jpg')" alt="w_9mmar" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_9mmar.png')" alt="w_9mmar" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_9mmarclip.jpg')" alt="w_9mmarclip" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_9mmarclip.png')" alt="w_9mmarclip" lazy></el-image></div>
     <p class="WpnImgCaption">小份武器弹药：一份为50发</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_chainammo.jpg')" alt="w_chainammo" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_chainammo.png')" alt="w_chainammo" lazy></el-image></div>
     <p class="WpnImgCaption">大份武器弹药：一份为200发</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_argrenade.jpg')" alt="w_argrenade" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_argrenade.png')" alt="w_argrenade" lazy></el-image></div>
     <p class="WpnImgCaption">榴弹弹药：一份为2发</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">

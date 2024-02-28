@@ -6,9 +6,9 @@
     <div class="WpnDescrp">
       武器原型为柯尔特Python左轮，使用.357马格南弹药。相比于出生自带的小手枪，这把武器拥有更强大的威力，以及更高的射击精准度。多人模式下的357加装了激光指示器，可以进行放大以实现远距离索敌。由于拥有爆头一发秒杀敌人的能力，该武器在高手手中是极具威胁的。弹药上限为6/36。
     </div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_357.jpg')" alt="w_357" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_357.png')" alt="w_357" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_357ammobox.jpg')" alt="w_357ammobox" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_357ammobox.png')" alt="w_357ammobox" lazy></el-image></div>
     <p class="WpnImgCaption">武器弹药：一份为6发</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
@@ -22,7 +22,7 @@
 
     <div class="WpnSecdBlock">
 
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/357_2.gif')" alt="357" lazy></el-image> 
+      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/357_2.gif')" alt="357" lazy></el-image>
       <h1>次要攻击</h1>
       <div class="SplitLine"></div>
       <p>

@@ -5,7 +5,7 @@
     <div class="SplitLine"></div>
     <div class="WpnDescrp">
       具有较为可观的爆炸伤害和范围的遥控炸弹，使用方法为放置一颗或多颗炸弹后使用遥控进行远程触发。可以埋在拐角处当老六，也可以直接扔到对手脸上当手雷使。最大携带量为5个。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_satchel.jpg')" alt="w_satchel" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_satchel.png')" alt="w_satchel" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
 
     <div class="SplitLine"></div>
