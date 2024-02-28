@@ -153,6 +153,7 @@ a {
   width: 100%;
   border: #4b5745 solid 10px;
 }
+
 #ag {
   font-size: 1rem;
   color: #ffffff;
