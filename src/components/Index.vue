@@ -1,17 +1,7 @@
 <template>
   <div>
     <h1 id="welcome">
-      <img
-        src="@/assets/images/main/ag.png"
-        alt="ag"
-        title="ag"
-        style="height: 60px"
-      />欢迎来到AGHL中国!<img
-        src="@/assets/images/main/ag.png"
-        alt="ag"
-        title="ag"
-        style="height: 60px"
-      />
+      <img src="@/assets/images/main/ag.png" alt="ag" title="ag" style="height: 60px" />欢迎来到AGHL中国!<img src="@/assets/images/main/ag.png" alt="ag" title="ag" style="height: 60px" />
     </h1>
     <div id="ag">
       <h2>什么是ag</h2>
@@ -22,11 +12,7 @@
       </p>
       <h2>如何进行游戏</h2>
       <p>
-        目前国内已设有数个安装了AG插件的半条命1服务器(<a href="#"
-          ><router-link to="/servers">点我进入服务器界面</router-link></a
-        >)，因此最简单的游玩方式是<strong
-          >下载一个半条命1然后直接进服开始干架</strong
-        >
+        目前国内已设有数个安装了AG插件的半条命1服务器(<a href="#"><router-link to="/servers">点我进入服务器界面</router-link></a>)，因此最简单的游玩方式是<strong>下载一个半条命1然后直接进服开始干架</strong>
         。如果想要进一步提升游戏体验，则可以<strong>安装BFHL</strong>
         （详见下载页面）。因为使用方便，BFHL+装有AG插件的服务器也是目前国内最流行的游玩方式。如果想和国外pro进行切磋，则建议额外安装OpenAG。
       </p>
@@ -67,41 +53,18 @@
         -更多模式：
         玩家可以在ag文件目录下的gamemodes文件夹根据自己的需求编写cfg文件来简单地自定义自己喜爱的游戏模式。
       </p>
-      <img
-        src="@/assets/images/main/headcrab.png"
-        alt="headcrab"
-        title="headcrab"
-        style="width: 100px"
-      /><img
-        src="@/assets/images/main/scientist.png"
-        alt="scientist"
-        title="scientist"
-        style="width: 100px; margin-left: 50%"
-      />
+      <img src="@/assets/images/main/headcrab.png" alt="headcrab" title="headcrab" style="width: 100px" /><img src="@/assets/images/main/scientist.png" alt="scientist" title="scientist" style="width: 100px; margin-left: 50%" />
     </div>
 
     <div id="videocarousel">
       <h1>游戏截图</h1>
       <el-carousel indicator-position="outside" height="520px">
-        <el-carousel-item
-          v-for="img in imgList"
-          :key="img.id"
-          class="indexcarousel"
-        >
+        <el-carousel-item v-for="img in imgList" :key="img.id" class="indexcarousel">
           <img :src="img.url" alt="图片加载错误" :title="img.title" />
         </el-carousel-item>
       </el-carousel>
-      <h1>Adrenaline Gamer Cn Movie -By Real-Hunter</h1>
-      <iframe
-        id="movie"
-        src="https://player.bilibili.com/player.html?bvid=BV1ob411e7Uf&page=1&high_quality=1&danmaku=0&autoplay=1&t=5"
-        allowfullscreen="allowfullscreen"
-        width="100%"
-        height="500"
-        scrolling="no"
-        frameborder="0"
-        sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
-      ></iframe>
+      <h1>Adrenaline Gamer Cn Movie -By <a href="https://space.bilibili.com/8994696" target="_blank">Real-Hunter</a></h1>
+      <iframe id="movie" src="https://player.bilibili.com/player.html?bvid=BV1ob411e7Uf&page=1&high_quality=1&danmaku=0&autoplay=1&t=5" allowfullscreen="allowfullscreen" width="100%" height="500" scrolling="no" frameborder="0" sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"></iframe>
     </div>
   </div>
 </template>
@@ -170,8 +133,8 @@ h2 {
 }
 
 a {
-  text-decoration: none;
-  color: red;
+  text-decoration: white solid 1px underline;
+  color: #ffdea0;
 }
 </style>
 <style scoped>
