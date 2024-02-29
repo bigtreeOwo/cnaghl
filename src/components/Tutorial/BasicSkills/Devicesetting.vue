@@ -1,6 +1,6 @@
 <template>
   <div class="AGTricksContent">
-    <h1>外设设置</h1>
+    <h1>外 设 设 置</h1>
   </div>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style src="@/assets/css/basicskill.css" scoped>
 
 </style>

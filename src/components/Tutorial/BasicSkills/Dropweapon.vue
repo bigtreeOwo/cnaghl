@@ -1,6 +1,6 @@
 <template>
   <div class="AGTricksContent">
-    <h1>丢弃武器（Drop weapon）</h1>
+    <h1>丢 弃 武 器（Drop weapon）</h1>
 
     <p>
       丢弃武器即为将手中目前所拿的武器丢出。值得注意的是，<span style="font-weight: bold;">丢弃出去的武器还会附带一半的备弹，</span>例如当你手中有一把弹药为60的高斯枪时，丢出去的是高斯枪本身+30发弹药。另外，丢弃的武器会统一显示为武器盒的模型。

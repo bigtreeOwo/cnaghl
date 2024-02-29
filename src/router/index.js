@@ -52,6 +52,11 @@ import Quickbow from "../components/Tutorial/BasicSkills/Quickbow.vue";
 
 // Tutorial AdvancedSkills
 import AdvancedSkill from "../components/Tutorial/AdvancedSkill.vue";
+import Bunnyhop from "../components/Tutorial/AdvancedSkills/Bunnyhop.vue";
+import Gaussjump from "../components/Tutorial/AdvancedSkills/Gaussjump.vue";
+import Mapknowledge from "../components/Tutorial/AdvancedSkills/Mapknowledge.vue";
+import Spawnpoint from "../components/Tutorial/AdvancedSkills/Spawnpoint.vue";
+
 
 import Intro from "../components/Intro.vue";
 
@@ -149,7 +154,7 @@ const router = new VueRouter({
       path: "/command", name: "command", component: Command
     },
     {
-      path: "/basicskill", name: "basicskills", redirect: "/basicskill/devicesetting" ,component: BasicSkill, children: [
+      path: "/basicskill", name: "basicskills", redirect: "/basicskill/devicesetting", component: BasicSkill, children: [
         {
           path: "dropweapon", name: "dropweapon", component: Dropweapon
         },
@@ -174,7 +179,21 @@ const router = new VueRouter({
       ]
     },
     {
-      path: "/advancedskill", name: "advancedskills", component: AdvancedSkill
+      path: "/advancedskill", name: "advancedskills",redirect: "/advancedskill/bunnyhop" ,component: AdvancedSkill, children: [
+        {
+          path: "bunnyhop", name: "bunnyhop", component: Bunnyhop
+        },
+        {
+          path: "gaussjump", name: "gaussjump", component: Gaussjump
+        }, 
+        {
+          path: "spawnpoint", name: "spawnpoint", component: Spawnpoint
+        }
+        ,
+        {
+          path: "mapknowledge", name: "mapknowledge", component: Mapknowledge
+        }
+      ]
     }
   ]
 })

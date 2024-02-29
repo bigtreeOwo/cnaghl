@@ -1,6 +1,6 @@
 <template>
   <div class="AGTricksContent">
-    <h1>长跳（Longjump）</h1>
+    <h1>长 跳（Longjump）</h1>
     <p>
       这里的长跳指的是拿取长跳包后进行的高速跳跃。AG中的长跳包是非常重要的资源，因为<span style="font-weight: bold;">它可以提供更强的机动性，可以更快地拾取资源和躲闪。</span>
     </p>
