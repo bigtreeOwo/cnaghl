@@ -4,13 +4,13 @@
     <p>
       相信大家都一定看过一些高手在crossfire地图上预测玩家接下来重生的位置，从而形成压制。许多人认为下一个重生点的位置是随机的，确实如此，但它并不是完全的随机。熟悉重生点的机制可以帮助你决策下一步的移动位置，从而带来优势。
     </p>
-    <p> <strong style="color: red">1、记住所有重生点。</strong>每张地图都有特定数量和特定位置的重生点。对于每张地图，重生点的数量和位置都是不同的，您需要牢记它们的顺序和位置。</p>
+    <p> <strong style="color: red">1、记住所有重生点。</strong><br>每张地图都有特定数量和特定位置的重生点。对于每张地图，重生点的数量和位置都是不同的，您需要牢记它们的顺序和位置。</p>
     <p>以下是部分地图的重生点位置<strong style="color: red">（点击下方图片，可翻页，可放大查看）</strong></p>
     <el-image :key="url" :src="url" :preview-src-list="urlList"></el-image>
-    <p><strong style="color: red">2、掌握重生点之间的关联。</strong>在地图更改或比赛开始后，地图上的第一个重生的位置是随机的。但接下来的所有生成都不是完全随机的。下一个重生点的序号于当前重生点的序号大小之差不会超过5。例如，敌人在重生点 1 重生，然后下一个重生点只会在2到6的一个点，具体在这其中的哪一个点将会是完全随机。另一个例子是，如果你的敌人在15号出生点上生成，那么在你杀死他后，他只会在以下生成点之一生成：16、17、1、2、3。</p>
+    <p><strong style="color: red">2、掌握重生点之间的关联。</strong><br>在地图更改或比赛开始后，地图上的第一个重生的位置是随机的。但接下来的所有生成都不是完全随机的。下一个重生点的序号与当前重生点的序号大小之差不会超过5。例如，敌人在重生点 1 重生，然后下一个重生点只会在2到6的一个点，具体在这其中的哪一个点将会是完全随机。另一个例子是，如果你的敌人在15号出生点上重生，那么在你杀死他后，他只会在以下生成点之一重生：16、17、1、2、3。</p>
     <p>以下以crossfire的重生点作为例子，点击图片上的重生点，模仿正常游戏时的情景。</p>
 
-    <p> <strong style="color: red">红色</strong>框代表当前位置，<strong style="color: green">绿色</strong>框代表下一个重生点可能的位置</p>
+    <p> <strong style="color: red">红色</strong>框代表当前位置，<strong style="color: green">绿色</strong>框代表下一个重生点可能的位置， <strong style="color: red">点击红框</strong>模仿刷点。</p>
 
     <div id="Spawnpointexample">
       <button class="point" @click="kill">1</button>
@@ -30,8 +30,11 @@
       <button class="point" @click="kill">15</button>
       <button class="point" @click="kill">16</button>
       <button class="point" @click="kill">17</button>
+      <p id="currentspawn">当前重生点位在: <strong style="color: red">{{ spawnpoint[0] }}</strong></p>
+      <p id="predictspawn">下一个重生点位可能在: <strong style="color: rgb(159, 255, 159)" v-for="i in 5" :key="i"> {{ spawnpoint[i] }} </strong></p>
     </div>
-    <p><strong style="color: red">3、特殊情况。</strong>如果随机被选中的重生点已经被占用，那么游戏会选择该重生点的下一个作为新的重生点。如果仍然被占用，继续选择下一个点，重复此过程。如果所有重生点都被占用，那么最先被选中的重生点上的玩家将会被杀死，这在多人游戏中很常见。</p>
+
+    <p><strong style="color: red">3、特殊情况。</strong><br>如果随机被选中的重生点已经被占用，那么游戏会选择该重生点的下一个作为新的重生点。如果仍然被占用，继续选择下一个点，重复此过程。如果所有重生点都被占用，那么最先被选中的重生点上的玩家将会被杀死，这在多人游戏中很常见。</p>
   </div>
 </template>
 
@@ -51,7 +54,7 @@ export default {
         require('@/assets/images/tutorial/advancedskills/doublecross.png'),
         require('@/assets/images/tutorial/advancedskills/endcamp.png'),
       ],
-      spawnpoint: [],
+      spawnpoint: [1,2,3,4,5,6],
     }
   },
   mounted() {
@@ -136,127 +139,6 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-#Spawnpointexample {
-  height: 800px;
-  position: relative;
-  background: url("@/assets/images/tutorial/advancedskills/spawnpointexample.png")
-    no-repeat;
-  background-size: contain;
-  margin-left: 300px;
-  /* border: 1px solid white; */
-}
-
-#Spawnpointexample button {
-  float: left;
-}
-
-.point {
-  background: transparent;
-  position: absolute;
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-  display: none;
-}
-
-.currentpos {
-  display: inline;
-  border: 5px solid red;
-  cursor: pointer;
-}
-
-.predictpos {
-  display: inline;
-  border: 5px solid green;
-}
-
-#Spawnpointexample :nth-child(1) {
-  left: 490px;
-  top: 370px;
-}
-
-#Spawnpointexample :nth-child(2) {
-  left: 420px;
-  top: 660px;
-}
-
-#Spawnpointexample :nth-child(3) {
-  left: 10px;
-  top: 755px;
-}
-
-#Spawnpointexample :nth-child(4) {
-  left: 125px;
-  top: 470px;
-}
-
-#Spawnpointexample :nth-child(5) {
-  left: 190px;
-  top: 190px;
-}
-
-#Spawnpointexample :nth-child(6) {
-  left: 250px;
-  top: 190px;
-}
-
-#Spawnpointexample :nth-child(7) {
-  left: 235px;
-  top: 660px;
-}
-
-#Spawnpointexample :nth-child(8) {
-  left: 95px;
-  top: 760px;
-}
-
-#Spawnpointexample :nth-child(9) {
-  left: 170px;
-  top: 10px;
-}
-
-#Spawnpointexample :nth-child(10) {
-  left: 270px;
-  top: 140px;
-}
-
-#Spawnpointexample :nth-child(11) {
-  left: 10px;
-  top: 80px;
-}
-
-#Spawnpointexample :nth-child(12) {
-  left: 10px;
-  top: 355px;
-}
-
-#Spawnpointexample :nth-child(13) {
-  left: 10px;
-  top: 390px;
-}
-
-#Spawnpointexample :nth-child(14) {
-  left: 10px;
-  top: 270px;
-}
-
-#Spawnpointexample :nth-child(15) {
-  left: 340px;
-  top: 0px;
-}
-
-#Spawnpointexample :nth-child(16) {
-  left: 520px;
-  top: 275px;
-}
-
-#Spawnpointexample :nth-child(17) {
-  left: 545px;
-  top: 90px;
-}
-</style>
 
 <style src="@/assets/css/advancedskill.css" scoped>
 </style>

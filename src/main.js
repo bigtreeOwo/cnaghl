@@ -6,6 +6,7 @@ import router from './router/index.js';
 
 Vue.use(ElementUI);
 
+
 Vue.config.productionTip = false;
 
 new Vue({

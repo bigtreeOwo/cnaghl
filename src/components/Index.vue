@@ -12,7 +12,7 @@
       </p>
       <h2>如何进行游戏</h2>
       <p>
-        目前国内已设有数个安装了AG插件的半条命1服务器(<a href="#"><router-link to="/servers">点我进入服务器界面</router-link></a>)，因此最简单的游玩方式是<strong>下载一个半条命1然后直接进服开始干架</strong>
+        目前国内已设有数个安装了AG插件的半条命1服务器(<a href="#"><router-link to="/server">点我进入服务器界面</router-link></a>)，因此最简单的游玩方式是<strong>下载一个半条命1然后直接进服开始干架</strong>
         。如果想要进一步提升游戏体验，则可以<strong>安装BFHL</strong>
         （详见下载页面）。因为使用方便，BFHL+装有AG插件的服务器也是目前国内最流行的游玩方式。如果想和国外pro进行切磋，则建议额外安装OpenAG。
       </p>
