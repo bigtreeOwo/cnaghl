@@ -4,8 +4,10 @@
     <p>
       <strong style="color: red">1、什么是连跳。</strong>
       <br>
-      如果你玩过cs1.6的kz、或者是csgo的kz，你肯定对连跳不陌生。连跳（或兔子跳）是游戏中的一种移动方式，其本质是对游戏中一个bug的利用，它允许玩家超过正常行走的速度。如果没有速度限制，速度可以一直累计。玩家们对这个bug并不排斥，反而用这个bug拉高了游戏上限，衍生出很多其他的进阶游戏技巧。
+      如果你玩过cs1.6的kz、或者是csgo的kz，你肯定对连跳不陌生。兔子跳是在1997到1998年的时候于雷神之锤1中被发现的技巧，第一个使用BunnyHop是在1998年9月完成的Quake done Quick Lite的游戏速通上面。因为半条命1的金源引擎是基于Quake1的，所以这个技巧被带到了金源引擎中。玩家们对这个bug并不排斥，反而用这个bug拉高了游戏上限，衍生出很多其他的进阶游戏技巧。
+      <br>
     </p>
+    <hr>
     <p>
       <strong style="color: red">2、如何使用连跳</strong>
       <br>
@@ -19,7 +21,7 @@
       <br>
       在标准的AG服务器参数中，平地走地速为300，使用prestrafe时，地速可达到400+。（<strong style="color: red">演示如下，注意下方地速的增加</strong>）
       <br>
-      <video width="1300px" controls>
+      <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="prestrafeposter" preload="none">
         您的浏览器不支持html5播放视频
         <source :src="prestrafe" type="video/mp4">
       </video>
@@ -30,12 +32,12 @@
       操作方法：键盘按A时，有向左移动的趋势，同时鼠标控制视角向左转；键盘按D时，有向右移动的趋势，同时鼠标控制视角向右转。(<strong style="color: red">演示如下，注意在键盘A和D按键切换时，鼠标方向的控制</strong>)
       <br>
       <br>
-      <video width="1300px" controls>
+      <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="bunnyhopposter" preload="none">
         您的浏览器不支持html5播放视频
         <source :src="bunnyhop" type="video/mp4">
       </video>
     </p>
-
+    <hr>
     <p>
       <strong style="color: red">3、原理。（仅限于半条命1中。雷神之锤2代及之后的续作、半条命2等其他游戏的原理稍有不同）</strong>
       <br>
@@ -61,13 +63,28 @@ import Vector2D from '@/class/Vector2D.js';
 export default {
   data() {
     return {
+      code: `
+      private Vector3 Accelerate(Vector3 accelDir, Vector3 prevVelocity, float accelerate, float max_velocity)
+      {
+        float projVel = Vector3.Dot(prevVelocity, accelDir); // Vector projection of Current velocity onto accelDir.
+        float accelVel = accelerate * Time.fixedDeltaTime; // Accelerated velocity in direction of movment
+
+        // If necessary, truncate the accelerated velocity so the vector projection does not exceed max_velocity
+        if(projVel + accelVel > max_velocity)
+          accelVel = max_velocity - projVel;
+
+        return prevVelocity + accelDir * accelVel;
+      }
+      `,
       vel: null,
       wishdir: null,
       view_angle: null,
       intervalIdViewAngle: null,
       intervalIdDraw: null,
-      bunnyhop: require("@/assets/videos/tutorial/advancedskill/bunnyhop.mp4"),
-      prestrafe: require("@/assets/videos/tutorial/advancedskill/prestrafe.mp4"),
+      bunnyhop: require("@/assets/videos/tutorial/advancedskill//bunnyhop/bunnyhop.mp4"),
+      prestrafe: require("@/assets/videos/tutorial/advancedskill/bunnyhop/prestrafe.mp4"),
+      bunnyhopposter: require("@/assets/images/tutorial/advancedskills/bunnyhop/BunnyHop.webp"),
+      prestrafeposter: require("@/assets/images/tutorial/advancedskills/bunnyhop/prestrafe.webp"),
     }
   },
   methods: {

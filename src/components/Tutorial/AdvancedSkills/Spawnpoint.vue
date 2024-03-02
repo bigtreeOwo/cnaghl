@@ -42,17 +42,17 @@
 export default {
   data() {
     return {
-      url: require('@/assets/images/tutorial/advancedskills/crossfire.png'),
+      url: require('@/assets/images/tutorial/advancedskills/spawn/crossfire.png'),
       urlList: [
-        require('@/assets/images/tutorial/advancedskills/crossfire.png'),
-        require('@/assets/images/tutorial/advancedskills/stalkyard.png'),
-        require('@/assets/images/tutorial/advancedskills/lost_village2.png'),
-        require('@/assets/images/tutorial/advancedskills/stalkx.png'),
-        require('@/assets/images/tutorial/advancedskills/rapidcore.png'),
-        require('@/assets/images/tutorial/advancedskills/boot_camp.png'),
-        require('@/assets/images/tutorial/advancedskills/datacore.png'),
-        require('@/assets/images/tutorial/advancedskills/doublecross.png'),
-        require('@/assets/images/tutorial/advancedskills/endcamp.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/crossfire.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/stalkyard.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/lost_village2.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/stalkx.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/rapidcore.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/boot_camp.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/datacore.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/doublecross.png'),
+        require('@/assets/images/tutorial/advancedskills/spawn/endcamp.png'),
       ],
       spawnpoint: [1,2,3,4,5,6],
     }

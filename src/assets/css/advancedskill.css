@@ -47,7 +47,7 @@
 #Spawnpointexample {
   height: 800px;
   position: relative;
-  background: url("@/assets/images/tutorial/advancedskills/spawnpointexample.png") no-repeat;
+  background: url("@/assets/images/tutorial/advancedskills/spawn/spawnpointexample.png") no-repeat;
   background-size: contain;
   margin-left: 300px;
   /* border: 1px solid white; */
@@ -211,7 +211,7 @@
 }
 
 .AGTricksContent .Code {
-  width: 500px;
+  width: 900px;
   height: auto;
   display: block;
   position: relative;
