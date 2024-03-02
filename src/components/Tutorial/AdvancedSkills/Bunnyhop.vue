@@ -4,7 +4,7 @@
     <p>
       <strong style="color: red">1、什么是连跳。</strong>
       <br>
-      如果你玩过cs1.6的kz、或者是csgo的kz，你肯定对连跳不陌生。兔子跳是在1997到1998年的时候于雷神之锤1中被发现的技巧，第一个使用BunnyHop是在1998年9月完成的Quake done Quick Lite的游戏速通上面。因为半条命1的金源引擎是基于Quake1的，所以这个技巧被带到了金源引擎中。玩家们对这个bug并不排斥，反而用这个bug拉高了游戏上限，衍生出很多其他的进阶游戏技巧。
+      如果你玩过cs1.6的kz、或者是csgo的kz，你肯定对连跳不陌生。兔子跳是在1997到1998年的时候于雷神之锤1中被发现的技巧，第一次使用BunnyHop是在1998年9月完成的Quake done Quick Lite的游戏速通上面。因为半条命1的金源引擎是基于Quake1的，所以这个技巧被带到了金源引擎中。玩家们对这个bug并不排斥，反而用这个bug拉高了游戏上限，衍生出很多其他的进阶游戏技巧。
       <br>
     </p>
     <hr>
@@ -49,12 +49,12 @@
       <br>
       <strong style="color:red">view_angle</strong>和<strong style="color:blue">wishdir</strong>之间的夹角只能是0°、45°、90°、135°、180°的其中一种角度
       <br>
-      <button @click="drawBunnyhop">开始绘制</button>
+      <!-- <button @click="drawBunnyhop">开始绘制</button>
       <br>
       <br>
       <canvas id="myCanvas" ref="myCanvas" width="700px" height="700px">
         您的浏览器版本过低，不支持canvas，请升级浏览器
-      </canvas>
+      </canvas> -->
     </p>
   </div>
 </template>

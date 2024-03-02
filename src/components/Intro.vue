@@ -6,7 +6,7 @@
       <audio :src="hoverWav" id="hoverWav" hidden preload="none">
       </audio>
 
-      <audio v-for="item in fovx" :key="item.name" :src="item.src" :id="item.name" hidden></audio>
+      <audio v-for="item in fovx" :key="item.name" :src="item.src" :id="item.name" hidden preload="none"></audio>
 
       <h1 id="welcomehl">H λ l f - L i f e <sup>1</sup><br>A d r e n a l i n e&nbsp;&nbsp;G a m e r</h1>
       <div id="time"></div>
@@ -38,8 +38,13 @@ export default {
       hoverWav: "./sound/IntroUI/buttonrollover.wav",
       volume: 0.2,
       fovx: [
+        // 创建两个相同audio表标签的原因是为了解决小时和分钟相同时，循环播放的问题
         {
           name: "one",
+          src: "./sound/fvox/one.wav",
+        },
+        {
+          name: "one_2",
           src: "./sound/fvox/one.wav",
         },
         {
@@ -47,7 +52,15 @@ export default {
           src: "./sound/fvox/two.wav",
         },
         {
+          name: "two_2",
+          src: "./sound/fvox/two.wav",
+        },
+        {
           name: "three",
+          src: "./sound/fvox/three.wav",
+        },
+        {
+          name: "three_2",
           src: "./sound/fvox/three.wav",
         },
         {
@@ -55,11 +68,23 @@ export default {
           src: "./sound/fvox/four.wav",
         },
         {
+          name: "four_2",
+          src: "./sound/fvox/four.wav",
+        },
+        {
           name: "five",
           src: "./sound/fvox/five.wav",
-        }
-        , {
+        },
+        {
+          name: "five_2",
+          src: "./sound/fvox/five.wav",
+        },
+        {
           name: "six",
+          src: "./sound/fvox/six.wav",
+        },
+        {
+          name: "six_2",
           src: "./sound/fvox/six.wav",
         },
         {
@@ -67,7 +92,15 @@ export default {
           src: "./sound/fvox/seven.wav",
         },
         {
+          name: "seven_2",
+          src: "./sound/fvox/seven.wav",
+        },
+        {
           name: "eight",
+          src: "./sound/fvox/eight.wav",
+        },
+        {
+          name: "eight_2",
           src: "./sound/fvox/eight.wav",
         },
         {
@@ -75,7 +108,15 @@ export default {
           src: "./sound/fvox/nine.wav",
         },
         {
+          name: "nine_2",
+          src: "./sound/fvox/nine.wav",
+        },
+        {
           name: "ten",
+          src: "./sound/fvox/ten.wav",
+        },
+        {
+          name: "ten_2",
           src: "./sound/fvox/ten.wav",
         },
         {
@@ -83,7 +124,15 @@ export default {
           src: "./sound/fvox/eleven.wav",
         },
         {
+          name: "eleven_2",
+          src: "./sound/fvox/eleven.wav",
+        },
+        {
           name: "twelve",
+          src: "./sound/fvox/twelve.wav",
+        },
+        {
+          name: "twelve_2",
           src: "./sound/fvox/twelve.wav",
         },
         {
@@ -173,11 +222,12 @@ export default {
       }
     },
     open() {
-      this.$alert('<br><h1>欢迎来到AGHL China！<br><br>各种模型、spr、纹理应有尽有<br><br>专业游戏客户端保障流畅体验<br><br>从入门到高手，看教程就够了</h1>', '', {
+      this.$confirm('<br><h1>欢迎来到AGHL China！<br><br>各种模型、spr、纹理应有尽有<br><br>专业游戏客户端保障流畅体验<br><br>从入门到高手，看教程就够了</h1>', '', {
         dangerouslyUseHTMLString: true,
         // showClose: false,
         customClass: 'message_box_alert',
-        confirmButtonText: '进入网站',
+        confirmButtonText: '进入网站（HEV报时）',
+        cancelButtonText: '进入网站（静音）',
         callback: action => {
           if (action === 'confirm') {
             this.broadcasttime();
@@ -196,68 +246,89 @@ export default {
       const date = new Date();
       let hour = date.getHours();
       const minute = date.getMinutes();
+
       let day = null;
+
+      // 获取是上午还是下午
       if (hour < 12) {
         day = "am";
       } else {
         hour = hour - 12;
         day = "pm";
       }
+
+      // 处理12am的情况
       if (hour === 0) {
         hour = 12;
       }
+
+      //welcome和timeisnow进入播放队列
+      playlist.push("welcome", "timeisnow");
+      timemessage.push("你好，欢迎来到AGHL China， ", "现在时间是&nbsp", date.toLocaleTimeString() + " ", "&nbsp"+ day.toUpperCase()[0] + "." + day.toUpperCase()[1] + ".");
+
+      // console.log(toEnglish(hour));
+      // 小时数进入播放队列
+      playlist.push(toEnglish(hour));
+
+      // 获取分钟的个位和十位
       const minute_ones = minute % 10;
       const minute_tens = minute - minute_ones;
       // console.log("broadcasttime", hour, minute, day, hour_tens, hour_ones, minute_tens, minute_ones);
 
-      playlist.push("welcome", "timeisnow");
-      timemessage.push("你好，欢迎来到AGHL China，", "现在时间是", date.toLocaleTimeString(), day.toUpperCase());
-
-      const audio_welcome = this.$refs["welcome"];
-      const audio_timeisnow = this.$refs["timeisnow"];
-      // console.log(toEnglish(hour));
-      playlist.push(toEnglish(hour));
-
+      //分钟进入播放队列
       if ((minute <= 20 && minute > 0) || (minute % 10 === 0)) {
-        playlist.push(toEnglish(minute));
+        if (hour === minute) {
+          playlist.push(toEnglish(minute) + "_2");
+        } else {
+          playlist.push(toEnglish(minute));
+        }
       } else if (minute > 20) {
-        console.log(toEnglish(minute_tens), toEnglish(minute_ones));
-        playlist.push(toEnglish(minute_tens), toEnglish(minute_ones));
+        // console.log(toEnglish(minute_tens), toEnglish(minute_ones));
+        if (hour === minute_ones) {
+          playlist.push(toEnglish(minute_tens), toEnglish(minute_ones) + "_2");
+        } else {
+          playlist.push(toEnglish(minute_tens), toEnglish(minute_ones));
+        }
       }
 
+      // 上午下午进入播放队列
       playlist.push(day);
 
 
-      console.log(playlist);
+      // console.log(playlist);
       // console.log(audio_welcome, audio_timeisnow, audio_day, audio_hour_tens, audio_hour_ones, audio_minute_tens, audio_minute_ones);
+
+      // 获取播放音频的标签
       let playlist_audio = [];
       for (let i = 0; i < playlist.length; i++) {
-        console.log(playlist[i]);
+        // console.log(playlist[i]);
         let audio = document.getElementById(playlist[i]);
-        audio.volume = this.volume;
         if (audio) {
+          audio.volume = this.volume;
           playlist_audio.push(audio);
         }
       }
 
+      // 获取时间显示标签
       const time_div = document.getElementById("time");
 
-
-      console.log("timemessage", timemessage);
+      // console.log("timemessage", timemessage);
       // console.log(playlist_audio);
+      // 播放第一个音频
       playlist_audio[0].play();
-      time_div.innerText = time_div.innerText + timemessage[0] + " ";
+      time_div.innerHTML = time_div.innerHTML + timemessage[0] + " ";
+
+      // 当前一个音频播放完毕，再播放下一个
       for (let i = 0; i < playlist_audio.length; i++) {
         playlist_audio[i].addEventListener("ended", () => {
           if (i < playlist_audio.length - 1) {
             playlist_audio[i + 1].play();
             if (timemessage[i + 1]) {
-              time_div.innerText = time_div.innerText + timemessage[i + 1] + " ";
+              time_div.innerHTML = time_div.innerHTML + timemessage[i + 1] + " ";
             }
           }
         })
       }
-
     }
   },
   created() {
@@ -279,9 +350,10 @@ export default {
   color: pink !important;
 }
 
-.message_box_alert .el-button--primary {
+.message_box_alert .el-button {
+  color: white;
   font-size: 1rem;
-  width: 100px;
+  width: 180px;
   background: #4b5745;
   box-shadow: 0px 0px 2px inset #eeeeee;
   border: 0;
@@ -289,7 +361,7 @@ export default {
   margin: 10px;
 }
 
-.message_box_alert .el-button--primary:hover {
+.message_box_alert .el-button:hover {
   background: #ffa500;
   color: white;
 }

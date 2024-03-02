@@ -12,28 +12,31 @@
       高斯枪的蓄力攻击会给玩家一个向高斯攻击方向的<strong style="color: red">相反方向</strong>的助推力，这个助推力使玩家速度在短时间内快速增大，从而可以实现灵活移动。
     </p>
     <p>
-      高斯跳需要在跳出之前使用高斯枪蓄力，跳出的瞬间向跳出方向的反方向射出，然后视角快速回正。
+      高斯跳需要在跳出之前使用高斯枪蓄力（蓄力时间越长，后坐力越大，速度越快），跳出的瞬间向跳出方向的反方向射出，然后视角快速回正。
       练习时可以适当放慢动作，不断练习形成肌肉记忆。
     </p>
     <p>
       以下为基础高斯跳的操作演示
     </p>
     <p>
-      <strong style="color: red">1.1 水平高斯跳</strong>
+      1.1 水平高斯跳
     </p>
     <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="basicgaussjump1poster" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="basicGaussjump['basicgaussjump1']" type="video/mp4">
     </video>
     <p>
-      <strong style="color: red">1.2 竖直高斯跳</strong>
+      1.2 竖直高斯跳
     </p>
     <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="basicgaussjump2poster" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="basicGaussjump['basicgaussjump2']" type="video/mp4">
     </video>
     <p>
-      <strong style="color: red">1.3 下落高斯跳</strong>
+      1.3 下落高斯跳
+    </p>
+    <p>
+      下落高斯跳可以抵消一定的竖直方向速度，在一定限度内可以防止摔落伤害。
     </p>
     <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="basicgaussjump3poster" preload="none">
       您的浏览器不支持html5播放视频
