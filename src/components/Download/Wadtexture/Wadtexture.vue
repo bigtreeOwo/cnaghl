@@ -17,6 +17,11 @@
         <div>
           -未开启自定义内容，未启用高清模型：将wad文件复制进valve文件夹，覆盖必要文件。
         </div>
+        <br>
+
+        <div>
+          进入游戏后在控制台输入r_detailtextures 1启用，若不想用，则输入r_detailtextures 0即可关闭。
+        </div>
         <strong style="color: red"
           >(任何涉及覆盖文件的操作请提前做好文件备份，以便以后恢复)
         </strong>
@@ -47,19 +52,19 @@ export default {
           id: 1,
           name: "高清纹理.rar",
           description:
-            "专用于HL1的细节纹理贴图包，已包含cf、boot_camp、stalkyard、doublecross等常用地图。使用方法为把压缩包内容直接丢到valve_addon或valve文件夹，进入游戏后在控制台输入r_detailtextures 1启用，若不想用，则输入r_detailtextures 0即可关闭。",
+            "专用于HL1的细节纹理贴图包，已包含cf、boot_camp、stalkyard、doublecross等常用地图。",
           imgurl: [
             {
               id: 1,
-              url: require("@/assets/images/download/wadtextures/HDwad1.jpg"),
+              url: require("@/assets/images/download/wadtextures/HDwad1.webp"),
             },
             {
               id: 2,
-              url: require("@/assets/images/download/wadtextures/HDwad2.jpg"),
+              url: require("@/assets/images/download/wadtextures/HDwad2.webp"),
             },
             {
               id: 3,
-              url: require("@/assets/images/download/wadtextures/HDwad3.jpg"),
+              url: require("@/assets/images/download/wadtextures/HDwad3.webp"),
             },
           ],
         },

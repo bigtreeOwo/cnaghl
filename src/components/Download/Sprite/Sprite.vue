@@ -57,6 +57,12 @@ export default {
           imgurl: require("@/assets/images/download/sprites/AlexSpr.gif"),
         },
         {
+          id: "rammy_sprites.zip",
+          name: "rammy_sprites.zip",
+          description: "国外AG高手Rammy制作的spr包，继承了rammy一如既往的极简风格。该spr包主打大HUD以及纯色特效，并且隐藏了高斯光束、胶子炮光束等特效。",
+          imgurl: require("@/assets/images/download/sprites/rammy_sprites.gif"),
+        },
+        {
           id: "KingiSus_Sprites.rar",
           name: "KingiSus_Sprites.rar",
           description: "AG传奇玩家KingiSus的全套Spr，采用点状准星，简化了爆炸效果，修改了rpg轨迹、高斯枪光束等。",
@@ -80,7 +86,7 @@ export default {
           id: "BlueHotglow.rar",
           name: "BlueHotglow.rar",
           description: "经典",
-          imgurl: require("@/assets/images/download/sprites/BlueHotglow.jpg"),
+          imgurl: require("@/assets/images/download/sprites/BlueHotglow.webp"),
         },
         {
           id: "HLRedux_Spr.rar",
@@ -89,6 +95,37 @@ export default {
             "从HL:Redux（Moddb主页： <a href='https://www.moddb.com/mods/half-life-redux-v2' target='_blank'>https://www.moddb.com/mods/half-life-redux-v2</a>）中提取的Spr，主打BMS的HUD、武器图标以及一些高清的贴图例如枪口火焰、血液等。",
           imgurl: require("@/assets/images/download/sprites/HLR.gif"),
         },
+        {
+          id: "go_pain_maxter_snake.rar",
+          name: "go_pain_maxter_snake.rar",
+          description: "搬运自Gamebanana，由MAXTER_SNAKE制作的CSGO式的HUD伤害指示。<span><a href='https://gamebanana.com/mods/11554'>此处为原地址</a></span>",
+          imgurl: require("@/assets/images/download/sprites/go_pain_maxter_snake.webp"),
+        },
+        {
+          id: "RainbowSmoke.rar",
+          name: "RainbowSmoke.rar",
+          description: "搬运自Gamebanana，由[TheLastBreath]分享的彩虹高斯光束以及Rpg轨迹，配合彩色高斯火花食用风味更佳。<span><a href='https://gamebanana.com/mods/331519' target='_blank'>此处为原地址</a></span>",
+          imgurl: require("@/assets/images/download/sprites/RainbowSmoke.webp"),
+        },
+        {
+          id: "RedHotglow.rar",
+          name: "RedHotglow.rar",
+          description: "自古红蓝出CP。",
+          imgurl: require("@/assets/images/download/sprites/RedHotglow.webp"),
+        },
+        {
+          id: "SourceRpgDot.rar",
+          name: "SourceRpgDot.rar",
+          description: "搬运自Gamebanana，由MAXTER_SNAKE制作的起源式RPG激光红点，比起原版的红点有着更好的可视度。<span><a href='https://gamebanana.com/mods/11525' target='_blank'>此处为原地址</a></span>",
+          imgurl: require("@/assets/images/download/sprites/SourceRpgDot.webp"),
+        },
+        {
+          id: "new_laser_dot.zip",
+          name: "new_laser_dot.zip",
+          description: "搬运自Gamebanana，由Benjamim制作的打击坐标式的RPG红点，颇有创意。<span><a href='https://gamebanana.com/mods/11526' target='_blank'>此处为原地址</a></span>",
+          imgurl: require("@/assets/images/download/sprites/new_laser_dot.webp"),
+        },
+        
       ],
     };
   },
