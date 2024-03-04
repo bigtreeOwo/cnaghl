@@ -1,0 +1,42 @@
+.text {
+  font-size: 1.5rem !important;
+  color: white;
+}
+
+.item {
+  padding: 10px 0 !important;
+}
+
+.el-card {
+  color: white;
+}
+
+.box-card {
+  background: #3e4537;
+}
+
+.box-card .el-card__header {
+  background-color: #4b5745;
+  color: white;
+}
+
+.box-card .el-card__body {
+  background-color: #4b5745;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.Code {
+  width: auto;
+  height: auto;
+  display: block;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  background-color: #4b5745;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  border-radius: 5px;
+}

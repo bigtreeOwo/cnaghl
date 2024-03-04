@@ -15,7 +15,7 @@
         <li><a href="/server" @mouseenter="uiHoverPlay" id="server">我们的服务器</a></li>
         <li><a href="/client" @mouseenter="uiHoverPlay" id="client">下载客户端</a></li>
         <li><a href="/basicskill" @mouseenter="uiHoverPlay" id="tutorial">游戏基础教程</a></li>
-        <li><a href="/matchvideo" @mouseenter="uiHoverPlay" id="demo">DEMO</a></li>
+        <li><a href="/matchvideo" @mouseenter="uiHoverPlay" id="demo">视频&DEMO</a></li>
         <li><a href="/tournament" @mouseenter="uiHoverPlay" id="tournament">赛事</a></li>
         <!-- <li><a href="https://www.bilibili.com/video/BV1GJ411x7h7" @mouseenter="uiHoverPlay" id="troll">退出</a></li> -->
       </ul>
@@ -36,7 +36,7 @@ export default {
       centerDialogVisible: true,
       clickWav: "./sound/IntroUI/buttonclickrelease.wav",
       hoverWav: "./sound/IntroUI/buttonrollover.wav",
-      volume: 0.2,
+      volume: 0.3,
       fovx: [
         // 创建两个相同audio表标签的原因是为了解决小时和分钟相同时，循环播放的问题
         {
@@ -264,7 +264,7 @@ export default {
 
       //welcome和timeisnow进入播放队列
       playlist.push("welcome", "timeisnow");
-      timemessage.push("你好，欢迎来到AGHL China， ", "现在时间是&nbsp", date.toLocaleTimeString() + " ", "&nbsp"+ day.toUpperCase()[0] + "." + day.toUpperCase()[1] + ".");
+      timemessage.push("你好，欢迎来到AGHL China， ", "现在时间是&nbsp", date.toLocaleTimeString() + " ", "&nbsp" + day.toUpperCase()[0] + "." + day.toUpperCase()[1] + ".");
 
       // console.log(toEnglish(hour));
       // 小时数进入播放队列

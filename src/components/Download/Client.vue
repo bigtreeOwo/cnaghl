@@ -33,6 +33,8 @@
         <div class="text item">
           而OpenAG在国外玩家中比较流行，因此如果你想和国外一些Pro玩家切磋一下，则可以启动OpenAG（如果顶得住ping的话）。
         </div>
+        <h2>可以参考以下视频</h2>
+        <iframe src="http://player.bilibili.com/player.html?aid=1450834316&bvid=BV12v421k7UR&cid=1443550509&p=1&high_quality=1&danmaku=0&autoplay=0&high" width="800px" height="600" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
       </el-card>
     </div>
 
@@ -66,26 +68,4 @@ export default {
 <style src="@/assets/css/client.css" scoped>
 </style>
 <style>
-.text {
-  font-size: 1.5rem;
-}
-
-.item {
-  padding: 10px 0;
-}
-
-.box-card {
-  background: #3e4537;
-}
-
-.box-card .el-card__header {
-  background-color: #4b5745;
-  color: white;
-}
-
-.box-card .el-card__body {
-  background-color: #3e4537;
-  color: white;
-  height: 100%;
-}
 </style>

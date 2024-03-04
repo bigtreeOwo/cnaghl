@@ -1,0 +1,20 @@
+.cover {
+  height: 40vh;
+  border-radius: 50px;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#video:hover {
+  transform: scale(1.05);
+}

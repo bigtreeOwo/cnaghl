@@ -14,18 +14,18 @@
 
   20%,
   80% {
-    transform: translate3d(20px, -5px, 0);
+    transform: translate3d(10px, -5px, 0);
   }
 
   30%,
   50%,
   70% {
-    transform: translate3d(-30px, 5px, 0);
+    transform: translate3d(-10px, 5px, 0);
   }
 
   40%,
   60% {
-    transform: translate3d(40px, -5px, 0);
+    transform: translate3d(10px, -5px, 0);
   }
 }
 
@@ -39,7 +39,7 @@
 }
 
 #screen {
-  height: 800px;
+  height: 900px;
   overflow: hidden;
 }
 
@@ -86,6 +86,7 @@ a {
 #gordonsmile {
   float: right;
   right: 0;
+  bottom: 0;
 }
 
 #gordonsmile .el-image {

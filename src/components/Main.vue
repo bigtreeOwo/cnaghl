@@ -20,6 +20,6 @@ export default {
 .el-main {
   opacity: 100%;
   margin: auto;
-
+  height: auto;
 }
 </style>

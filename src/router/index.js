@@ -1,14 +1,19 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-// Serverlist
-import Serverlist from "../components/Serverlist.vue";
+// Intro
+import Intro from "../components/Intro.vue";
 
 // Index
 import Index from "../components/Index.vue";
 
-// Tournament
-import Tournament from "../components/Tournament.vue";
+// Serverlist
+import Serverlist from "../components/Serverlist.vue";
+
+// Video
+import MatchVideo from "@/components/DemoVideo/MatchVideo.vue";
+import Video from "@/components/DemoVideo/Video.vue";
+
 
 // Download
 import Model from "../components/Download/Model/Model.vue";
@@ -58,23 +63,32 @@ import Mapknowledge from "../components/Tutorial/AdvancedSkills/Mapknowledge.vue
 import Spawnpoint from "../components/Tutorial/AdvancedSkills/Spawnpoint.vue";
 
 
-import Intro from "../components/Intro.vue";
+// Tournament
+import Tournament from "../components/Tournament.vue";
+
+
 
 Vue.use(VueRouter);
 const router = new VueRouter({
   mode: "history",
   routes: [
     {
-      path: "/intro", component: Intro
+      path: "/", redirect: "/Intro"
     },
     {
-      path: "/", redirect: "/Intro"
+      path: "/intro", component: Intro
     },
     {
       path: "/index", name: "index", component: Index
     },
     {
       path: "/server", name: "serverlist", component: Serverlist
+    },
+    {
+      path: "/matchvideo", name: "matchvideo", component: MatchVideo
+    },
+    {
+      path: "/video", name: "video", component: Video
     },
     {
       path: "/tournament", name: "tournament", component: Tournament
@@ -188,8 +202,7 @@ const router = new VueRouter({
         }, 
         {
           path: "spawnpoint", name: "spawnpoint", component: Spawnpoint
-        }
-        ,
+        },
         {
           path: "mapknowledge", name: "mapknowledge", component: Mapknowledge
         }
