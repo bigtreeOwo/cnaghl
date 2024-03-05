@@ -34,22 +34,22 @@
       </div>
       <h2>==控制台指令==</h2>
       <pre class="Code">
-*help - 列出所有指令并解释
-*spectate - 切换观察者
-*timeout - 比赛中发起一分钟倒计时暂停
-*ready/notready - 准备
-*play_team file.wav - 向队友播放音频
-*play_close file.wav - 向附近的人播放音频
-*settings - 显示服务器设置
-*auth name pass - 验证身份为管理员
-*newpass oldpass newpass - 修改管理员密码
-*stopsound - 停止正在播放的所有音频
-*+commandmenu - 显示菜单
-*togglebrowser - 切换到服务其浏览器。密码保存在password.txt中
-*customtimer (秒数) - 设置自定义倒计时
-*dropitems or drop flag - 在CTF模式中丢下旗帜
-*agrecord (文件名) - 录制demo到特定文件
-*loadauthid (文件路径) - 加载玩家认证信息（steamid对应的真实名称），需要有realnames.txt文件。
+help - 列出所有指令并解释
+spectate - 切换观察者
+timeout - 比赛中发起一分钟倒计时暂停
+ready/notready - 准备
+play_team file.wav - 向队友播放音频
+play_close file.wav - 向附近的人播放音频
+settings - 显示服务器设置
+auth name pass - 验证身份为管理员
+newpass oldpass newpass - 修改管理员密码
+stopsound - 停止正在播放的所有音频
++commandmenu - 显示菜单
+togglebrowser - 切换到服务其浏览器。密码保存在password.txt中
+customtimer (秒数) - 设置自定义倒计时
+dropitems or drop flag - 在CTF模式中丢下旗帜
+agrecord (文件名) - 录制demo到特定文件
+loadauthid (文件路径) - 加载玩家认证信息（steamid对应的真实名称），需要有realnames.txt文件。
 
 </pre>
 
@@ -61,62 +61,62 @@ say_close - 向附近的人发送信息
 
       <h2>==发送玩家信息指令==</h2>
       <pre class="Code">
-*%H - 生命值
-*%A - 护甲值
-*%L - 位置
-*%W - 武器
-*%Q - 弹药
-*%P - 是否捡起长跳
-*%F - 是否捡起旗帜
+%H - 生命值
+%A - 护甲值
+%L - 位置
+%W - 武器
+%Q - 弹药
+%P - 是否捡起长跳
+%F - 是否捡起旗帜
 </pre>
 
       <h2>==客户端指令== 推荐设置 (如无特殊说明，1表示开启, 0表示关闭)</h2>
       <pre class="Code">
-*hud_color "255 160 0" - 修改hud显示颜色
-*con_color "255 160 0" - 修改控制台信息颜色
-*hud_centerid 1 - 居中玩家名到准星下， 0表示把名称移动到左边
-*hud_playerid 1 -显示玩家id
-*hud_spectatebar 1 - 显示观察者菜单
-*hud_timer 1 - 显示计时器： 1表示剩余时间，2表示当前时间，3为系统时间， 0 关闭.
-*hud_settings 1 - 显示服务器设置
-*hud_weapon 1 - 在HUD上显示当前物品（适合关掉武器模型时）
-*hud_takesshots 1 - 在换地图时截图
-*cl_matchreport 1 - 每张图换图后在/aghl/matchreport路径下生成比赛报告
-*cl_autowepswitch 2 - 自动切换到捡起的武器（如果更好）
-*cl_disablespecs 0 - 阻止其他人观察自己
-*cl_scores 2 - HUD上显示小型计分板，队伍积分或玩家积分
-*cl_scores_pos "30 30" - 小型计分板位置，默认在左上角
-*cl_old_scoreboard 1 - 是否开启旧的比赛积分板
-*cl_only_team_talk 0 - 是否开启队内通话
-*cl_show_colors 1 - Set to 0 to turn off the colors.
-*cl_ctf_volume 1 - CTF声音
-*cl_lc 1 - 延迟补偿
-*cl_lw 1 - Client side controlled effects.
+hud_color "255 160 0" - 修改hud显示颜色
+con_color "255 160 0" - 修改控制台信息颜色
+hud_centerid 1 - 居中玩家名到准星下， 0表示把名称移动到左边
+hud_playerid 1 -显示玩家id
+hud_spectatebar 1 - 显示观察者菜单
+hud_timer 1 - 显示计时器： 1表示剩余时间，2表示当前时间，3为系统时间， 0 关闭.
+hud_settings 1 - 显示服务器设置
+hud_weapon 1 - 在HUD上显示当前物品（适合关掉武器模型时）
+hud_takesshots 1 - 在换地图时截图
+cl_matchreport 1 - 每张图换图后在/aghl/matchreport路径下生成比赛报告
+cl_autowepswitch 2 - 自动切换到捡起的武器（如果更好）
+cl_disablespecs 0 - 阻止其他人观察自己
+cl_scores 2 - HUD上显示小型计分板，队伍积分或玩家积分
+cl_scores_pos "30 30" - 小型计分板位置，默认在左上角
+cl_old_scoreboard 1 - 是否开启旧的比赛积分板
+cl_only_team_talk 0 - 是否开启队内通话
+cl_show_colors 1 - Set to 0 to turn off the colors.
+cl_ctf_volume 1 - CTF声音
+cl_lc 1 - 延迟补偿
+cl_lw 1 - Client side controlled effects.
 </pre>
 
       <h2>==投票，管理员指令==</h2>
       <pre class="Code">
-*agstart - 开始比赛
-*agallow (玩家名) - 允许玩家加入比赛
-*agpause - 暂停服务其
-*agnextmap (map) - 设置下一张地图
-*agnextmode (mode) - 设置下一个游戏模式
-*ffa - 切换到全武器模式
-*tdm - 切换到tdm (FF1, WS0)模式
-*tdm2 - 切换到tdm2 (FF0,WS0)模式
-*tdm3 - 切换到tdm3 (FF0,WS1)模式
-*tdmx - 切换到tdmx模式
-*arena - 切换到arena模式
-*arcade - 切换到arcade模式
-*sgbow - 切换到仅用霰弹枪和弩模式
-*instagib - 切换到秒伤模式
-*lts - 切换到Last Team Standing模式
-*lms - 切换到Last Man Standing模式
-*ctf - 切换到CTF模式
-*ag_spectalk 1 - 允许观察者说话
-*ag_spec_team_only 0 - 仅允许观察者队伍内说话
-*ag_gauss_fix 1 - 修复self_gauss伤害
-*ag_rpg_fix 0 - 修复rpg的bug
+agstart - 开始比赛
+agallow (玩家名) - 允许玩家加入比赛
+agpause - 暂停服务其
+agnextmap (map) - 设置下一张地图
+agnextmode (mode) - 设置下一个游戏模式
+ffa - 切换到全武器模式
+tdm - 切换到tdm (FF1, WS0)模式
+tdm2 - 切换到tdm2 (FF0,WS0)模式
+tdm3 - 切换到tdm3 (FF0,WS1)模式
+tdmx - 切换到tdmx模式
+arena - 切换到arena模式
+arcade - 切换到arcade模式
+sgbow - 切换到仅用霰弹枪和弩模式
+instagib - 切换到秒伤模式
+lts - 切换到Last Team Standing模式
+lms - 切换到Last Man Standing模式
+ctf - 切换到CTF模式
+ag_spectalk 1 - 允许观察者说话
+ag_spec_team_only 0 - 仅允许观察者队伍内说话
+ag_gauss_fix 1 - 修复self_gauss伤害
+ag_rpg_fix 0 - 修复rpg的bug
 </pre>
     </el-card>
   </div>

@@ -1,5 +1,6 @@
 .cover {
-  height: 40vh;
+  width: 500px;
+  max-height: 30vh;
   border-radius: 50px;
 
 }
@@ -10,11 +11,43 @@ a {
 
 .title {
   color: white;
+  width: 500px;
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
 }
 
-#video:hover {
+.flex-container {
+  display: flex;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: center;
+  
+}
+
+.box:hover {
   transform: scale(1.05);
 }
+
+.el-card {
+  color: white;
+}
+
+.box-card {
+  background: #3e4537;
+}
+
+.box-card .el-card__header {
+  background-color: #4b5745;
+  color: white;
+}
+
+.box-card .el-card__body {
+  background-color: #3e4537;
+  color: white;
+  height: auto;
+}
+

@@ -2,32 +2,14 @@
   <div>
     <h1>比赛视频</h1>
     <h2>经典视频</h2>
-    <el-row :gutter="20">
-      <el-col :span="8" v-for="item in Match" :key="item.id" :justify="center" style="flex-wrap: nowrap;">
-        <div id="video">
-          <a :href="item.videoURL" target="_blank"><el-image class="cover" :src="item.coverUrl" alt="cover" lazy></el-image></a>
-
-          <a :href="item.videoURL" target="_blank">
-            <p class="title">{{ item.title }}</p>
-          </a>
-        </div>
-        <br>
-        <br>
-      </el-col>
-    </el-row>
-
-    <!-- <div v-if="Match.length % step === 0">
-      <el-row v-for="i in Match.length / step" :key="i">
-        <el-col :span="6">
-        </el-col>
-      </el-row>
+    <div class="flex-container">
+      <div class="box" v-for="item in Match" :key="item.id">
+        <a :href="item.videoURL" target="_blank"><el-image class="cover" :src="item.coverUrl" alt="cover" lazy></el-image></a>
+        <a :href="item.videoURL" target="_blank">
+          <p class="title">{{ item.title }}</p>
+        </a>
+      </div>
     </div>
-    <div v-else>
-      <el-row>
-F
-      </el-row>
-    </div> -->
-
   </div>
 </template>
 
