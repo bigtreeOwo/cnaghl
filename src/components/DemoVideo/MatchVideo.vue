@@ -93,6 +93,9 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    document.title = "比赛视频 - CN-AGHL";
   }
 }
 </script>

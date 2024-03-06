@@ -10,8 +10,8 @@
       </div>
     </el-card>
     <br>
-    <el-card>
-      <div slot="header">半条命1速通</div>
+    <el-card class="box-card">
+      <div slot="header"></div>
     </el-card>
   </div>
 </template>
@@ -30,6 +30,7 @@ export default {
   },
   mounted() {
     // this.getVideoInfo();
+    document.title = "其他视频 - CN-AGHL"
   },
   methods: {
     // 获取视频信息

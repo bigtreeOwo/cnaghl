@@ -168,6 +168,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    document.title = "下载模型 - CN-AGHL";
+  }
 };
 </script>
 

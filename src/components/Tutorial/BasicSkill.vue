@@ -56,6 +56,9 @@ export default {
       tabPosition: 'left',
     };
   },
+  mounted() {
+    document.title = "基础技巧 - CN-AGHL";
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -63,7 +66,7 @@ export default {
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
-  }
+  },
 }
 </script>
 

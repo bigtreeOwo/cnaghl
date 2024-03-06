@@ -117,6 +117,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    document.title = "主页 - CN-AGHL";
+  }
 };
 </script>
 

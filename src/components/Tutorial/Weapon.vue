@@ -47,7 +47,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    
+  },
+  mounted() {
+    document.title = "武器使用 - CN-AGHL";
+  }
+};
 </script>
 
 <style src="@/assets/css/tutorial.css" scoped>

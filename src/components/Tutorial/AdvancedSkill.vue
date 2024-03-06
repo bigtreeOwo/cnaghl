@@ -30,6 +30,9 @@
 
 <script>
 export default {
+  mounted() {
+    document.title = "进阶技巧 - CN-AGHL"
+  },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);

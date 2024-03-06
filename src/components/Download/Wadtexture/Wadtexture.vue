@@ -71,6 +71,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    document.title = "自定义纹理 - CN-AGHL";
+  }
 };
 </script>
 

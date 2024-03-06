@@ -1,33 +1,27 @@
 <template>
   <div>
     <el-row :gutter="20">
-      <el-col :span="6"><h1>奔跑</h1></el-col>
-      <el-col :span="6"><h1>思考</h1></el-col>
-      <el-col :span="6"><h1>射击</h1></el-col>
-      <el-col :span="6"><h1>生存</h1></el-col>
+      <el-col :span="6">
+        <h1>奔跑</h1>
+      </el-col>
+      <el-col :span="6">
+        <h1>思考</h1>
+      </el-col>
+      <el-col :span="6">
+        <h1>射击</h1>
+      </el-col>
+      <el-col :span="6">
+        <h1>生存</h1>
+      </el-col>
     </el-row>
     <div class="button">
-      <el-button
-        id="refresh"
-        plain
-        @click="
+      <el-button id="refresh" plain @click="
           queryServerList();
           reloadMessage();
-        "
-        :loading="loading"
-        >刷新</el-button
-      >
+        " :loading="loading">刷新</el-button>
     </div>
 
-    <el-table
-      :data="data"
-      class="serverlist"
-      empty-text=" "
-      v-loading="loading"
-      element-loading-text="正在为您获取服务器信息"
-      :header-cell-style="{ background: '#4c5847', color: 'white' }"
-      :cell-style="{ background: '#3e4537', color: 'white' }"
-    >
+    <el-table :data="data" class="serverlist" empty-text=" " v-loading="loading" element-loading-text="正在为您获取服务器信息" :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
       <el-table-column prop="success" label="是否在线">
         <template slot-scope="scope">
           <el-tag type="success" v-if="scope.row.data.map !== '访问超时'">{{
@@ -43,41 +37,18 @@
       <el-table-column prop="data.players" label="玩家数量"></el-table-column>
       <el-table-column prop="data.ip" label="玩家信息">
         <template slot-scope="scope">
-          <el-button
-            v-if="scope.row.data.map !== '访问超时'"
-            type="text"
-            @click.stop="
+          <el-button v-if="scope.row.data.map !== '访问超时'" type="text" @click.stop="
               dialogTableVisible = true;
               queryServerInfo(scope.row.ip);
-            "
-          >
-            查看</el-button
-          >
-          <el-button
-            v-else
-            disabled
-            type="text"
-            @click.stop="dialogTableVisible = true"
-          >
-            查看</el-button
-          >
-          <el-dialog
-            title="玩家信息"
-            :visible.sync="dialogTableVisible"
-            :destroy-on-close="true"
-            :before-close="stopTimer"
-          >
-            <el-table
-              :data="serverinfo.data"
-              stripe
-              :header-cell-style="{ background: '#4c5847', color: 'white' }"
-              :cell-style="{ background: '#3e4537', color: 'white' }"
-              border
-            >
+            ">
+            查看</el-button>
+          <el-button v-else disabled type="text" @click.stop="dialogTableVisible = true">
+            查看</el-button>
+          <el-dialog title="玩家信息" :visible.sync="dialogTableVisible" :destroy-on-close="true" :before-close="stopTimer">
+            <el-table :data="serverinfo.data" stripe :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }" border>
               <el-table-column property="name" label="玩家名"></el-table-column>
               <el-table-column property="score" label="分数"></el-table-column>
-              <el-table-column label="游玩时间"
-                ><template slot-scope="scope">
+              <el-table-column label="游玩时间"><template slot-scope="scope">
                   <span>{{ formateTime(scope.row.time) }}</span>
                 </template>
               </el-table-column>
@@ -85,19 +56,12 @@
           </el-dialog>
         </template>
       </el-table-column>
-      <el-table-column label="加入游戏" prop="ip"
-        ><template slot-scope="scope">
+      <el-table-column label="加入游戏" prop="ip"><template slot-scope="scope">
           <a :href="'steam://connect/' + scope.row.ip + '?appid=70'">
-            <el-button
-              v-if="scope.row.data.map !== '访问超时'"
-              type="success"
-              round
-              >加入游戏</el-button
-            >
+            <el-button v-if="scope.row.data.map !== '访问超时'" type="success" round>加入游戏</el-button>
             <el-button v-else disabled type="warning" round>无法加入</el-button>
           </a>
-        </template></el-table-column
-      >
+        </template></el-table-column>
     </el-table>
   </div>
 </template>
@@ -112,11 +76,11 @@ export default {
     return {
       iplist: [
         "49.234.218.107:27018",
+        "124.220.2.49:27015",
         "114.132.168.4:27022",
         "114.132.168.4:27016",
         "47.100.71.67:27015",
         "47.100.71.67:27018",
-        "114.132.168.4:27016",
         "119.91.204.139:27017",
         "119.91.204.139:27018",
         "119.91.204.139:27019",
@@ -131,7 +95,9 @@ export default {
   created: function () {
     this.queryServerList();
   },
-  mounted: function () {},
+  mounted: function () {
+    document.title = "服务器列表 - CN-AGHL";
+  },
   methods: {
     //获取服务器列表
     async queryServerList() {
@@ -189,9 +155,8 @@ export default {
 
       const hours = h < 10 ? "0" + h : h;
       const formatSecond = second > 59 ? 59 : second;
-      return `${hours > 0 ? `${hours}时` : ""}${
-        minute < 10 ? "0" + minute : minute
-      }分${formatSecond < 10 ? "0" + formatSecond : formatSecond}秒`;
+      return `${hours > 0 ? `${hours}时` : ""}${minute < 10 ? "0" + minute : minute
+        }分${formatSecond < 10 ? "0" + formatSecond : formatSecond}秒`;
     },
 
     //获取服务器玩家信息
@@ -238,5 +203,4 @@ export default {
 </script>
 
 <style src="@/assets/css/serverlist.css" scoped>
-
 </style>

@@ -5,7 +5,9 @@
 </template>
 <script>
 export default {
-  
+  mounted() {
+    document.title = "赛事 - CN-AGHL";
+  }
 }
 </script>
 <style>

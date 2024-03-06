@@ -129,6 +129,9 @@ export default {
       ],
     };
   },
+  mounted() {
+    document.title = "自定义Spr - CN-AGHL";
+  }
 };
 </script>
 

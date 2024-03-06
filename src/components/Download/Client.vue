@@ -61,7 +61,9 @@
 <script>
 export default {
   name: "client",
-
+  mounted() {
+    document.title = "下载客户端 - CN-AGHL";
+  }
 };
 </script>
 

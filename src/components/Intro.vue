@@ -335,7 +335,7 @@ export default {
     this.open();
   },
   mounted() {
-
+    document.title = "欢迎来到AGHL中国";
   }
 }
 
