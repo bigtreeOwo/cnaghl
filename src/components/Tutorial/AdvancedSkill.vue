@@ -17,7 +17,7 @@
             <span slot="title">重生点</span>
           </el-menu-item>
           <el-menu-item index="/advancedskill/Mapknowledge">
-            <span slot="title">地图理解</span>
+            <span slot="title">地图攻略</span>
           </el-menu-item>
         </el-menu>
         <div id="skilldescription">

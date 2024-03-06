@@ -32,6 +32,24 @@
       <div slot="header">
         <h1>AG指令</h1>
       </div>
+      <h2>颜色代码</h2>
+      <div class="Code">
+        <div>
+          <el-image :src="textcolor"></el-image>
+          <br>
+          <el-image :src="textcolorusage"></el-image>
+        </div>
+        <div>^1 - <strong style="color: red">红</strong></div>
+        <div>^2 - <strong style="color: green">绿</strong></div>
+        <div>^3 - <strong style="color: yellow">黄</strong></div>
+        <div>^4 - <strong style="color: blue">蓝</strong></div>
+        <div>^5 - <strong style="color: cyan">青</strong></div>
+        <div>^6 - <strong style="color: purple">紫</strong></div>
+        <div>^7 - <strong style="color: grey">灰</strong></div>
+        <div>^8 - <strong style="color: white">白</strong></div>
+        <div>^9 - <strong>正常文字</strong></div>
+
+      </div>
       <h2>==控制台指令==</h2>
       <pre class="Code">
 help - 列出所有指令并解释
@@ -88,10 +106,9 @@ cl_scores 2 - HUD上显示小型计分板，队伍积分或玩家积分
 cl_scores_pos "30 30" - 小型计分板位置，默认在左上角
 cl_old_scoreboard 1 - 是否开启旧的比赛积分板
 cl_only_team_talk 0 - 是否开启队内通话
-cl_show_colors 1 - Set to 0 to turn off the colors.
 cl_ctf_volume 1 - CTF声音
 cl_lc 1 - 延迟补偿
-cl_lw 1 - Client side controlled effects.
+cl_lw 1 - 此参数影响弹道，建议开启
 </pre>
 
       <h2>==投票，管理员指令==</h2>
@@ -123,8 +140,14 @@ ag_rpg_fix 0 - 修复rpg的bug
 </template>
 <script>
 export default {
+  data() {
+    return {
+      textcolor: require("@/assets/images/tutorial/commands/color.webp"),
+      textcolorusage: require("@/assets/images/tutorial/commands/colorUsage.webp"),
+    }
+  },
   mounted() {
-    document.title = "指令 - CN-AGHL"
+    document.title = "指令 - CN-AGHL";
   }
 }
 </script>

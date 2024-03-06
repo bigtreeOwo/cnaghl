@@ -1,6 +1,7 @@
 .cover {
   width: 500px;
   max-height: 30vh;
+  min-height: 300px;
   border-radius: 50px;
 
 }

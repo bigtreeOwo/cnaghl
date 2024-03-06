@@ -20,6 +20,13 @@ module.exports = {
         pathRewrite: {
           '^/players': ''
         }
+      },
+      '/videos': {
+        target: 'https://api.bilibili.com/x/web-interface/view',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/videos': ''
+        }
       }
     }
   },

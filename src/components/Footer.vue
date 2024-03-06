@@ -9,7 +9,9 @@
         <el-col :span="4">
           <div class="grid-content bg-purple">
             <ul>
-              <li>AG交流群：945221882</li>
+              <li>
+                <h3>AG交流群：945221882</h3>
+              </li>
               <li> <router-link to="/index">主页</router-link> </li>
               <li> <router-link to="/server">服务器列表</router-link> </li>
               <li> <router-link to="/client">客户端下载</router-link> </li>
@@ -32,10 +34,9 @@
           <div class="grid-content bg-purple">
             <ul>
               <li>作者:</li>
-              <li>sXLg</li>
-              <li>meng</li>
-              <li>bigtree</li>
-              <li></li>
+              <li><a href="https://space.bilibili.com/185785265" target="_blank">sXLg</a></li>
+              <li><a href="https://space.bilibili.com/43703259" target="_blank">meng</a></li>
+              <li><a href="https://space.bilibili.com/20284055" target="_blank">bigtree</a></li>
             </ul>
           </div>
         </el-col>
@@ -55,7 +56,7 @@ export default {};
 <style scoped>
 .el-footer {
   bottom: 0;
-  height: 210px !important;
+  height: 230px !important;
   background-color: #2e2e2e;
 }
 

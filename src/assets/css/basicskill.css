@@ -62,7 +62,7 @@
   height: 315px;
   display: block;
   position: relative;
-  margin: auto;
+  margin: auto !important;
   overflow: hidden;
   background-color: black;
 }
@@ -82,7 +82,7 @@
   height: auto;
   display: block;
   position: relative;
-  margin: auto;
+  margin: auto !important;
   margin-top: 20px;
   padding-left: 10px;
   padding-bottom: 10px;
@@ -130,4 +130,9 @@
   background-color: #3e4537;
   color: white;
   height: auto;
+}
+
+.mousetable {
+  width: 50%;
+  margin: auto !important;
 }
