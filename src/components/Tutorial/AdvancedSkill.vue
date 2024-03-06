@@ -21,7 +21,7 @@
           </el-menu-item>
         </el-menu>
         <div id="skilldescription">
-          <router-view></router-view>
+          <router-view name="advancedskill"></router-view>
         </div>
       </div>
     </el-card>

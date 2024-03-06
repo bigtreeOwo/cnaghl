@@ -52,7 +52,7 @@
           </el-row>
         </div>
         <div>
-          <router-view></router-view>
+          <router-view name="client"></router-view>
         </div>
       </el-card>
     </div>

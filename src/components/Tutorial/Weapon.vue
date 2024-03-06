@@ -40,7 +40,7 @@
         </div>
       </div>
       <div>
-        <router-view></router-view>
+        <router-view name="weapon"></router-view>
       </div>
     </el-card>
   </div>
@@ -48,9 +48,6 @@
 
 <script>
 export default {
-  data() {
-    
-  },
   mounted() {
     document.title = "武器使用 - CN-AGHL";
   }

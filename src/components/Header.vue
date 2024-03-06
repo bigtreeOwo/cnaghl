@@ -38,7 +38,7 @@
       </el-submenu>
       <el-submenu index="/tutorial" text-color="#ffffff">
         <template slot="title">教程</template>
-        <el-menu-item index="/command">游戏指令说明</el-menu-item>
+        <el-menu-item index="/commands">游戏指令说明</el-menu-item>
         <el-menu-item index="/weapon">武器使用</el-menu-item>
         <el-menu-item index="/basicskill">基础技巧</el-menu-item>
         <el-menu-item index="/advancedskill">进阶技巧</el-menu-item>

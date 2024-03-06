@@ -123,9 +123,6 @@ ag_rpg_fix 0 - 修复rpg的bug
 </template>
 <script>
 export default {
-  data() {
-    
-  },
   mounted() {
     document.title = "指令 - CN-AGHL"
   }
