@@ -68,4 +68,25 @@ export default {
 <style src="@/assets/css/client.css" scoped>
 </style>
 <style>
+
+.box-card {
+  background: #3e4537;
+  color: white;
+}
+
+.box-card .el-card__header {
+  background-color: #4b5745;
+  color: white;
+}
+
+.box-card .el-card__body {
+  background-color: #3e4537;
+  color: white;
+  height: auto;
+}
+
+#select .el-card__body {
+  height: 650px;
+  overflow-y: scroll;
+}
 </style>

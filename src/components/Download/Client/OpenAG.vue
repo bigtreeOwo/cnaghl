@@ -35,5 +35,5 @@ export default {
 
 };
 </script>
-<style>
+<style src="@/assets/css/client.css" scoped>
 </style>
