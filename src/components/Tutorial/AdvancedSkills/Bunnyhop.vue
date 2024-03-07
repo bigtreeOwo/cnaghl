@@ -55,6 +55,7 @@
       <canvas id="myCanvas" ref="myCanvas" width="700px" height="700px">
         您的浏览器版本过低，不支持canvas，请升级浏览器
       </canvas> -->
+      <iframe src="http://player.bilibili.com/player.html?bvid=BV1Fs411M77h&cid=1443550509&p=1&high_quality=1&danmaku=0&autoplay=0&high" width="800px" height="600" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="margin-left: 20%;"> </iframe>
     </p>
   </div>
 </template>

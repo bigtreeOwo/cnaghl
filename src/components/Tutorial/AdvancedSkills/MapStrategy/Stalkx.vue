@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>Stalkx重生点</h2>
-    <el-image class="respawnpoint" :src="respawnpointpic"></el-image>
+    <el-image class="respawnpoint" :src="respawnpointpic" lazy></el-image>
   </div>
 </template>
 <script>
@@ -13,6 +13,6 @@ export default {
   }
 }
 </script>
-<style src="@/assets/css/advancedskill.css" scoped>
+<style src="@/assets/css/mapknowledge.css" scoped>
 
 </style>

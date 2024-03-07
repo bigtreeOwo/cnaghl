@@ -3,7 +3,7 @@
     <h2>
       Stalkyard重生点
     </h2>
-    <el-image class="respawnpoint" :src="respawnpointpic"></el-image>
+    <el-image class="respawnpoint" :src="respawnpointpic" lazy></el-image>
   </div>
 </template>
 <script>

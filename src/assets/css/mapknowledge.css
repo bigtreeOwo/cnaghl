@@ -17,6 +17,6 @@ a {
 }
 
 .respawnpoint {
-  width: 50vw;
-  margin: auto;
+  width: 40vw;
+  margin: auto 20% !important;
 }
