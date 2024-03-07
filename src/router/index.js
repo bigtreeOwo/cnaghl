@@ -58,8 +58,15 @@ import Quickbow from '../components/Tutorial/BasicSkills/Quickbow.vue'
 import AdvancedSkill from '../components/Tutorial/AdvancedSkill.vue'
 import Bunnyhop from '../components/Tutorial/AdvancedSkills/Bunnyhop.vue'
 import Gaussjump from '../components/Tutorial/AdvancedSkills/Gaussjump.vue'
-import Mapknowledge from '../components/Tutorial/AdvancedSkills/Mapknowledge.vue'
 import Spawnpoint from '../components/Tutorial/AdvancedSkills/Spawnpoint.vue'
+
+import Mapknowledge from '../components/Tutorial/AdvancedSkills/Mapknowledge.vue'
+
+//MapKnowledge maps
+import Crossfire from '../components/Tutorial/AdvancedSkills/MapStrategy/Crossfire.vue'
+import Lost_village2 from '../components/Tutorial/AdvancedSkills/MapStrategy/Lost_village2.vue'
+import Stalkx from '../components/Tutorial/AdvancedSkills/MapStrategy/Stalkx.vue'
+import Stalkyard from "../components/Tutorial/AdvancedSkills/MapStrategy/Stalkyard.vue"
 
 // Tournament
 import Tournament from '../components/Tournament.vue'
@@ -295,6 +302,29 @@ const router = new VueRouter({
           path: 'mapknowledge',
           name: 'mapknowledge',
           components: { advancedskill: Mapknowledge },
+          redirect: '/advancedskill/mapknowledge/crossfire',
+          children: [
+            {
+              path: 'crossfire',
+              name: 'crossfire',
+              components: { map: Crossfire },
+            },
+            {
+              path: 'lost_village2',
+              name: 'lost_village2',
+              components: { map: Lost_village2 },
+            },
+            {
+              path: 'stalkx',
+              name: 'stalkx',
+              components: { map: Stalkx },
+            },
+            {
+              path: 'stalkyard',
+              name: 'stalkyard',
+              components: { map: Stalkyard },
+            }
+          ]
         },
       ],
     },
