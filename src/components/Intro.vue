@@ -36,7 +36,7 @@ export default {
       centerDialogVisible: true,
       clickWav: "./sound/IntroUI/buttonclickrelease.wav",
       hoverWav: "./sound/IntroUI/buttonrollover.wav",
-      volume: 0.3,
+      volume: 0.15,
       fovx: [
         // 创建两个相同audio表标签的原因是为了解决小时和分钟相同时，循环播放的问题
         {

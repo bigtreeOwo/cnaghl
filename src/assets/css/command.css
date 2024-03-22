@@ -40,3 +40,7 @@
   font-family: 'Courier New', Courier, monospace;
   border-radius: 5px;
 }
+
+.el-table__body tr:hover>td {
+  background-color: #958831 !important;
+}
