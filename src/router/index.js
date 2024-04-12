@@ -7,6 +7,9 @@ import Intro from '../components/Intro.vue'
 // Index
 import Index from '../components/Index.vue'
 
+// PlayAg
+import PlayAG from '@/components/PlayAG/PlayAG.vue'
+
 // Serverlist
 import Serverlist from '../components/Serverlist.vue'
 
@@ -71,6 +74,10 @@ import Stalkyard from "../components/Tutorial/AdvancedSkills/MapStrategy/Stalkya
 // Tournament
 import Tournament from '../components/Tournament.vue'
 
+// 登录注册
+import Login from '../components/Login/Login.vue'
+import Register from '../components/Register/Register.vue'
+
 Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
@@ -88,6 +95,12 @@ const router = new VueRouter({
       name: 'index',
       components: { main: Index },
     },
+    {
+      path: '/playag',
+      name: 'playag',
+      components: { main: PlayAG },
+    }
+    ,
     {
       path: '/server',
       name: 'serverlist',
@@ -108,6 +121,17 @@ const router = new VueRouter({
       name: 'tournament',
       components: { main: Tournament },
     },
+    {
+      path: '/login',
+      name: 'login',
+      components: { main: Login },
+    },
+    {
+      path: '/register',
+      name: 'register',
+      components: { main: Register },
+    }
+    ,
     {
       path: '/model',
       name: 'model',

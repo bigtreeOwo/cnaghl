@@ -11,6 +11,7 @@
       <h1 id="welcomehl">H λ l f - L i f e <sup>1</sup><br>A d r e n a l i n e&nbsp;&nbsp;G a m e r</h1>
       <div id="time"></div>
       <ul @click="uiClickPlay">
+        <li><a href="/playag" @mouseenter="uiHoverPlay" id="playag">点我立刻启动AG</a></li>
         <li><a href="/index" @mouseenter="uiHoverPlay" id="index">主页</a></li>
         <li><a href="/server" @mouseenter="uiHoverPlay" id="server">我们的服务器</a></li>
         <li><a href="/client" @mouseenter="uiHoverPlay" id="client">下载客户端</a></li>
