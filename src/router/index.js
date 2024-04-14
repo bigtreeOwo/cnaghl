@@ -7,13 +7,15 @@ import Intro from '../components/Intro.vue'
 // Index
 import Index from '../components/Index.vue'
 
+// PlayAg
+import PlayAG from '@/components/PlayAG/PlayAG.vue'
+
 // Serverlist
 import Serverlist from '../components/Serverlist.vue'
 
 // Video
 import MatchVideo from '@/components/DemoVideo/MatchVideo.vue'
 import Video from '@/components/DemoVideo/Video.vue'
-
 // Download
 import Model from '../components/Download/Model/Model.vue'
 import Sprite from '../components/Download/Sprite/Sprite.vue'
@@ -66,10 +68,18 @@ import Mapknowledge from '../components/Tutorial/AdvancedSkills/Mapknowledge.vue
 import Crossfire from '../components/Tutorial/AdvancedSkills/MapStrategy/Crossfire.vue'
 import Lost_village2 from '../components/Tutorial/AdvancedSkills/MapStrategy/Lost_village2.vue'
 import Stalkx from '../components/Tutorial/AdvancedSkills/MapStrategy/Stalkx.vue'
-import Stalkyard from "../components/Tutorial/AdvancedSkills/MapStrategy/Stalkyard.vue"
+import Stalkyard from '../components/Tutorial/AdvancedSkills/MapStrategy/Stalkyard.vue'
 
 // Tournament
 import Tournament from '../components/Tournament.vue'
+
+// 登录注册
+import Login from '../components/Login/Login.vue'
+import Register from '../components/Register/Register.vue'
+
+//401 403
+import Auth from '../components/Auth.vue'
+import NotFound from '../components/NotFound.vue'
 
 Vue.use(VueRouter)
 const router = new VueRouter({
@@ -77,7 +87,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/Intro',
+      redirect: '/intro',
     },
     {
       path: '/intro',
@@ -87,6 +97,11 @@ const router = new VueRouter({
       path: '/index',
       name: 'index',
       components: { main: Index },
+    },
+    {
+      path: '/playag',
+      name: 'playag',
+      components: { main: PlayAG },
     },
     {
       path: '/server',
@@ -107,6 +122,16 @@ const router = new VueRouter({
       path: '/tournament',
       name: 'tournament',
       components: { main: Tournament },
+    },
+    {
+      path: '/login',
+      name: 'login',
+      components: { main: Login },
+    },
+    {
+      path: '/register',
+      name: 'register',
+      components: { main: Register },
     },
     {
       path: '/model',
@@ -243,38 +268,38 @@ const router = new VueRouter({
         {
           path: 'dropweapon',
           name: 'dropweapon',
-          components:{basicskill: Dropweapon} 
+          components: { basicskill: Dropweapon },
         },
         {
           path: 'devicesetting',
           name: 'devicesetting',
-          components:{basicskill: Devicesetting} 
+          components: { basicskill: Devicesetting },
         },
         {
           path: 'fasterswitch',
           name: 'fasterswitch',
-          components:{basicskill: Fasterswitch}
+          components: { basicskill: Fasterswitch },
         },
         {
           path: 'gausstrick',
           name: 'gausstrick',
-          components:{basicskill: Gausstrick}
+          components: { basicskill: Gausstrick },
         },
         {
           path: 'headshot',
           name: 'headshot',
-          components:{basicskill: Headshot}
+          components: { basicskill: Headshot },
         },
         {
           path: 'longjump',
           name: 'longjump',
-          components:{basicskill: Longjump}
+          components: { basicskill: Longjump },
         },
         {
           path: 'quickbow',
           name: 'quickbow',
-          components:{basicskill: Quickbow}
-        }
+          components: { basicskill: Quickbow },
+        },
       ],
     },
     {
@@ -323,12 +348,67 @@ const router = new VueRouter({
               path: 'stalkyard',
               name: 'stalkyard',
               components: { map: Stalkyard },
-            }
-          ]
+            },
+          ],
         },
       ],
     },
+    {
+      path: '/403',
+      name: 'Auth',
+      components: { main: Auth },
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: '404',
+      components: { main: NotFound },
+    },
   ],
+})
+
+router.beforeEach((to, from, next) => {
+  // console.log(to.path);
+  // console.log(from.path);
+  // console.log(localStorage.getItem('user-token'));
+
+  let needLoginPaths = ['/playag']; // 需要登录查看的页面路径
+  let noLoginPaths = ['/login', '/register']; // 登录后不能访问的页面
+
+  // if (
+  //   needLoginPaths.includes(to.path) &&
+  //   localStorage.getItem('user-token') === null
+  // ) {
+  //   console.log('权限验证不通过')
+  //   next('/403')
+  // } else {
+  //   console.log('权限验证通过')
+  //   next()
+  // }
+
+  // if (
+  //   noLoginPaths.includes(to.path) &&
+  //   localStorage.getItem('user-token') !== null
+  // ) {
+  //   console.log("已登录但尝试访问登陆页面");
+  //   next('/index')
+  // }
+
+  if (
+    needLoginPaths.includes(to.path) &&
+    localStorage.getItem('user-token') === null
+  ) {
+    // console.log('权限验证不通过');
+    next('/403');
+  } else if (
+    noLoginPaths.includes(to.path) &&
+    localStorage.getItem('user-token') !== null
+  ) {
+    // console.log('已登录但尝试访问登陆页面');
+    next('/index');
+  } else {
+    // console.log('权限验证通过');
+    next();
+  }
 })
 
 export default router
