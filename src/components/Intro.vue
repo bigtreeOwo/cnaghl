@@ -234,7 +234,6 @@ export default {
             this.broadcasttime();
           }
           this.$message({
-
             type: 'info',
             message: `欢迎来到AGHL China`
           })

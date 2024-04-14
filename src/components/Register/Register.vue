@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
+import request from '@/utils/request'
 
 export default {
   name: "Register",
@@ -87,9 +87,9 @@ export default {
     };
 
     const confirmValidcode = (rule, value, callback) => {
-      axios.post('/verifyCaptcha', { validcode: value }).then((res) => {
-        console.log(res);
-        console.log(res.data.code);
+      request.post('/verifyCaptcha', { validcode: value }).then((res) => {
+        // console.log(res);
+        // console.log(res.data.code);
         if (res.data.code === "200") {
           callback();
         } else {
@@ -149,14 +149,14 @@ export default {
     register() {
       this.$refs['signupRef'].validate((valid) => {
         if (valid) {
-          axios.post('/signup', this.user).then((res) => {
-            console.log(res);
-            console.log(res.data.code);
+          request.post('/signup', this.user).then((res) => {
+            // console.log(res);
+            // console.log(res.data.code);
             if (res.data.code === "200") {
-              this.$router.push('/playag');
-              this.$message.success('注册成功');
+              this.$router.push('/login');
+              this.$message.success('注册成功，请登录');
             } else {
-              this.$message.error(res.data.msg);
+              this.$message.error(res.msg);
             }
           })
         }

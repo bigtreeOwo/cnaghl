@@ -35,7 +35,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
+import request from '@/utils/request';
 
 export default {
   name: "Login",
@@ -50,9 +50,9 @@ export default {
     };
 
     const confirmValidcode = (rule, value, callback) => {
-      axios.post('/verifyCaptcha', { validcode: value }).then((res) => {
-        console.log(res);
-        console.log(res.data.code);
+      request.post('/verifyCaptcha', { validcode: value }).then((res) => {
+        // console.log(res);
+        // console.log(res.data.code);
         if (res.data.code === "200") {
           callback();
         } else {
@@ -94,12 +94,14 @@ export default {
 
       this.$refs['signinRef'].validate((valid) => {
         if (valid) {
-          axios.post('/signin', this.user).then((res) => {
-            console.log(res);
-            console.log(res.data.code);
+          request.post('/signin', this.user).then((res) => {
+            // console.log(res);
+            // console.log(res.data.code);
             if (res.data.code === "200") {
               this.$message.success('登录成功');
+              localStorage.setItem("user-token", JSON.stringify(res.data.data));
               this.$router.push('/playag');
+              
             } else {
               this.$message.error(res.data.msg);
             }

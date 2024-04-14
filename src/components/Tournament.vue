@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h1>Coming Soon</h1>
+  <div style="height: 100vh;display: flex;align-items: center;flex-flow:column nowrap;justify-content: center;">
+    <h1>还没有完成哦(๑•́ ₃•̀๑)</h1>
   </div>
 </template>
 <script>

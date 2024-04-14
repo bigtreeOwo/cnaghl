@@ -42,11 +42,25 @@ module.exports = {
           '^/genCaptcha': '',
         },
       },
-      "/verifyCaptcha": {
+      '/verifyCaptcha': {
         target: 'http://localhost:9091/verifyCaptcha',
         changeOrigin: true,
         pathRewrite: {
           '^/verifyCaptcha': '',
+        },
+      },
+      '/allplayers': {
+        target: 'http://localhost:9091/allplayers',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/allplayers': '',
+        },
+      },
+      '/recentmatch': {
+        target: 'http://localhost:9091/recentmatch',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/recentmatch': '',
         },
       },
       '/videos': {

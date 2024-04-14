@@ -109,7 +109,7 @@ export default {
             ip: this.iplist[index],
           })
           .then((res) => {
-            console.log(res.data);
+            // console.log(res.data);
             res.data.ip = this.iplist[index];
             // if (res.data.success) {
             //   res.data.success = "服务器在线";
@@ -123,7 +123,7 @@ export default {
             this.loading = true;
           });
       }
-      // console.log(this.data);
+      console.log(this.data);
       setTimeout(() => {
         this.loading = false;
       }, 1000);
@@ -135,8 +135,8 @@ export default {
         for (let i = 0; i < this.serverinfo["data"].length; i++) {
           this.serverinfo["data"][i]["time"] =
             Math.floor(this.serverinfo["data"][i]["time"]) + 1;
-          console.log("abcd", this.serverinfo);
-          console.log(this.serverinfo["data"][i]["time"]);
+          // console.log("abcd", this.serverinfo);
+          // console.log(this.serverinfo["data"][i]["time"]);
         }
       }, 1000);
     },
@@ -162,15 +162,15 @@ export default {
     //获取服务器玩家信息
     async queryServerInfo(ip) {
       this.serverinfo.length = 0;
-      console.log("ip", ip);
+      // console.log("ip", ip);
       let res = await axios.post("/players", {
         ip: ip,
       });
-      console.log("playerinfo", res.data);
+      // console.log("playerinfo", res.data);
       this.handleJsonSort(res.data.data, "score");
       this.serverinfo = res.data;
       this.enableTimer();
-      console.log("data", this.serverinfo.data);
+      // console.log("data", this.serverinfo.data);
     },
 
     //插入排序
