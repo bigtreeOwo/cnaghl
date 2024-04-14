@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; align-items: center;flex-flow: column nowrap;justify-content: space-around; height: 100vh;">
+  <div style="display: flex; align-items: center;flex-flow: column nowrap;justify-content: space-around;">
     <div style="flex: 1">
       <div style="flex: 1;">
         <el-descriptions class="custom-descriptions" title="我的信息" direction="vertical" :column="2" border margin :titleStyle="titleStyle">
@@ -201,13 +201,16 @@ export default {
       this.user["steamid"] = JSON.parse(this.token)["steamid"];
       this.user["email"] = JSON.parse(this.token)["email"];
       this.user["jointime"] = timeStampToDate(JSON.parse(this.token)["jointime"]);
-      this.user["score"] = JSON.parse(this.token)["score"];
+      // this.user["score"] = JSON.parse(this.token)["score"];
 
       let temp = null;
       // console.log("allplayers" + this.allplayers);
       this.allplayers.forEach((value, index) => {
         if (value.steamid === this.user["steamid"]) {
           temp = value;
+
+          // 更新分数，token中的分数是旧的分数，所以只要拿到新的分数就行
+          this.user.score = value.score;
         }
       });
       // console.log(temp);
