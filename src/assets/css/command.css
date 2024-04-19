@@ -9,19 +9,23 @@
 
 .el-card {
   color: white;
+  min-width: 1080px;
 }
 
 .box-card {
   background: #3e4537;
+  min-width: 1080px;
 }
 
 .box-card .el-card__header {
   background-color: #4b5745;
+  min-width: 1080px;
   color: white;
 }
 
 .box-card .el-card__body {
   background-color: #4b5745;
+  min-width: 1080px;
   height: 300px;
   overflow-y: scroll;
 }

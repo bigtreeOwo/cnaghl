@@ -1,5 +1,5 @@
 <template>
-  <div id="screen">
+  <div id="screen"> 
     <div class="menu">
       <audio :src="clickWav" id="clickWav" hidden preload="none">
       </audio>
@@ -8,7 +8,7 @@
 
       <audio v-for="item in fovx" :key="item.name" :src="item.src" :id="item.name" hidden preload="none"></audio>
 
-      <h1 id="welcomehl">H λ l f - L i f e <sup>1</sup><br>A d r e n a l i n e&nbsp;&nbsp;G a m e r</h1>
+      <h1 id="welcomehl">H λ l f - L i f e <sup>1</sup><br>A d r e n a l i n e<br>G a m e r</h1>
       <div id="time"></div>
       <ul @click="uiClickPlay">
         <li><a href="/playag" @mouseenter="uiHoverPlay" id="playag">点我立刻启动AG</a></li>
