@@ -46,8 +46,10 @@
 
 #Spawnpointexample {
   height: 800px;
+  width: 100%;
   position: relative;
-  background: url("@/assets/images/tutorial/advancedskills/spawn/spawnpointexample.png") no-repeat;
+  background: url('@/assets/images/tutorial/advancedskills/spawn/spawnpointexample.png')
+    no-repeat;
   background-size: contain;
   margin-left: 300px;
   /* border: 1px solid white; */
@@ -70,7 +72,6 @@
   left: 700px;
   top: 650px;
 }
-
 
 .point {
   background: transparent;
@@ -201,7 +202,6 @@
 }
 
 .AGTricksContent .ImgCaption {
-
   display: inline-block;
   position: relative;
   margin: 10px 10px 10px 625px;
@@ -225,7 +225,6 @@
   border-radius: 5px;
 }
 
-
 .text {
   font-size: 1.5rem !important;
   color: white;
@@ -237,10 +236,12 @@
 
 .el-card {
   color: white;
+  min-width: 1080px;
 }
 
 .box-card {
   background: #3e4537;
+  min-width: 1080px;
 }
 
 .box-card .el-card__header {

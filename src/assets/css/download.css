@@ -159,10 +159,12 @@
 
 .el-card {
   color: white;
+  min-width: 900px;
 }
 
 .box-card {
   background: #3e4537;
+  min-width: 1080px;
 }
 
 .box-card .el-card__header {
