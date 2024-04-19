@@ -5,7 +5,15 @@
         <el-form :model="user" :rules="rules" style="width: 80%;" ref="signupRef">
           <div style="font-size: 2rem;color: white;font-weight: bold; text-align: center;margin: 30px auto 30px;">欢迎注册</div>
           <el-form-item prop="steamid">
-            <el-input prefix-icon="el-icon-user-solid" placeholder="请输入SteamID" v-model="user.steamid"></el-input>
+            <div style="display:flex;flex-flow: row nowrap;align-items: center;justify-content: space-between;">
+              <el-input prefix-icon="el-icon-user-solid" placeholder="请输入SteamID，格式为STEAM_X:X:XXXXXXX" v-model="user.steamid"></el-input>
+              <el-popover placement="top-start" title="如何获得自己的SteamID" width="200" trigger="hover">
+                <div>前往<a href="https://steamdb.info/calculator/" target="_blank" style="color: #409EFF">SteamID计算器</a>网站输入自己的steam主页地址。搜索账户信息后，下方的Steam2 ID就是要输入在这里的SteamID。</div>
+                <div><br></div>
+                <div>更多关于SteamID的信息，请参考<a href="https://developer.valvesoftware.com/wiki/SteamID" target="_blank" style="color: #409EFF">v社官方文档。</a></div>
+                <el-button id="help" slot="reference" icon="el-icon-wenhao" circle></el-button>
+              </el-popover>
+            </div>
           </el-form-item>
           <el-form-item prop="name">
             <el-input prefix-icon="el-icon-user" placeholder="请输入游戏id" v-model="user.name"></el-input>

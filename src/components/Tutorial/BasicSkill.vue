@@ -17,10 +17,7 @@
       </div>
   
       <div id="skillnav">
-        <el-menu default-active="/basicskill/devicesetting" @open="handleOpen" @close="handleClose" router>
-          <el-menu-item index="/basicskill/devicesetting">
-            <span slot="title">外设设置</span>
-          </el-menu-item>
+        <el-menu default-active="/basicskill/headshot" @open="handleOpen" @close="handleClose" router>
           <el-menu-item index="/basicskill/headshot">
             <span slot="title">爆头</span>
           </el-menu-item>
@@ -38,6 +35,9 @@
           </el-menu-item>
           <el-menu-item index="/basicskill/gausstrick">
             <span slot="title">高斯穿墙</span>
+          </el-menu-item>
+          <el-menu-item index="/basicskill/devicesetting">
+            <span slot="title">外设设置</span>
           </el-menu-item>
         </el-menu>
         <div id="skilldescription">
