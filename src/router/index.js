@@ -262,7 +262,7 @@ const router = new VueRouter({
     {
       path: '/basicskill',
       name: 'basicskills',
-      redirect: '/basicskill/devicesetting',
+      redirect: '/basicskill/headshot',
       components: { main: BasicSkill },
       children: [
         {
