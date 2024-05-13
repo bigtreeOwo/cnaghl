@@ -94,7 +94,7 @@ export default {
 
       this.$refs['signinRef'].validate((valid) => {
         if (valid) {
-          request.post('/signin', this.user).then((res) => {
+          request.post('/user/signin/', this.user).then((res) => {
             // console.log(res);
             // console.log(res.data.code);
             if (res.data.code === "200") {

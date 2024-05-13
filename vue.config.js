@@ -1,7 +1,7 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require('@vue/cli-service');
 module.exports = defineConfig({
   transpileDependencies: true,
-})
+});
 module.exports = {
   devServer: {
     host: 'localhost',
@@ -21,47 +21,21 @@ module.exports = {
           '^/players': '',
         },
       },
-      '/signin': {
-        target: 'http://47.96.120.46:9091/signin',
+      '/user/': {
+        target: 'http://47.96.120.46:9091',
         changeOrigin: true,
-        pathRewrite: {
-          '^/signin': '',
-        },
       },
-      '/signup': {
-        target: 'http://47.96.120.46:9091/signup',
+      '/match/': {
+        target: 'http://47.96.120.46:9091',
         changeOrigin: true,
-        pathRewrite: {
-          '^/signup': '',
-        },
       },
       '/genCaptcha': {
-        target: 'http://47.96.120.46:9091/genCaptcha',
+        target: 'http://47.96.120.46:9091',
         changeOrigin: true,
-        pathRewrite: {
-          '^/genCaptcha': '',
-        },
       },
       '/verifyCaptcha': {
-        target: 'http://47.96.120.46:9091/verifyCaptcha',
+        target: 'http://47.96.120.46:9091',
         changeOrigin: true,
-        pathRewrite: {
-          '^/verifyCaptcha': '',
-        },
-      },
-      '/allplayers': {
-        target: 'http://47.96.120.46:9091/allplayers',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/allplayers': '',
-        },
-      },
-      '/recentmatch': {
-        target: 'http://47.96.120.46:9091/recentmatch',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/recentmatch': '',
-        },
       },
       '/videos': {
         target: 'https://api.bilibili.com/x/web-interface/view',
@@ -73,4 +47,4 @@ module.exports = {
     },
   },
   productionSourceMap: false,
-}
+};

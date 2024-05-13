@@ -15,13 +15,11 @@
     <div style="flex: 1;display: flex; align-items: center;flex-flow: row nowrap;justify-content: space-around;width: 70%;min-width: 800px;">
       <div style="flex: 1;">
         <h2>服务器最近的10场比赛</h2>
-        <el-table :data="recentmatches" v-loading="matchloading" element-loading-text="正在为您获取比赛信息" :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
+        <el-table :data="recentmatches" v-loading="matchLoading" element-loading-text="正在为您获取比赛信息" :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
           <template slot="empty">
             <el-empty :image-size="100" description="信息为空或者用户未登录">
             </el-empty>
           </template>
-          <el-table-column label="#" type="index">
-          </el-table-column>
           <el-table-column prop="player1" label="玩家1">
             <template slot-scope="scope">
               <a :href="'https://steamid.io/lookup/' + scope.row.player1.steamid" target="_blank" style="text-decoration: none;">{{ scope.row.player1.name }}</a>
@@ -46,16 +44,22 @@
       </div>
     </div>
 
-    <div style="flex: 1;display: flex; flex-direction: column; align-items: center; justify-content: space-between;width: 80%; min-width: 800px;">
+    <div style="flex: 1;display: flex; flex-flow: column nowrap; align-items: center; justify-content: space-between;width: 80%; min-width: 800px;">
       <h2>总排行榜</h2>
+      <div style="flex: 1;margin: 10px 0;">
+        <el-input style="width: 200px;" v-model="playerName" placeholder="请输入玩家名"></el-input>
+        <el-input style="width: 200px;margin: 0 10px;" v-model="steamid" placeholder="请输入steamid"></el-input>
+        <el-button type="primary" @click="queryPlayers()">搜索</el-button>
+        <el-button type="warning" @click="reset">重置</el-button>
+      </div>
       <div style="flex: 1; width: 70%;">
-        <el-table :data="allplayers" v-loading="allplayersloading" element-loading-text="正在为您获取所有玩家信息" :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
+        <el-table :data="playerList" v-loading="playerListLoading" element-loading-text="正在为您获取所有玩家信息" :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
           <template slot="empty">
             <el-empty :image-size="100" description="信息为空或者用户未登录">
 
             </el-empty>
           </template>
-          <el-table-column label="排名" type="index" :index="table_index">
+          <el-table-column label="排名" type="index" v-if="isRankVisible" :index="table_index">
           </el-table-column>
           <el-table-column prop="name" label="玩家名"></el-table-column>
           <el-table-column prop="steamid" label="steamid">
@@ -67,13 +71,13 @@
           <el-table-column prop="lastplaytime" label="上次游玩时间">
             <template slot-scope="scope">
               <i class="el-icon-time"></i>
-              {{ scope.row.lastplaytime }}
+              {{ timeStampToDate(scope.row.lastplaytime) }}
             </template>
           </el-table-column>
         </el-table>
       </div>
       <div style="flex: 1">
-        <el-pagination :hide-on-single-page="isPage" @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page.sync="currentPage" :page-size="10" layout="prev, pager, next, jumper" :total="allplayers.length">
+        <el-pagination :hide-on-single-page="isPage" @current-change="handleCurrentChange" :current-page.sync="pageNum" :page-size="pageSize" layout="prev, pager, next, jumper" :total="total">
         </el-pagination>
       </div>
 
@@ -84,167 +88,178 @@
 
 <script>
 import request from "@/utils/request.js";
-import timeStampToDate from "@/utils/timestamptodate.js"
-
+import timeStampToDate from "@/utils/timestamptodate.js";
 
 export default {
   data() {
     return {
-      token: null,
+      currentPlayer: JSON.parse(localStorage.getItem("user-token")) || {},
       user: {
-        name: '',
-        steamid: '',
-        email: '',
-        jointime: '',
-        score: '',
-        rank: '',
+        name: "",
+        steamid: "",
+        email: "",
+        jointime: "",
+        score: "",
+        rank: "",
       },
-      allplayers: [],
+      playerList: [],
       recentmatches: [],
-      serverloading: false,
-      allplayersloading: false,
-      matchloading: false,
-      currentPage: null,
+      playerListLoading: false,
+      matchLoading: false,
       isPage: false,
+      isRankVisible: true,
+
+      // 分页
       pageSize: 10,
+      pageNum: 1,
+      total: 0,
+      steamid: "",
+      playerName: "",
 
       titleStyle: {
-        'color': 'white'
+        color: "white",
       },
       labelStyle: {
-        'color': 'white',
-        'background-color': '#4c5847',
-        'font-weight': 'bold'
+        color: "white",
+        "background-color": "#4c5847",
+        "font-weight": "bold",
       },
       contentStyle: {
-        'color': 'white',
-        'background-color': '#3e4537',
-        'font-weight': 'bold'
-      }
-    }
+        color: "white",
+        "background-color": "#3e4537",
+        "font-weight": "bold",
+      },
+    };
   },
   methods: {
-    async queryAllPlayers() {
-      this.allplayersloading = true;
-      // console.log("allplayers");
-      await request.get("/allplayers").then((res) => {
-        // console.log(res.data);
-        if (res.data.code === "200") {
-          this.allplayers.length = 0;
-          this.allplayers = res.data.data;
-        
-        } else if (res.data.code === "401") {
-          this.$message.error(res.data.msg);
-          localStorage.removeItem["user-token"];
-          this.$router.push("/login");
-        } else {
-          this.$message.error("系统错误");
-        }
-        // console.log(this.allplayers);
-      }).catch((error) => {
-        console.error("all players error" + error);
-        this.allplayersloading = true;
-      })
-
-      // 最后游玩时间戳转换
-      if (this.allplayers.length !== 0) {
-        this.allplayers.forEach((value) => {
-          value.lastplaytime = timeStampToDate(value.lastplaytime);
-        });
+    async queryPlayers(pageNum) {
+      this.playerListLoading = true;
+      if (!pageNum) {
+        this.isRankVisible = false;
+      } else {
+        this.pageNum = pageNum;
+        this.isRankVisible = true;
       }
-
-      // 所有用户数据获取结束后才能显示当前用户信息
-      this.getMyinfo();
+      // console.log("allplayers");
+      await request
+        .get("/user/selectByPage/", {
+          params: {
+            pageNum: this.pageNum,
+            pageSize: this.pageSize,
+            steamid: this.steamid,
+            name: this.playerName,
+          },
+        })
+        .then((res) => {
+          // console.log(res.data);
+          if (res.data.code === "200") {
+            this.playerList = res.data.data.records;
+            this.total = res.data.data.total;
+          } else if (res.data.code === "401") {
+            this.$message.error(res.data.msg);
+            localStorage.removeItem("user-token");
+            this.$router.push("/login");
+          } else {
+            this.$message.error("系统错误");
+          }
+          // console.log(this.allplayers);
+        })
+        .catch((error) => {
+          console.error("all players error" + error);
+          this.playerListLoading = true;
+        });
 
       setTimeout(() => {
-        this.allplayersloading = false;
+        this.playerListLoading = false;
       }, 1000);
     },
 
     async queryRecentMatch() {
-      this.matchloading = true;
-      await request.get("/recentmatch").then((res) => {
-
-        if (res.data.code === "200") {
-          // console.log(res.data.data);
-          this.recentmatches.length = 0;
-          this.recentmatches = res.data.data;
-        } else if (res.data.code === "401") {
-          this.$message.error(res.data.msg);
-          localStorage.removeItem["user-token"];
-          this.$router.push("/login");
-        } else {
-          this.$message.error("系统错误");
-        }
-      }).catch((error) => {
-        console.error("recent match error" + error);
-        this.matchloading = true;
-      })
+      this.matchLoading = true;
+      await request
+        .get("/match/recentmatch/")
+        .then((res) => {
+          if (res.data.code === "200") {
+            // console.log(res.data.data);
+            this.recentmatches.length = 0;
+            this.recentmatches = res.data.data;
+          } else if (res.data.code === "401") {
+            this.$message.error(res.data.msg);
+            localStorage.removeItem("user-token");
+            this.$router.push("/login");
+          } else {
+            this.$message.error("系统错误");
+          }
+        })
+        .catch((error) => {
+          console.error("recent match error" + error);
+          this.matchLoading = true;
+        });
 
       // 比赛时间转换
       if (this.recentmatches.length !== 0) {
         this.recentmatches.forEach((value) => {
           value.playtime = timeStampToDate(value.playtime);
-        })
+        });
       }
 
       setTimeout(() => {
-        this.matchloading = false;
+        this.matchLoading = false;
       }, 1000);
-
     },
 
-    getMyinfo() {
-      this.token = localStorage.getItem("user-token");
-      // console.log(this.token);
-      this.user["name"] = JSON.parse(this.token)["name"];
-      this.user["steamid"] = JSON.parse(this.token)["steamid"];
-      this.user["email"] = JSON.parse(this.token)["email"];
-      this.user["jointime"] = timeStampToDate(JSON.parse(this.token)["jointime"]);
-      // this.user["score"] = JSON.parse(this.token)["score"];
-
-      let temp = null;
-      // console.log("allplayers" + this.allplayers);
-      this.allplayers.forEach((value, index) => {
-        if (value.steamid === this.user["steamid"]) {
-          temp = value;
-
-          // 更新分数，token中的分数是旧的分数，所以只要拿到新的分数就行
-          this.user.score = value.score;
-        }
-      });
-      // console.log(temp);
-      this.user["rank"] = this.allplayers.indexOf(temp) + 1;
+    async getMyinfo() {
+      // console.log(this.currentPlayer);
+      await request
+        .get("/user/select/" + this.currentPlayer.steamid)
+        .then((res) => {
+          // console.log(res);
+          if (res.data.code === "200") {
+            this.user["name"] = res.data.data.name;
+            this.user["steamid"] = res.data.data.steamid;
+            this.user["email"] = res.data.data.email;
+            this.user["jointime"] = res.data.data.jointime;
+            this.user["score"] = res.data.data.score;
+            this.user["rank"] = res.data.data.rank;
+            // console.log(this.user);
+            // console.log(this.user.rank);
+          } else if (res.data.code === "401") {
+            this.$message.error(res.data.msg);
+            localStorage.removeItem("user-token");
+            this.$router.push("/login");
+          } else {
+            this.$message.error("系统错误");
+          }
+        });
+    },
+    handleCurrentChange(pageNum) {
+      this.queryPlayers(pageNum);
     },
 
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
+    reset() {
+      this.steamid = "";
+      this.playerName = "";
+      this.queryPlayers(1);
     },
 
     // 排行榜索引
     table_index(index) {
-      return (this.currentPage - 1) * this.pageSize + index + 1
+      return (this.pageNum - 1) * this.pageSize + index + 1;
     },
 
-    //刷新消息
-    reloadMessage() {
-      this.$notify({
-        title: "提示",
-        message: "刷新成功",
-        type: "success",
-      });
+    timeStampToDate(timeStamp) {
+      return timeStampToDate(timeStamp);
     },
-
   },
   mounted() {
     document.title = "开始玩AG - CN-AGHL";
-    this.queryAllPlayers();
+  },
+  created() {
+    this.queryPlayers(1);
+    this.getMyinfo();
     this.queryRecentMatch();
   },
-}
+};
 </script>
 
 <style>
