@@ -157,7 +157,7 @@ export default {
     register() {
       this.$refs['signupRef'].validate((valid) => {
         if (valid) {
-          request.post('/signup', this.user).then((res) => {
+          request.post('/user/signup/', this.user).then((res) => {
             // console.log(res);
             // console.log(res.data.code);
             if (res.data.code === "200") {
