@@ -2,7 +2,7 @@
   <div>
     <h1>自定义纹理</h1>
     <el-card class="box-card">
-      <div slot="header" class="text item">
+      <template #header><div class="text item">
         <h2>使用方法：</h2>
         <p>
           OpenAG： 直接将下载的wad文件复制进ag文件夹覆盖原文件（如果有）即可。
@@ -22,7 +22,7 @@
         <strong style="color: red"
           >(任何涉及覆盖文件的操作请提前做好文件备份，以便以后恢复)
         </strong>
-      </div>
+      </div></template>
       <div v-for="item in wadtexture" :key="item.id" class="ItemBlockWad">
         <div v-for="url in item.imgurl" :key="url.id" class="ImgDiv">
           <img :src="url.url" :alt="item.description" lazy />
@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import { asset } from '@/utils/asset.js';
 export default {
   data() {
     return {
@@ -52,15 +53,15 @@ export default {
           imgurl: [
             {
               id: 1,
-              url: require("@/assets/images/download/wadtextures/HDwad1.webp"),
+              url: asset("images/download/wadtextures/HDwad1.webp"),
             },
             {
               id: 2,
-              url: require("@/assets/images/download/wadtextures/HDwad2.webp"),
+              url: asset("images/download/wadtextures/HDwad2.webp"),
             },
             {
               id: 3,
-              url: require("@/assets/images/download/wadtextures/HDwad3.webp"),
+              url: asset("images/download/wadtextures/HDwad3.webp"),
             },
           ],
           WadLink: "https://pan.baidu.com/s/1zWlNgzgL8n75F6dBtPOnWA?pwd=bs4r",
@@ -73,15 +74,15 @@ export default {
           imgurl: [
             {
               id: 1,
-              url: require("@/assets/images/download/wadtextures/BlurWad1.jpg"),
+              url: asset("images/download/wadtextures/BlurWad1.jpg"),
             },
             {
               id: 2,
-              url: require("@/assets/images/download/wadtextures/BlurWad2.jpg"),
+              url: asset("images/download/wadtextures/BlurWad2.jpg"),
             },
             {
               id: 3,
-              url: require("@/assets/images/download/wadtextures/BlurWad3.jpg"),
+              url: asset("images/download/wadtextures/BlurWad3.jpg"),
             },
           ],
           WadLink: "https://pan.baidu.com/s/1KNssd7cg7DBjVzEbeWZBrg?pwd=5gml",
@@ -94,15 +95,15 @@ export default {
           imgurl: [
             {
               id: 1,
-              url: require("@/assets/images/download/wadtextures/GreyScaleWad1.jpg"),
+              url: asset("images/download/wadtextures/GreyScaleWad1.jpg"),
             },
             {
               id: 2,
-              url: require("@/assets/images/download/wadtextures/GreyScaleWad2.jpg"),
+              url: asset("images/download/wadtextures/GreyScaleWad2.jpg"),
             },
             {
               id: 3,
-              url: require("@/assets/images/download/wadtextures/GreyScaleWad3.jpg"),
+              url: asset("images/download/wadtextures/GreyScaleWad3.jpg"),
             },
           ],
           WadLink: "https://pan.baidu.com/s/1TPe3jMpBDkei1_ghEHZNwg?pwd=2nxj",
@@ -115,15 +116,15 @@ export default {
           imgurl: [
             {
               id: 1,
-              url: require("@/assets/images/download/wadtextures/GridWad1.jpg"),
+              url: asset("images/download/wadtextures/GridWad1.jpg"),
             },
             {
               id: 2,
-              url: require("@/assets/images/download/wadtextures/GridWad2.jpg"),
+              url: asset("images/download/wadtextures/GridWad2.jpg"),
             },
             {
               id: 3,
-              url: require("@/assets/images/download/wadtextures/GridWad3.jpg"),
+              url: asset("images/download/wadtextures/GridWad3.jpg"),
             },
           ],
           WadLink: "https://pan.baidu.com/s/1zBKgT0S8JRubNIyG4GJvPg?pwd=2c4x",

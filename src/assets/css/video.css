@@ -1,54 +1,63 @@
-.cover {
-  width: 500px;
-  max-height: 30vh;
-  min-height: 300px;
-  border-radius: 50px;
+/* ==========================================================================
+   视频列表（Video / MatchVideo）— 弹性网格卡片
+   ========================================================================== */
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(16px, 2.4vw, 26px);
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+
+.box {
+  width: 300px;
+  max-width: 100%;
+  transition: transform 0.2s ease;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  overflow: hidden;
+  background: #0d0f0b;
+}
+
+.cover :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.title {
+  display: -webkit-box;
+  width: 100%;
+  margin: 10px 0 0;
+  overflow: hidden;
+  color: var(--ag-text);
+  font-size: 0.94rem;
+  line-height: 1.6;
+  font-weight: 600;
+  text-align: left;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 a {
   text-decoration: none;
 }
 
-.title {
-  color: white;
-  width: 500px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.2rem;
+@media (max-width: 640px) {
+  .box {
+    width: 100%;
+  }
 }
-
-.flex-container {
-  display: flex;
-  /* flex-direction: row;
-  flex-wrap: wrap; */
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  align-content: center;
-  
-}
-
-.box:hover {
-  transform: scale(1.05);
-}
-
-/* .el-card {
-  color: white;
-} */
-
-/* .box-card {
-  background: #3e4537;
-} */
-
-/* .el-card .el-card__header {
-  background-color: #4b5745;
-  color: white;
-} */
-
-/* .el-card .el-card__body {
-  background-color: #3e4537;
-  color: white;
-  height: auto;
-} */
-

@@ -5,14 +5,14 @@
     <div class="SplitLine"></div>
     <div class="WpnDescrp">由于伤害高、使用简单，因此经常被称作noob
       gun，但这也是胶子炮强大的证明。拿起来之后只管往敌人脸上狂射就完事了。该武器与高斯枪共用弹药，最大弹药携带量为100。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_egon.png')" alt="w_egon" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_egon.png')" alt="w_egon" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_gaussammo.png')" alt="w_gaussammo" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_gaussammo.png')" alt="w_gaussammo" lazy></el-image></div>
     <p class="WpnImgCaption">武器弹药，一份为20发</p>
 
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/egon.gif')" alt="egon" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/egon.gif')" alt="egon" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>

@@ -1,0 +1,45 @@
+{
+  "servers": [
+    { "ip": "124.220.153.235:11450", "description": "AGHL Club 正统AG服（需要下载AG客户端）" },
+    { "ip": "111.229.5.113:27017", "description": "N3wW0r1d 僵尸模式" },
+    { "ip": "111.229.5.113:27018", "description": "N3wW0r1d 死跑模式" },
+    { "ip": "111.229.5.113:27019", "description": "N3wW0r1d HNS模式" },
+    { "ip": "124.220.153.235:11452", "description": "AGHL Club 比赛服" },
+    { "ip": "124.220.153.235:11451", "description": "AGHL Club 经典混战服" },
+    { "ip": "124.220.153.235:11453", "description": "HLDM + CS1.6双客户端混战服（CS1.6玩家需要从控制台连接）" }
+  ],
+  "clients": {
+    "bugfixedhl": "https://github.com/tmp64/BugfixedHL-Rebased/releases",
+    "openag": "https://github.com/YaLTeR/OpenAG/releases",
+    "agmodx": "https://github.com/rtxa/agmodx/releases",
+    "trainingmod": "https://github.com/andreiseverin/teylo-aim-training-mod/releases/"
+  },
+  "video": [
+    { "url": "https://www.bilibili.com/video/BV1T4411C7eK", "description": "AG Movie · BV1T4411C7eK" },
+    { "url": "https://www.bilibili.com/video/BV1t4411k7Aq", "description": "AG Movie · BV1t4411k7Aq" },
+    { "url": "https://www.bilibili.com/video/BV1u4411C7wg", "description": "AG Movie · BV1u4411C7wg" },
+    { "url": "https://www.bilibili.com/video/BV1T4411C7a1", "description": "AG Movie · BV1T4411C7a1" },
+    { "url": "https://www.bilibili.com/video/BV1t4411k7wK", "description": "AG Movie · BV1t4411k7wK" },
+    { "url": "https://www.bilibili.com/video/BV1aJ411N7tf", "description": "AG Movie · BV1aJ411N7tf" },
+    { "url": "https://www.bilibili.com/video/BV1q4411y7zA", "description": "AG Movie · BV1q4411y7zA" },
+    { "url": "https://www.bilibili.com/video/BV1B4411y7K7", "description": "AG Movie · BV1B4411y7K7" },
+    { "url": "https://www.bilibili.com/video/BV19J411N7PK", "description": "AG Movie · BV19J411N7PK" },
+    { "url": "https://www.bilibili.com/video/BV19J411N7gr", "description": "AG Movie · BV19J411N7gr" },
+    { "url": "https://www.bilibili.com/video/BV19g4y1b7AU", "description": "AG Movie · BV19g4y1b7AU" },
+    { "url": "https://www.bilibili.com/video/BV1z54y1a7aV", "description": "AG Movie · BV1z54y1a7aV" }
+  ],
+  "matchvideo": [
+    { "url": "https://www.bilibili.com/video/BV1v94y1e72h", "description": "半条命第一高手HR|Alex vs 中国L40_M3N9_crossfire", "cover": "/images/matchvideo/BV1v94y1e72h.webp" },
+    { "url": "https://www.bilibili.com/video/BV1Xw411Q72X", "description": "半条命第一高手HR|Alex vs 中国L40_M3N9_crossfire（二）", "cover": "/images/matchvideo/BV1Xw411Q72X.webp" },
+    { "url": "https://www.bilibili.com/video/BV1Ut411X7Pf", "description": "半条命世界第一高手Alex vs Noktaa _ crossfire", "cover": "/images/matchvideo/BV1Ut411X7Pf.webp" },
+    { "url": "https://www.bilibili.com/video/BV1PD4y1d7K8", "description": "Dispara vs Noktaa stalkyard", "cover": "/images/matchvideo/BV1PD4y1d7K8.webp" },
+    { "url": "https://www.bilibili.com/video/BV1XH4y127dU", "description": "Alex vs Noi_1v1_stalkyard", "cover": "/images/matchvideo/BV1XH4y127dU.webp" },
+    { "url": "https://www.bilibili.com/video/BV1Rm4y1g7w2", "description": "Alex vs eXe.Reebok_1v1_lost_village2", "cover": "/images/matchvideo/BV1Rm4y1g7w2.webp" },
+    { "url": "https://www.bilibili.com/video/BV1E34y1z7tQ", "description": "【原创126】RRTSC Chun vs [BCB]Real-HunterCn", "cover": "/images/matchvideo/BV1E34y1z7tQ.webp" },
+    { "url": "https://www.bilibili.com/video/BV1qt4y1S7kL", "description": "[HLDM]L40_M3N9 VS RRTS_Chun Crossfire 20190212", "cover": "/images/matchvideo/BV1qt4y1S7kL.webp" },
+    { "url": "https://www.bilibili.com/video/BV1e6421g7GH", "description": "AGHL1v1 | 高斯枪暴力穿墙+直射式打法 20分钟222分 by Méng | crossfire", "cover": "/images/matchvideo/BV1e6421g7GH.webp" },
+    { "url": "https://www.bilibili.com/video/BV1q4411y7um", "description": "2019__HR|Alex vs KingISuS全程记录（1080p60HD）", "cover": "/images/matchvideo/BV1q4411y7um.webp" },
+    { "url": "https://www.bilibili.com/video/BV1JJ411M7CZ", "description": "半条命高手Alex vs week_stalkyard日期2019.09.23", "cover": "/images/matchvideo/BV1JJ411M7CZ.webp" },
+    { "url": "https://www.bilibili.com/video/BV1pJ411M7uD", "description": "半条命高手Alex vs Mr.BadNAB_stalkx", "cover": "/images/matchvideo/BV1pJ411M7uD.webp" }
+  ]
+}

@@ -10,7 +10,7 @@
     <p>
       下图给出的是高斯穿墙的简单示意图。当高斯蓄力攻击时，<span style="font-weight: bold;">无论蓄力多少与否，只要射入的墙体足够薄都会发生穿墙，且蓄力越多，穿透墙体后产生的溅射伤害的范围也越大。</span>当蓄满力时，最大的溅射范围能够达到490个单位！在该范围内的任何玩家都会受到高斯的穿墙伤害。
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss_machsm.png')" lazy style="width: 80%;"></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss_machsm.png')" lazy style="width: 80%;"></el-image>
     <p class="ImgCaption">
       图：高斯穿墙的简单演示（图源自<span><a href="https://twhl.info/wiki/page/Tutorial%3A_Gauss_penetration_and_blast_damage">Wiki上的TWHL</a></span>）
     </p>
@@ -20,33 +20,33 @@
     <p>
       下边两张图就分别给出了高斯枪没有发生穿透以及发生穿透的视觉效果。当高斯枪子弹射入比较厚的墙体时，入射的地方只会留下一个弹孔和辉光，而当高斯枪子弹射入较薄墙体并发生穿透时，则会产生一个光点，并伴随着火花的散落。
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss_nohotglow.jpg')" lazy></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss_nohotglow.jpg')" lazy></el-image>
     <p class="ImgCaption">
       图：高斯枪射入较厚墙体的效果
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss_hotglow.jpg')" lazy></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss_hotglow.jpg')" lazy></el-image>
     <p class="ImgCaption">
       图：高斯枪射入较薄墙体并发生穿透的效果
     </p>
     <p>
       高斯穿墙的伤害分为两种，<span style="font-weight: bold;">第一种是子弹直接穿透墙壁击中墙后目标产生的直射伤害。</span>在这种情况下，穿墙后的子弹依然与正常子弹一样是单点伤害。在这种情况下，无论敌人距离墙壁多远，只要对准了敌人都能直接造成伤害。
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss1.gif')" lazy></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss1.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：利用高斯直射穿墙杀死敌人(注：为了方便展示图中开了透视)
     </p>
     <p>
       第二种就是喜闻乐见的范围性溅射伤害。<span style="font-weight: bold;">高斯穿墙产生的溅射伤害可以简单地理解为是墙壁后产生了"爆炸"，爆炸的中心点是穿墙的位置，且爆炸的伤害和范围随着蓄力的程度变化。</span>因此当你手上有高斯的时候，你可以瞄准离对手最近的可穿透墙体来最大化溅射伤害。相反地，当你的对手想使用高斯穿墙杀死你时，你需要快速远离身边可能发生穿透的墙体以减少受到的伤害。
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss2.gif')" lazy></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss2.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：利用高斯穿墙范围伤杀敌例子1
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss4.gif')" lazy></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss4.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：利用高斯穿墙范围伤杀敌例子2
     </p>
-    <el-image alt="wallgauss" :src="require('@/assets/images/tutorial/basicskills/wallgauss3.gif')" lazy></el-image>
+    <el-image alt="wallgauss" :src="$asset('images/tutorial/basicskills/wallgauss3.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：利用高斯穿墙范围伤杀敌例子3
     </p>

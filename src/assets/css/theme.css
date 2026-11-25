@@ -1,0 +1,516 @@
+/* ==========================================================================
+   AGHL 全局主题  —  Half-Life / GoldSrc 风格设计系统
+   深色工业底 + HEV 橙色强调 + 危险条纹点缀
+   ========================================================================== */
+
+:root {
+  /* 配色 */
+  --ag-bg-deep: #0b0d09;          /* 页面最底层 */
+  --ag-surface: #161912;          /* 卡片底色 */
+  --ag-surface-2: #1e2218;        /* 卡片内层 / 侧栏 */
+  --ag-surface-3: #262b1e;        /* 悬浮层 */
+  --ag-border: #333a28;           /* 常规描边 */
+  --ag-border-strong: #4a5439;    /* 强调描边 */
+
+  --ag-primary: #ff9c1a;          /* HEV 橙 */
+  --ag-primary-hover: #ffb54d;
+  --ag-primary-dim: rgba(255, 156, 26, 0.14);
+  --ag-hazard: #f2c14e;           /* 危险条纹黄 */
+
+  --ag-text: #e9ebe1;
+  --ag-text-muted: #a3a894;
+  --ag-text-dim: #8b9180;
+
+  /* 尺寸与圆角 */
+  --ag-radius: 10px;
+  --ag-radius-sm: 6px;
+  --ag-container: 1240px;
+  --ag-header-h: 64px;
+
+  /* 阴影 */
+  --ag-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --ag-shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+
+  /* 字体 */
+  --ag-font-sans: "Inter", "HarmonyOS Sans SC", "PingFang SC",
+    "Microsoft YaHei", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --ag-font-mono: "JetBrains Mono", "Cascadia Code", Consolas, "Courier New",
+    monospace;
+
+  /* Element Plus 主色改为 HEV 橙 */
+  --el-color-primary: #ff9c1a;
+  --el-color-primary-light-3: #ffb857;
+  --el-color-primary-light-5: #ffcd8d;
+  --el-color-primary-light-7: #ffe0bd;
+  --el-color-primary-light-8: #ffe9d1;
+  --el-color-primary-light-9: #fff4e8;
+  --el-color-primary-dark-2: #cc7d15;
+  --el-border-radius-base: 8px;
+  /* 表单占位符与加载遮罩：提升深浅色环境下的可读性 */
+  --el-text-color-placeholder: #6b7280;
+  --el-mask-color: rgba(10, 12, 8, 0.72);
+}
+
+/* ===== 基础重置与排版 ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--ag-font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ag-text);
+  background-color: var(--ag-bg-deep);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.6em;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: clamp(1.55rem, 3.2vw, 2.2rem);
+  color: var(--ag-primary);
+}
+
+h2 {
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  color: var(--ag-text);
+}
+
+h3 {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--ag-text);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: var(--ag-primary);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+a:hover {
+  color: var(--ag-primary-hover);
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  margin: 24px 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--ag-border-strong),
+    transparent
+  );
+}
+
+::selection {
+  background: var(--ag-primary);
+  color: #14160f;
+}
+
+/* ===== 按钮对比度修正：橙 / 绿 / 黄底统一使用深色文字 ===== */
+.el-button--primary {
+  --el-button-text-color: #14160f;
+  --el-button-hover-text-color: #14160f;
+  --el-button-active-text-color: #14160f;
+  --el-button-disabled-text-color: rgba(20, 22, 15, 0.55);
+  font-weight: 600;
+}
+
+.el-button--success {
+  --el-button-text-color: #0d1a08;
+  --el-button-hover-text-color: #0d1a08;
+  --el-button-active-text-color: #0d1a08;
+  font-weight: 600;
+}
+
+.el-button--warning {
+  --el-button-text-color: #1f1503;
+  --el-button-hover-text-color: #1f1503;
+  --el-button-active-text-color: #1f1503;
+  font-weight: 600;
+}
+
+/* ===== 键盘焦点可见性（无障碍） ===== */
+a:focus-visible,
+button:focus-visible,
+.el-button:focus-visible,
+.el-menu-item:focus-visible {
+  outline: 2px solid var(--ag-primary);
+  outline-offset: 2px;
+}
+
+/* ===== 长文本换行，避免窄屏溢出 ===== */
+.text,
+#ag p,
+.AGTricksContent p,
+.AGTricksContent li,
+.ItemDescrp,
+.ag-footer__bottom {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ===== 兼容旧内容中的内联色值 =====
+   旧教程正文里大量使用 <strong style="color: red"> 之类的纯色，
+   原色（纯红/纯蓝/深绿）在深色背景上对比度不足，这里统一提亮为同色系。
+   仅作用于正文容器，不影响组件 UI。 */
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:red"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: red"] {
+  color: #ff8a80 !important;
+}
+
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:green"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: green"] {
+  color: #7ee787 !important;
+}
+
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:blue"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: blue"] {
+  color: #79c0ff !important;
+}
+
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:purple"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: purple"] {
+  color: #d2a8ff !important;
+}
+
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:grey"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: grey"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:gray"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: gray"] {
+  color: #b7bdc8 !important;
+}
+
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:cyan"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: cyan"] {
+  color: #76e3ea !important;
+}
+
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color:yellow"],
+:is(.AGTricksContent, .text, .box-card, .ItemDescrp) [style*="color: yellow"] {
+  color: #f2cc60 !important;
+}
+
+/* ===== 尊重系统“减少动态效果”设置 ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f110c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a4030;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ag-primary);
+}
+
+/* ===== 共享卡片（原各页面重复的 .box-card 暗绿样式） ===== */
+.el-card.box-card {
+  background: var(--ag-surface);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  color: var(--ag-text);
+  overflow: hidden;
+  box-shadow: var(--ag-shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.el-card.box-card:hover {
+  border-color: var(--ag-border-strong);
+  box-shadow: var(--ag-shadow);
+}
+
+.el-card.box-card > .el-card__header {
+  padding: 18px 24px;
+  background: linear-gradient(180deg, #232719 0%, #1b1f15 100%);
+  border-bottom: 1px solid var(--ag-border);
+  color: var(--ag-text);
+}
+
+.el-card.box-card > .el-card__body {
+  padding: clamp(16px, 2.6vw, 28px);
+  background: transparent;
+  color: var(--ag-text);
+}
+
+/* 卡片内的正文块 */
+.text {
+  color: var(--ag-text);
+  font-size: 1rem;
+  line-height: 1.9;
+}
+
+.item {
+  padding: 8px 0;
+}
+
+/* ===== 表格暗色皮肤 ===== */
+.el-table {
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: #2a3123;
+  --el-table-header-text-color: #f3f4ec;
+  --el-table-border-color: var(--ag-border);
+  --el-table-text-color: var(--ag-text);
+  --el-table-row-hover-bg-color: rgba(255, 156, 26, 0.1);
+  --el-table-current-row-bg-color: rgba(255, 156, 26, 0.16);
+  border-radius: var(--ag-radius-sm);
+  overflow: hidden;
+}
+
+.el-table th.el-table__cell {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.el-table__body tr:hover > td.el-table__cell {
+  background-color: rgba(255, 156, 26, 0.1) !important;
+}
+
+/* ===== 分页器 ===== */
+.el-pagination {
+  --el-pagination-bg-color: transparent;
+  --el-pagination-text-color: var(--ag-text);
+  --el-pagination-button-color: var(--ag-text);
+  --el-pagination-hover-color: var(--ag-primary);
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.el-pagination .el-pager li,
+.el-pagination button {
+  background: var(--ag-surface-2) !important;
+  color: var(--ag-text) !important;
+  border-radius: 6px;
+}
+
+.el-pagination .el-pager li:hover,
+.el-pagination button:hover {
+  color: var(--ag-primary) !important;
+}
+
+.el-pagination .el-pager li.is-active {
+  background: var(--ag-primary) !important;
+  color: #14160f !important;
+  font-weight: 700;
+}
+
+.el-pagination__jump {
+  color: var(--ag-text-muted);
+}
+
+/* ===== 描述列表（PlayAG） ===== */
+.custom-descriptions .el-descriptions__title,
+.custom-descriptions .el-descriptions__body,
+.custom-descriptions .el-descriptions__table {
+  background: transparent;
+  color: var(--ag-text);
+}
+
+.custom-descriptions .el-descriptions__label.el-descriptions__cell {
+  background: #2a3123 !important;
+  color: var(--ag-text) !important;
+  font-weight: 600;
+  border-color: var(--ag-border) !important;
+}
+
+.custom-descriptions .el-descriptions__content.el-descriptions__cell {
+  background: var(--ag-surface-2) !important;
+  color: var(--ag-text) !important;
+  border-color: var(--ag-border) !important;
+}
+
+/* ===== 共享工具类 ===== */
+.ag-container {
+  width: 100%;
+  max-width: var(--ag-container);
+  margin: 0 auto;
+  padding-left: clamp(14px, 3vw, 28px);
+  padding-right: clamp(14px, 3vw, 28px);
+}
+
+/* 页面主标题：左侧危险条纹 */
+.ag-page-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 20px;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  color: var(--ag-primary);
+  letter-spacing: 0.04em;
+}
+
+.ag-page-title::before {
+  content: "";
+  width: 6px;
+  height: 1.1em;
+  border-radius: 3px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--ag-primary) 0 6px,
+    #1b1f15 6px 12px
+  );
+}
+
+/* 视频 / iframe 自适应容器 */
+.ag-media {
+  display: block;
+  width: 100%;
+  max-width: 860px;
+  aspect-ratio: 4 / 3;
+  margin: 20px auto;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius-sm);
+  background: #000;
+}
+
+/* 空状态 / 提示类页面（403、404、未完成） */
+.ag-center-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: calc(100vh - var(--ag-header-h) - 160px);
+  padding: 24px 0;
+  text-align: center;
+}
+
+.ag-center-page a {
+  color: var(--ag-primary);
+  font-weight: 600;
+}
+
+/* ===== 登录 / 注册表单：深色输入框，贴合站点暗色工业风 ===== */
+.box_in {
+  --el-input-bg-color: #10120e;
+  --el-input-text-color: var(--ag-text);
+  --el-input-border-color: var(--ag-border);
+  --el-input-hover-border-color: var(--ag-border-strong);
+  --el-input-focus-border-color: var(--ag-primary);
+  --el-input-placeholder-color: var(--ag-text-dim);
+  --el-input-height: 40px;
+  --el-fill-color-blank: #10120e;
+}
+
+.box_in .el-input__wrapper {
+  border-radius: 8px;
+  background-color: #10120e;
+  box-shadow: 0 0 0 1px var(--ag-border) inset;
+  transition: box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.box_in .el-input__wrapper:hover {
+  background-color: #12150f;
+  box-shadow: 0 0 0 1px var(--ag-border-strong) inset;
+}
+
+.box_in .el-input__wrapper.is-focus {
+  background-color: #12150f;
+  box-shadow: 0 0 0 1px var(--ag-primary) inset,
+    0 0 0 3px rgba(255, 156, 26, 0.16) !important;
+}
+
+.box_in .el-input__inner {
+  height: 40px;
+  color: var(--ag-text);
+  caret-color: var(--ag-primary);
+  font-size: 0.95rem;
+}
+
+.box_in .el-input__inner::placeholder {
+  color: var(--ag-text-dim);
+}
+
+.box_in .el-input__prefix,
+.box_in .el-input__suffix {
+  color: var(--ag-text-muted);
+}
+
+/* 浏览器自动填充时保持深色，避免出现白底黄底 */
+.box_in .el-input__inner:-webkit-autofill,
+.box_in .el-input__inner:-webkit-autofill:hover,
+.box_in .el-input__inner:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--ag-text);
+  -webkit-box-shadow: 0 0 0 1000px #10120e inset;
+  transition: background-color 9999s ease-out;
+}
+
+/* ===== 平板 / 手机断点 ===== */
+@media (max-width: 1024px) {
+  .el-card.box-card > .el-card__header {
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .el-card.box-card > .el-card__body {
+    padding: 14px;
+  }
+
+  .el-dialog {
+    width: 92% !important;
+  }
+
+  .el-message-box {
+    width: 90% !important;
+  }
+}

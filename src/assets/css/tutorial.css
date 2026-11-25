@@ -1,247 +1,274 @@
+/* ==========================================================================
+   武器使用页（Weapon + Weapons/*）— 流式布局，随窗口缩放自适应
+   ========================================================================== */
+
+/* 武器选择区：5 列网格，槽位图标与下方武器严格同列对齐 */
 .WeaponsSelBlock {
-  width: 1250px;
-  height: 350px;
-  position: relative;
-  left: 50%;
-  margin-left: -610px;
-  padding-top: 5px;
-  overflow: hidden;
-  /* background-color: black; */
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  padding-top: 6px;
 }
 
+/* 槽位图标（1~5）：按原始 8:1 比例缩放，避免拉伸 */
 .WeaponsSlots {
-  width: 240px;
-  height: 30px;
-  display: inline-block;
-  position: relative;
-  padding-top: 5px;
-  margin-bottom: -4px;
+  width: 100%;
+  aspect-ratio: 8 / 1;
+  height: auto;
   overflow: hidden;
-  /* background-color: black; */
 }
 
-/* 样式未被选中的选项卡 */
+.WeaponsSlots .el-image {
+  width: 100%;
+  height: 100%;
+}
+
+.WeaponsSlots .el-image :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 武器标签按钮：每个占一个网格单元 */
+.WeaponsSelBlock > a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.WpnTab {
+  width: 100%;
+  aspect-ratio: 240 / 64;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--ag-radius-sm);
+  background-color: #11130e;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.18s ease, transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.WpnTab:hover {
+  border-color: var(--ag-primary);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+/* 当前选中武器高亮 */
+.router-link-active .WpnTab {
+  border-color: var(--ag-primary);
+  box-shadow: 0 0 0 1px var(--ag-primary), 0 0 16px rgba(255, 156, 26, 0.35);
+}
+
+/* 未选中的选项卡隐藏内容区 */
 .tab {
   display: none;
 }
 
-/* 样式被选中的选项卡 */
+/* 选中的选项卡：流式宽度 + 上下留白，不使用负 margin */
 .tab.active {
-  width: 1200px;
-  height: auto;
   display: block;
-  position: relative;
-  left: 50%;
-  margin-left: -600px;
-  padding-bottom: 30px;
-  border: #ffffff 2px solid;
-  background-color: #4b5745;
+  width: 100%;
+  max-width: 1080px;
+  margin: clamp(18px, 3vw, 30px) auto 0;
+  padding: clamp(16px, 3vw, 32px);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  background: var(--ag-surface-2);
 }
 
 .tab.active:hover {
-  box-shadow: 4px 4px 15px;
+  border-color: var(--ag-border-strong);
 }
 
 .tab.active h1 {
-  width: 600px;
-  height: 50px;
-  display: block;
-  position: relative;
-  left: 50%;
-  margin-left: -300px;
-  padding-top: 20px;
-  font-family: 微软雅黑;
-  font-size: 40px;
+  margin: 0 auto 6px;
+  padding: 0;
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  line-height: 1.35;
   text-align: center;
+  color: var(--ag-primary);
 }
 
+/* 武器代码 */
 .tab .WpnCode {
-  width: 400px;
-  height: 30px;
-  display: block;
-  position: relative;
-  left: 50%;
-  margin-left: -230px;
-  padding-top: 10px;
-  font-family: 微软雅黑;
-  font-size: 20px;
-  text-align: center;
-  line-height: 30px;
-}
-
-.tab .SplitLine {
-  width: 1000px;
-  height: 2px;
-  display: block;
-  position: relative;
-  left: 50%;
-  margin-left: -500px;
-  margin-top: 15px;
-  margin-bottom: 20px;
-  background-color: #3e4537;
-}
-
-.tab .WpnDescrp {
-  width: 1000px;
+  width: auto;
   height: auto;
-  display: block;
-  position: relative;
-  left: 50%;
-  margin-left: -500px;
-  font-family: 微软雅黑;
-  font-size: 20px;
+  margin: 0 auto;
+  padding: 0;
+  font-family: var(--ag-font-mono);
+  font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+  line-height: 1.6;
+  text-align: center;
+  color: var(--ag-hazard);
 }
 
+/* 分隔线 */
+.tab .SplitLine {
+  width: 100%;
+  height: 1px;
+  margin: 18px 0;
+  background: var(--ag-border-strong);
+}
+
+/* 武器描述 */
+.tab .WpnDescrp {
+  width: 100%;
+  height: auto;
+  font-size: clamp(0.95rem, 1.45vw, 1.06rem);
+  line-height: 1.9;
+  color: #dfe2d6;
+}
+
+/* 武器 w 模图 */
 .tab .WpnImg {
-  width: 200px;
-  height: 100px;
-  display: block;
-  position: relative;
+  width: clamp(120px, 20vw, 200px);
+  height: auto;
+  margin: 12px auto 0;
   overflow: hidden;
-  left: 50%;
-  margin-left: -100px;
-  margin-top: 15px;
+}
+
+.tab .WpnImg .el-image {
+  width: 100%;
+  height: auto;
 }
 
 .tab .WpnImgCaption {
-  width: 400px;
-  height: 30px;
-  display: block;
-  position: relative;
-  left: 50%;
-  margin-left: -230px;
-  padding-top: 10px;
-  font-family: 微软雅黑;
-  font-size: 20px;
+  width: auto;
+  height: auto;
+  margin: 6px auto 0;
+  padding: 0;
+  font-size: 0.88rem;
+  line-height: 1.5;
   text-align: center;
-  line-height: 30px;
+  color: var(--ag-text-muted);
 }
 
-.tab .WpnPrimBlock {
-  width: 800px;
-  height: 320px;
-  display: block;
-  position: relative;
+/* ===== 主要 / 次要攻击说明块：两列网格 ===== */
+.tab .WpnPrimBlock,
+.tab .WpnSecdBlock {
+  display: grid;
+  grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+  gap: 6px clamp(16px, 2.5vw, 28px);
+  align-items: start;
+  width: 100%;
+  max-width: 980px;
+  margin: clamp(18px, 3vw, 30px) auto 0;
+  padding: clamp(12px, 2vw, 20px);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  background: rgba(0, 0, 0, 0.16);
+  overflow: visible;
+}
+
+.WpnPrimBlock .el-image,
+.WpnSecdBlock .el-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 10 / 9;
+  border-radius: var(--ag-radius-sm);
   overflow: hidden;
-  margin-left: 40px;
-  margin-top: 30px;
-  /* background-color: antiquewhite; */
+  background: #0d0f0b;
+}
+
+.WpnPrimBlock .el-image :deep(img),
+.WpnSecdBlock .el-image :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .WpnPrimBlock .el-image {
-  width: 300px;
-  height: 270px;
-  display: inline-block;
-  position: absolute;
-  overflow: hidden;
-  background-color: black;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  align-self: center;
 }
 
 .WpnPrimBlock h1 {
-  width: 600px;
-  height: 20px;
-  display: inline-block;
-  position: relative;
-  margin-top: 10px;
-  padding-left: 15px;
-  font-family: 微软雅黑;
-  font-size: 25px;
-  line-height: 20px;
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.4;
+  color: var(--ag-primary);
 }
 
 .WpnPrimBlock .SplitLine {
-  width: 400px;
-  height: 3px;
-  display: inline-block;
-  position: absolute;
-  margin-left: -70px;
-  margin-top: -10px;
-  background-color: #3e4537;
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  height: 1px;
+  margin: 2px 0 10px;
+  background: var(--ag-border-strong);
 }
 
 .WpnPrimBlock p {
-  width: 420px;
-  height: 150px;
-  display: inline-block;
-  position: absolute;
-  left: 310px;
-  font-family: 微软雅黑;
-  font-size: 18px;
-}
-
-.tab .WpnSecdBlock {
-  width: 800px;
-  height: 320px;
-  display: block;
-  position: relative;
-  overflow: hidden;
-  margin-left: 360px;
-  margin-top: 30px;
+  grid-column: 2;
+  grid-row: 3;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+  line-height: 1.85;
+  color: #dfe2d6;
 }
 
 .WpnSecdBlock .el-image {
-  width: 300px;
-  height: 270px;
-  display: inline-block;
-  position: absolute;
-  left: 500px;
-  overflow: hidden;
-  background-color: black;
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  justify-self: end;
 }
 
 .WpnSecdBlock h1 {
-  width: 600px;
-  height: 20px;
-  display: inline-block;
-  position: absolute;
-  margin-top: 10px;
-  font-family: 微软雅黑;
-  font-size: 25px;
-  line-height: 20px;
+  grid-column: 1;
+  grid-row: 1;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.4;
+  color: var(--ag-primary);
 }
 
 .WpnSecdBlock .SplitLine {
-  width: 400px;
-  height: 3px;
-  display: inline-block;
-  position: absolute;
-  margin-left: -320px;
-  margin-top: -10px;
-  background-color: #3e4537;
+  grid-column: 1;
+  grid-row: 2;
+  width: 100%;
+  height: 1px;
+  margin: 2px 0 10px;
+  background: var(--ag-border-strong);
 }
 
 .WpnSecdBlock p {
-  width: 420px;
-  height: 150px;
-  display: inline-block;
-  position: absolute;
-  left: 30px;
-  font-family: 微软雅黑;
-  font-size: 18px;
+  grid-column: 1;
+  grid-row: 3;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+  line-height: 1.85;
+  color: #dfe2d6;
 }
 
-.WpnTab {
-  width: 240px;
-  height: 64px;
-  display: inline-block;
-  position: relative;
-  margin-left: 0;
-  margin-bottom: -4px;
-  overflow: hidden;
-  cursor: pointer;
-  border: none;
-  /* background-color: black; */
-}
-
+/* ===== 武器标签贴图（保留原资源） ===== */
 /* Crowbar */
 .WpnTab.tab1:not(.active) {
   background-image: url("@/assets/images/tutorial/weapons/Crowbar.webp");
 }
 
-.WpnTab.tab1:hover {
-  background-image: url("@/assets/images/tutorial/weapons/Crowbar_s.webp");
-}
-
+.WpnTab.tab1:hover,
 .WpnTab.tab1.active {
   background-image: url("@/assets/images/tutorial/weapons/Crowbar_s.webp");
 }
@@ -251,10 +278,7 @@
   background-image: url("@/assets/images/tutorial/weapons/9mmhandgun.webp");
 }
 
-.WpnTab.tab2:hover {
-  background-image: url("@/assets/images/tutorial/weapons/9mmhandgun_s.webp");
-}
-
+.WpnTab.tab2:hover,
 .WpnTab.tab2.active {
   background-image: url("@/assets/images/tutorial/weapons/9mmhandgun_s.webp");
 }
@@ -264,10 +288,7 @@
   background-image: url("@/assets/images/tutorial/weapons/9mmar.webp");
 }
 
-.WpnTab.tab3:hover {
-  background-image: url("@/assets/images/tutorial/weapons/9mmar_s.webp");
-}
-
+.WpnTab.tab3:hover,
 .WpnTab.tab3.active {
   background-image: url("@/assets/images/tutorial/weapons/9mmar_s.webp");
 }
@@ -277,10 +298,7 @@
   background-image: url("@/assets/images/tutorial/weapons/rpg.webp");
 }
 
-.WpnTab.tab4:hover {
-  background-image: url("@/assets/images/tutorial/weapons/rpg_s.webp");
-}
-
+.WpnTab.tab4:hover,
 .WpnTab.tab4.active {
   background-image: url("@/assets/images/tutorial/weapons/rpg_s.webp");
 }
@@ -290,10 +308,7 @@
   background-image: url("@/assets/images/tutorial/weapons/grenade.webp");
 }
 
-.WpnTab.tab5:hover {
-  background-image: url("@/assets/images/tutorial/weapons/grenade_s.webp");
-}
-
+.WpnTab.tab5:hover,
 .WpnTab.tab5.active {
   background-image: url("@/assets/images/tutorial/weapons/grenade_s.webp");
 }
@@ -303,10 +318,7 @@
   background-image: url("@/assets/images/tutorial/weapons/357.webp");
 }
 
-.WpnTab.tab6:hover {
-  background-image: url("@/assets/images/tutorial/weapons/357_s.webp");
-}
-
+.WpnTab.tab6:hover,
 .WpnTab.tab6.active {
   background-image: url("@/assets/images/tutorial/weapons/357_s.webp");
 }
@@ -316,10 +328,7 @@
   background-image: url("@/assets/images/tutorial/weapons/shotgun.webp");
 }
 
-.WpnTab.tab7:hover {
-  background-image: url("@/assets/images/tutorial/weapons/shotgun_s.webp");
-}
-
+.WpnTab.tab7:hover,
 .WpnTab.tab7.active {
   background-image: url("@/assets/images/tutorial/weapons/shotgun_s.webp");
 }
@@ -329,10 +338,7 @@
   background-image: url("@/assets/images/tutorial/weapons/gauss.webp");
 }
 
-.WpnTab.tab8:hover {
-  background-image: url("@/assets/images/tutorial/weapons/gauss_s.webp");
-}
-
+.WpnTab.tab8:hover,
 .WpnTab.tab8.active {
   background-image: url("@/assets/images/tutorial/weapons/gauss_s.webp");
 }
@@ -342,10 +348,7 @@
   background-image: url("@/assets/images/tutorial/weapons/satchel.webp");
 }
 
-.WpnTab.tab9:hover {
-  background-image: url("@/assets/images/tutorial/weapons/satchel_s.webp");
-}
-
+.WpnTab.tab9:hover,
 .WpnTab.tab9.active {
   background-image: url("@/assets/images/tutorial/weapons/satchel_s.webp");
 }
@@ -355,10 +358,7 @@
   background-image: url("@/assets/images/tutorial/weapons/crossbow.webp");
 }
 
-.WpnTab.tab10:hover {
-  background-image: url("@/assets/images/tutorial/weapons/crossbow_s.webp");
-}
-
+.WpnTab.tab10:hover,
 .WpnTab.tab10.active {
   background-image: url("@/assets/images/tutorial/weapons/crossbow_s.webp");
 }
@@ -368,10 +368,7 @@
   background-image: url("@/assets/images/tutorial/weapons/egon.webp");
 }
 
-.WpnTab.tab11:hover {
-  background-image: url("@/assets/images/tutorial/weapons/egon_s.webp");
-}
-
+.WpnTab.tab11:hover,
 .WpnTab.tab11.active {
   background-image: url("@/assets/images/tutorial/weapons/egon_s.webp");
 }
@@ -381,10 +378,7 @@
   background-image: url("@/assets/images/tutorial/weapons/tripmine.webp");
 }
 
-.WpnTab.tab12:hover {
-  background-image: url("@/assets/images/tutorial/weapons/tripmine_s.webp");
-}
-
+.WpnTab.tab12:hover,
 .WpnTab.tab12.active {
   background-image: url("@/assets/images/tutorial/weapons/tripmine_s.webp");
 }
@@ -394,10 +388,7 @@
   background-image: url("@/assets/images/tutorial/weapons/hornetgun.webp");
 }
 
-.WpnTab.tab13:hover {
-  background-image: url("@/assets/images/tutorial/weapons/hornetgun_s.webp");
-}
-
+.WpnTab.tab13:hover,
 .WpnTab.tab13.active {
   background-image: url("@/assets/images/tutorial/weapons/hornetgun_s.webp");
 }
@@ -407,153 +398,59 @@
   background-image: url("@/assets/images/tutorial/weapons/snark.webp");
 }
 
-.WpnTab.tab14:hover {
-  background-image: url("@/assets/images/tutorial/weapons/snark_s.webp");
-}
-
+.WpnTab.tab14:hover,
 .WpnTab.tab14.active {
   background-image: url("@/assets/images/tutorial/weapons/snark_s.webp");
 }
 
-.AGTricksNavBlock {
-  width: 200px;
-  height: 4000px;
-  background-color: black;
-  display: inline-block;
-  position: absolute;
+/* ===== 响应式 ===== */
+@media (max-width: 820px) {
+  .tab .WpnPrimBlock,
+  .tab .WpnSecdBlock {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .WpnPrimBlock .el-image,
+  .WpnSecdBlock .el-image {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .WpnPrimBlock h1,
+  .WpnSecdBlock h1 {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+  }
+
+  .WpnPrimBlock .SplitLine,
+  .WpnSecdBlock .SplitLine {
+    grid-column: 1;
+    grid-row: 3;
+    margin: 0 0 6px;
+  }
+
+  .WpnPrimBlock p,
+  .WpnSecdBlock p {
+    grid-column: 1;
+    grid-row: 4;
+  }
 }
 
-.AGTrickTab {
-  width: 200px;
-  height: 60px;
-  position: relative;
-  background-color: black;
-  overflow: hidden;
-  font-family: 微软雅黑;
-  font-size: 20px;
-  color: white;
-  border: none;
-  transition: background-color 0.3s ease;
-}
+@media (max-width: 640px) {
+  .WeaponsSelBlock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 
-.AGTrickTab:hover {
-  background-color: red;
-  cursor: pointer
-}
+  /* 移动端槽位图标过小且无法与两列布局对应，隐藏以免错位 */
+  .WeaponsSlots {
+    display: none;
+  }
 
-.AGTrickTab.active {
-  background-color: red;
-}
-
-.AGTricksContent {
-  width: 1090px;
-  min-height: 600px;
-  position: relative;
-  left: 200px;
-  padding-bottom: 10px;
-  background-color: white;
-  overflow: hidden;
-  display: none;
-}
-
-.AGTricksContent h1 {
-  width: 500px;
-  height: 40px;
-  display: inline-block;
-  position: relative;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  left: 300px;
-  font-family: 微软雅黑;
-  font-size: 28px;
-  line-height: 40px;
-  text-align: center;
-}
-
-.AGTricksContent p {
-  width: 1000px;
-  height: auto;
-  display: inline-block;
-  position: relative;
-  left: 20px;
-  margin-bottom: 10px;
-  font-family: 微软雅黑;
-  font-size: 20px;
-}
-
-.AGTricksContent img {
-  width: 350px;
-  height: 315px;
-  display: block;
-  position: relative;
-  margin-top: 40px;
-  left: 320px;
-  overflow: hidden;
-  background-color: black;
-}
-
-.AGTricksContent .ImgCaption {
-  width: 380px;
-  height: auto;
-  display: inline-block;
-  position: relative;
-  margin-top: 10px;
-  margin-bottom: 30px;
-  left: 270px;
-  font-family: 微软雅黑;
-  font-size: 16px;
-  text-align: center;
-}
-
-.AGTricksContent .Code {
-  width: 800px;
-  height: auto;
-  display: block;
-  position: relative;
-  left: 100px;
-  margin-top: 20px;
-  padding-bottom: 10px;
-  background-color: lightgray;
-  font-size: 16px;
-  font-family: 'Courier New', Courier, monospace
-}
-
-.AGTricksContent #Longimg {
-  width: 850px;
-  height: auto;
-  display: block;
-  position: relative;
-  margin-top: 40px;
-  left: 120px;
-  overflow: hidden;
-  background-color: black;
-}
-
-
-.text {
-  font-size: 1.5rem !important;
-  color: white;
-}
-
-.item {
-  padding: 10px 0 !important;
-}
-
-.el-card {
-  color: white;
-}
-
-.box-card {
-  background: #3e4537;
-}
-
-.box-card .el-card__header {
-  background-color: #4b5745;
-  color: white;
-}
-
-.box-card .el-card__body {
-  background-color: #3e4537;
-  color: white;
-  height: auto;
+  .tab.active {
+    padding: 14px;
+  }
 }

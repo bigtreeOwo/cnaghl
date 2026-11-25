@@ -9,7 +9,7 @@
       >
     </h1>
     <el-image
-      :src="require('@/assets/images/download/trainingmod/TeyloTranning.png')"
+      :src="$asset('images/download/trainingmod/TeyloTranning.png')"
       alt="trainingmod"
       lazy
     ></el-image>
@@ -71,15 +71,15 @@
     </div>
     <h2>游戏截图：</h2>
     <el-image
-      :src="require('@/assets/images/download/trainingmod/AGT_1.webp')"
-      style="border: white 2px solid"
+      :src="$asset('images/download/trainingmod/AGT_1.webp')"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       alt="trainingmod1"
       lazy
     ></el-image>
     <br>
     <el-image
-      :src="require('@/assets/images/download/trainingmod/AGT_2.webp')"
-      style="border: white 2px solid"
+      :src="$asset('images/download/trainingmod/AGT_2.webp')"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       alt="trainingmod1"
       lazy
     ></el-image>

@@ -7,10 +7,11 @@
   </div>
 </template>
 <script>
+import { asset } from '@/utils/asset.js';
 export default {
   data() {
     return {
-      respawnpointpic: require("@/assets/images/tutorial/advancedskills/spawn/stalkyard.png"),
+      respawnpointpic: asset("images/tutorial/advancedskills/spawn/stalkyard.png"),
     }
   }
 }

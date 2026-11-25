@@ -6,13 +6,13 @@
     <div class="WpnDescrp">
       拥有激光制导能力的火箭发射器，使用方式为装一发打一。具有威力大、使用灵活的优点，绝对是战场上不容小觑的存在。当你的对手手上有一把火箭筒而你却没有合适的反制手段时，最好找个地方躲起来吧。武器弹药上限为1/5。
     </div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_rpg.png')" alt="w_rpg" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_rpg.png')" alt="w_rpg" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_rpgammo.png')" alt="w_rpgammo" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_rpgammo.png')" alt="w_rpgammo" lazy></el-image></div>
     <p class="WpnImgCaption">武器弹药：一份为2发</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/Rpg.gif')" alt="rpg" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/Rpg.gif')" alt="rpg" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>
@@ -22,7 +22,7 @@
 
     <div class="WpnSecdBlock">
 
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/RPG_Second.gif')" alt="rpg" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/RPG_Second.gif')" alt="rpg" lazy></el-image>
       <h1>次要攻击</h1>
       <div class="SplitLine"></div>
       <p>

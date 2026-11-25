@@ -27,9 +27,9 @@
     <br />
 
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_INSTALL_1.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_INSTALL_1.jpg')"
       alt="bfhl安装"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
 
@@ -49,46 +49,46 @@
     <br />
 
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_INSTALL_2.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_INSTALL_2.jpg')"
       alt="bfhl安装"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
 
     <h1>部分功能展示</h1>
     <h2>计分板</h2>
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_1.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_1.jpg')"
       alt="计分板"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
     <h2>自定义准星</h2>
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_2.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_2.jpg')"
       alt="自定义准星"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
     <h2>聊天框</h2>
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_3.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_3.jpg')"
       alt="聊天框"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
     <h2>设置界面</h2>
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_4.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_4.jpg')"
       alt="设置界面"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
     <h2>HUD设置界面</h2>
     <el-image
-      :src="require('@/assets/images/download/bfhl/BFHL_5.jpg')"
+      :src="$asset('images/download/bfhl/BFHL_5.jpg')"
       alt="HUD设置界面"
-      style="border: white 2px solid"
+      style="border: 1px solid var(--ag-border-strong); border-radius: 8px"
       lazy
     ></el-image>
   </div>

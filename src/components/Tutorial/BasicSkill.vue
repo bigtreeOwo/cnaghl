@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card class="box-card">
-      <div slot="header">
+      <template #header><div>
         <h1>基础技巧</h1>
         <h2>将 你 自 己 武 装 起 来！</h2>
         <p class="text item">
@@ -14,30 +14,30 @@
         <p class="text item">
           如果你是第一次游玩AG，最好确保你已经了解了<span><a href="/weapon" style="color: red; font-weight: bold;">武器的使用</a></span>！
         </p>
-      </div>
+      </div></template>
   
       <div id="skillnav">
         <el-menu default-active="/basicskill/headshot" @open="handleOpen" @close="handleClose" router>
           <el-menu-item index="/basicskill/headshot">
-            <span slot="title">爆头</span>
+            <template #title><span>爆头</span></template>
           </el-menu-item>
           <el-menu-item index="/basicskill/fasterswitch">
-            <span slot="title">快速切枪</span>
+            <template #title><span>快速切枪</span></template>
           </el-menu-item>
           <el-menu-item index="/basicskill/longjump">
-            <span slot="title">长跳</span>
+            <template #title><span>长跳</span></template>
           </el-menu-item>
           <el-menu-item index="/basicskill/quickbow">
-            <span slot="title">瞬弩</span>
+            <template #title><span>瞬弩</span></template>
           </el-menu-item>
           <el-menu-item index="/basicskill/dropweapon">
-            <span slot="title">丢弃武器</span>
+            <template #title><span>丢弃武器</span></template>
           </el-menu-item>
           <el-menu-item index="/basicskill/gausstrick">
-            <span slot="title">高斯穿墙</span>
+            <template #title><span>高斯穿墙</span></template>
           </el-menu-item>
           <el-menu-item index="/basicskill/devicesetting">
-            <span slot="title">外设设置</span>
+            <template #title><span>外设设置</span></template>
           </el-menu-item>
         </el-menu>
         <div id="skilldescription">

@@ -6,7 +6,7 @@
       丢弃武器即为将手中目前所拿的武器丢出。值得注意的是，<span style="font-weight: bold;">丢弃出去的武器还会附带一半的备弹，</span>例如当你手中有一把弹药为60的高斯枪时，丢出去的是高斯枪本身+30发弹药。另外，丢弃的武器会统一显示为武器盒的模型。
     </p>
 
-    <el-image alt="w_weaponbox" :src="require('@/assets/images/tutorial/basicskills/w_weaponbox.jpg')" lazy></el-image>
+    <el-image alt="w_weaponbox" :src="$asset('images/tutorial/basicskills/w_weaponbox.jpg')" lazy></el-image>
     <p class="ImgCaption">
       图：丢弃的武器盒
     </p>
@@ -31,7 +31,7 @@
       <span style="font-weight: bold;">丢弃武器在实战中主要有两个作用，第一个是在团队比赛中将武器分享给你的队友；第二个是利用丢弃武器来实现快速装填。</span>当你手上的武器弹匣打空而地图上有对应的武器时，你可以直接丢弃手上的武器再捡起地图上刷出的武器来实现快速填满弹匣。下图是使用rpg作为例子，实现rpg连续打出两发的效果。
     </p>
 
-    <el-image alt="drop" :src="require('@/assets/images/tutorial/basicskills/drop.gif')" lazy></el-image>
+    <el-image alt="drop" :src="$asset('images/tutorial/basicskills/drop.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：利用丢弃武器实现连续打两发rpg
     </p>

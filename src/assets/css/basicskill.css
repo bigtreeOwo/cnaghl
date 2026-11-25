@@ -1,140 +1,197 @@
-.el-menu {
-  width: 10%;
-  float: left;
-  background: #3e4537;
-  border: white 1px solid;
+/* ==========================================================================
+   基础技巧（BasicSkill + BasicSkills/*）— 侧栏 + 内容自适应布局
+   ========================================================================== */
+
+#skillnav {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  align-items: start;
+  width: 100%;
 }
 
-.el-menu-item {
-  background: #4b5745;
-  border: white 1px solid;
-  margin-top: 10px;
-  color: white;
+/* 左侧导航 */
+#skillnav .el-menu {
+  width: 100%;
+  float: none;
+  padding: 8px;
+  background: var(--ag-surface);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  position: sticky;
+  top: calc(var(--ag-header-h) + 16px);
+}
+
+#skillnav .el-menu-item {
+  height: 44px;
+  line-height: 44px;
+  margin: 4px 0;
+  padding: 0 12px !important;
+  border: 1px solid transparent;
+  border-radius: var(--ag-radius-sm);
+  background: transparent;
+  color: var(--ag-text-muted);
   text-align: center;
-  font-size: medium;
+  font-size: 0.95rem;
+  transition: background-color 0.16s ease, color 0.16s ease,
+    border-color 0.16s ease;
 }
 
-.el-submenu__title:hover,
-.el-menu-item:focus,
-.el-menu-item:hover {
-  background-color: #ffa500 !important;
-  color: white !important;
-  box-shadow: 2px 2px 10px !important;
+#skillnav .el-menu-item:hover,
+#skillnav .el-menu-item:focus {
+  background-color: rgba(255, 156, 26, 0.12) !important;
+  color: #fff !important;
+  border-color: rgba(255, 156, 26, 0.35);
+  box-shadow: none !important;
 }
 
-.el-menu .el-menu-item.is-active {
-  background-color: #ffa500 !important;
-  color: white !important;
-  border-bottom-color: #ffa500 !important;
+#skillnav .el-menu .el-menu-item.is-active {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 156, 26, 0.24),
+    rgba(255, 156, 26, 0.05)
+  ) !important;
+  color: var(--ag-primary) !important;
+  border-color: rgba(255, 156, 26, 0.5) !important;
+  font-weight: 600;
 }
 
-.el-submenu .el-submenu__title {
-  color: white !important;
-}
-
+/* 右侧内容区 */
 #skilldescription {
-  width: 80%;
-  margin-left: 15vw;
-  border-radius: 5px;
-  border: #ffffff 2px solid;
-  background: #4b5745;
+  width: 100%;
+  min-width: 0;
+  margin-left: 0;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  background: var(--ag-surface-2);
+  overflow: hidden;
 }
 
 #skilldescription:hover {
-  box-shadow: 4px 4px 15px;
+  border-color: var(--ag-border-strong);
 }
 
+/* ===== 技巧正文 ===== */
 .AGTricksContent {
   position: relative;
-  padding-bottom: 10px;
+  padding: clamp(16px, 2.6vw, 30px);
   overflow: hidden;
+}
+
+.AGTricksContent h1 {
+  margin: 0 0 18px;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  text-align: center;
+  color: var(--ag-primary);
+}
+
+.AGTricksContent h2 {
+  margin: 1.2em 0 0.6em;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: var(--ag-hazard);
 }
 
 .AGTricksContent p {
-  margin-left: 1rem;
-  margin-bottom: 10px;
-  font-family: 微软雅黑;
-  font-size: 1.5rem;
+  margin: 0 0 12px;
+  font-size: clamp(0.95rem, 1.35vw, 1.06rem);
+  line-height: 1.9;
+  color: #dfe2d6;
+}
+
+.AGTricksContent hr {
+  margin: 22px 0;
 }
 
 .AGTricksContent .el-image {
-  width: 350px;
-  height: 315px;
   display: block;
-  position: relative;
-  margin: auto !important;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 14px auto;
   overflow: hidden;
-  background-color: black;
+  border-radius: var(--ag-radius-sm);
+  background-color: #0d0f0b;
 }
 
 .AGTricksContent .ImgCaption {
-
-  display: inline-block;
-  position: relative;
-  margin: 10px 10px 10px 625px;
-  font-family: 微软雅黑;
-  font-size: 16px;
+  display: block;
+  margin: 6px auto 18px;
+  font-size: 0.85rem;
+  line-height: 1.6;
   text-align: center;
+  color: var(--ag-text-muted);
 }
 
+/* 代码 / 控制台文本块 */
 .AGTricksContent .Code {
-  width: 500px;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   display: block;
-  position: relative;
-  margin: auto !important;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  background-color: black;
-  font-size: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  border-radius: 5px;
+  margin: 18px auto;
+  padding: 14px 16px;
+  background-color: #0d0f0b;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius-sm);
+  font-family: var(--ag-font-mono);
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  line-height: 1.8;
+  color: #d7e6c8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
 }
 
 .AGTricksContent #Longimg {
-  width: 850px;
+  width: 100%;
+  max-width: 850px;
   height: auto;
   display: block;
-  position: relative;
-  margin-top: 40px;
-  left: 120px;
+  margin: 24px auto 0;
+  left: 0;
   overflow: hidden;
-  background-color: black;
+  background-color: #0d0f0b;
 }
 
-
-.text {
-  font-size: 1.5rem !important;
-  color: white;
-}
-
-.item {
-  padding: 10px 0 !important;
-}
-
-.el-card {
-  color: white;
-  min-width: 1080px;
-}
-
-.box-card {
-  background: #3e4537;
-  min-width: 1080px;
-}
-
-.box-card .el-card__header {
-  background-color: #4b5745;
-  color: white;
-}
-
-.box-card .el-card__body {
-  background-color: #3e4537;
-  color: white;
-  height: auto;
-}
-
+/* 外设设置里的表格 */
 .mousetable {
-  width: 50%;
-  margin: auto !important;
+  width: 100%;
+  max-width: 680px;
+  margin: 12px auto !important;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 900px) {
+  #skillnav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #skillnav .el-menu {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  #skillnav .el-menu-item {
+    flex: 1 1 calc(33.333% - 6px);
+    min-width: 120px;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 8px !important;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 520px) {
+  #skillnav .el-menu-item {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+  }
+
+  .AGTricksContent {
+    padding: 14px;
+  }
 }

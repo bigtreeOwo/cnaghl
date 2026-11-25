@@ -39,7 +39,9 @@ export default class Vector2D{
   rotate(rad) {
     const c = Math.cos(rad),
       s = Math.sin(rad);
-    const [x, y] = this;
+    // 注意：Vector2D 不是数组，不能用数组解构读取坐标
+    const x = this.x,
+      y = this.y;
 
     this.x = x * c - y * s;
     this.y = x * s + y * c;

@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 100vh;display: flex;align-items: center;flex-flow:column nowrap;justify-content: center;">
+  <div class="ag-center-page">
 
     <el-result icon="error" title="" subTitle="">
 

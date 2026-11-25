@@ -1,7 +1,7 @@
 <template>
   <div class="AGTricksContent">
     <h1>高 斯 跳（Gauss Jumping）</h1>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="exampleGaussjumpposter" preload="none">
+    <video class="ag-media" controls :poster="exampleGaussjumpposter" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="exampleGaussjump" type="video/mp4">
     </video>
@@ -21,14 +21,14 @@
     <p>
       1.1 水平高斯跳
     </p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="basicgaussjump1poster" preload="none">
+    <video class="ag-media" controls :poster="basicgaussjump1poster" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="basicGaussjump['basicgaussjump1']" type="video/mp4">
     </video>
     <p>
       1.2 竖直高斯跳
     </p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="basicgaussjump2poster" preload="none">
+    <video class="ag-media" controls :poster="basicgaussjump2poster" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="basicGaussjump['basicgaussjump2']" type="video/mp4">
     </video>
@@ -38,7 +38,7 @@
     <p>
       下落高斯跳可以抵消一定的竖直方向速度，在一定限度内可以防止摔落伤害。
     </p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="basicgaussjump3poster" preload="none">
+    <video class="ag-media" controls :poster="basicgaussjump3poster" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="basicGaussjump['basicgaussjump3']" type="video/mp4">
     </video>
@@ -51,7 +51,7 @@
       <br>
       高斯跳可与连跳结合使用，需要把握好起跳位置和时机。
     </p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="bhopGaussjumpposter" preload="none">
+    <video class="ag-media" controls :poster="bhopGaussjumpposter" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="bhopGaussjump" type="video/mp4">
     </video>
@@ -61,7 +61,7 @@
       <br>
       长跳后可接高斯跳，可以用较少的高斯子弹达到高斯跳的效果，可节省子弹。
     </p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="longjumpGaussjumpposter" preload="none">
+    <video class="ag-media" controls :poster="longjumpGaussjumpposter" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="longjumpGaussjump" type="video/mp4">
     </video>
@@ -75,42 +75,43 @@
     <p>
       水平高斯跳
     </p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="xposter" preload="none">
+    <video class="ag-media" controls :poster="xposter" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="directGaussjump['x']" type="video/mp4">
     </video>
     <br>
     <p>竖直高斯跳</p>
-    <video width="800px" height="600px" style="margin-left: 20%;" controls :poster="yposter" preload="none">
+    <video class="ag-media" controls :poster="yposter" preload="none">
       您的浏览器不支持html5播放视频
       <source :src="directGaussjump['y']" type="video/mp4">
     </video>
   </div>
 </template>
 <script>
+import { asset } from '@/utils/asset.js';
 export default {
   data() {
     return {
-      exampleGaussjump: require("@/assets/videos/tutorial/advancedskill/gaussjump/GaussjumpExample.mp4"),
-      exampleGaussjumpposter: require("@/assets/images/tutorial/advancedskills/gaussjump/GaussjumpExample.webp"),
+      exampleGaussjump: asset("videos/tutorial/advancedskill/gaussjump/GaussjumpExample.mp4"),
+      exampleGaussjumpposter: asset("images/tutorial/advancedskills/gaussjump/GaussjumpExample.webp"),
       basicGaussjump: {
-        "basicgaussjump1": require("@/assets/videos/tutorial/advancedskill/gaussjump/basicGaussjump.mp4"),
-        "basicgaussjump2": require("@/assets/videos/tutorial/advancedskill/gaussjump/basicGaussjump2.mp4"),
-        "basicgaussjump3": require("@/assets/videos/tutorial/advancedskill/gaussjump/basicGaussjump3.mp4"),
+        "basicgaussjump1": asset("videos/tutorial/advancedskill/gaussjump/basicGaussjump.mp4"),
+        "basicgaussjump2": asset("videos/tutorial/advancedskill/gaussjump/basicGaussjump2.mp4"),
+        "basicgaussjump3": asset("videos/tutorial/advancedskill/gaussjump/basicGaussjump3.mp4"),
       },
-      basicgaussjump1poster: require("@/assets/images/tutorial/advancedskills/gaussjump/basicGaussjump.webp"),
-      basicgaussjump2poster: require("@/assets/images/tutorial/advancedskills/gaussjump/basicGaussjump2.webp"),
-      basicgaussjump3poster: require("@/assets/images/tutorial/advancedskills/gaussjump/basicGaussjump3.webp"),
-      bhopGaussjump: require("@/assets/videos/tutorial/advancedskill/gaussjump/BhopGaussjump.mp4"),
-      bhopGaussjumpposter: require("@/assets/images/tutorial/advancedskills/gaussjump/BhopGaussjump.webp"),
-      longjumpGaussjump: require("@/assets/videos/tutorial/advancedskill/gaussjump/longjumpGaussjump.mp4"),
-      longjumpGaussjumpposter: require("@/assets/images/tutorial/advancedskills/gaussjump/longjumpGaussjump.webp"),
+      basicgaussjump1poster: asset("images/tutorial/advancedskills/gaussjump/basicGaussjump.webp"),
+      basicgaussjump2poster: asset("images/tutorial/advancedskills/gaussjump/basicGaussjump2.webp"),
+      basicgaussjump3poster: asset("images/tutorial/advancedskills/gaussjump/basicGaussjump3.webp"),
+      bhopGaussjump: asset("videos/tutorial/advancedskill/gaussjump/BhopGaussjump.mp4"),
+      bhopGaussjumpposter: asset("images/tutorial/advancedskills/gaussjump/BhopGaussjump.webp"),
+      longjumpGaussjump: asset("videos/tutorial/advancedskill/gaussjump/longjumpGaussjump.mp4"),
+      longjumpGaussjumpposter: asset("images/tutorial/advancedskills/gaussjump/longjumpGaussjump.webp"),
       directGaussjump: {
-        "x": require("@/assets/videos/tutorial/advancedskill/gaussjump/x_Gaussjump.mp4"),
-        "y": require("@/assets/videos/tutorial/advancedskill/gaussjump/y_Gaussjump.mp4"),
+        "x": asset("videos/tutorial/advancedskill/gaussjump/x_Gaussjump.mp4"),
+        "y": asset("videos/tutorial/advancedskill/gaussjump/y_Gaussjump.mp4"),
       }, 
-      xposter: require("@/assets/images/tutorial/advancedskills/gaussjump/x_Gaussjump.webp"),
-      yposter: require("@/assets/images/tutorial/advancedskills/gaussjump/y_Gaussjump.webp"),
+      xposter: asset("images/tutorial/advancedskills/gaussjump/x_Gaussjump.webp"),
+      yposter: asset("images/tutorial/advancedskills/gaussjump/y_Gaussjump.webp"),
     }
   }
 }

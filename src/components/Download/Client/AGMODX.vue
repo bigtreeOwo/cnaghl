@@ -9,7 +9,7 @@
       >
     </h1>
     <el-image
-      :src="require('@/assets/images/download/agmodx/AGMODX.png')"
+      :src="$asset('images/download/agmodx/AGMODX.png')"
       alt="agmodx"
       lazy
     ></el-image>

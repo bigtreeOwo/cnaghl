@@ -5,7 +5,7 @@
       弩在开镜模式下拥有极强的攻击能力，然而却因为视野受限，对付近距离敌人的能力较弱。因此与CS里的瞬狙类似的，玩家们开发出了瞬弩的操作。
     </p>
 
-    <el-image alt="xbox" :src="require('@/assets/images/tutorial/basicskills/xbow.gif')" lazy></el-image>
+    <el-image alt="xbox" :src="$asset('images/tutorial/basicskills/xbow.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：使用瞬弩击倒一名敌人
     </p>
@@ -27,7 +27,7 @@
       瞬弩的实战应用例子：
     </p>
 
-    <el-image alt="xbox" :src="require('@/assets/images/tutorial/basicskills/xbow2.gif')" lazy></el-image>
+    <el-image alt="xbox" :src="$asset('images/tutorial/basicskills/xbow2.gif')" lazy></el-image>
     <p class="ImgCaption">
       图：高斯跳配合瞬弩高速索敌
     </p>

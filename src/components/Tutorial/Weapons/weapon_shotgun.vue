@@ -6,17 +6,17 @@
     <div class="WpnDescrp">
       威力巨大的近战利器。原型为SPAS-12霰弹枪，不同于现实的是，半条命里的霰弹枪并没有半自动模式，取而代之的是双喷模式，也正因如此，HL1的霰弹枪有着极为恐怖的爆发力。武器弹药上限为8/125。
     </div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_shotgunreal.png')" alt="w_shotgunreal" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_shotgunreal.png')" alt="w_shotgunreal" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_shotgun.png')" alt="w_shotgun" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_shotgun.png')" alt="w_shotgun" lazy></el-image></div>
     <p class="WpnImgCaption">武器弹药，一份为12发</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/ShotgunScatter.jpg')" alt="ShotgunScatter" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/ShotgunScatter.jpg')" alt="ShotgunScatter" lazy></el-image></div>
     <p class="WpnImgCaption">单发弹孔，一共含有4枚弹丸</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/ShotgunScatter2.jpg')" alt="ShotgunScatter2" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/ShotgunScatter2.jpg')" alt="ShotgunScatter2" lazy></el-image></div>
     <p class="WpnImgCaption">双发弹孔，一共含有8枚弹丸</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/Shotgun.gif')" alt="" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/Shotgun.gif')" alt="" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>
@@ -26,7 +26,7 @@
 
     <div class="WpnSecdBlock">
 
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/Shotgun_2.gif')" alt="Shotgun" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/Shotgun_2.gif')" alt="Shotgun" lazy></el-image>
       <h1>次要攻击</h1>
       <div class="SplitLine"></div>
       <p>

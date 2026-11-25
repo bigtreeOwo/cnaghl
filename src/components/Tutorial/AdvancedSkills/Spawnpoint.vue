@@ -37,7 +37,7 @@
     <p><strong style="color: red">3、特殊情况。</strong><br>如果随机被选中的重生点已经被占用，那么游戏会选择该重生点的下一个作为新的重生点。如果仍然被占用，继续选择下一个点，重复此过程。如果所有重生点都被占用，那么最先被选中的重生点上的玩家将会被杀死，这在多人游戏中很常见。</p>
 
     <p><strong style="color: red">掌握重生点有什么用？</strong><br>显然，熟练掌握重生点顺序可以为你的游戏增添一份胜算，那么其具体是怎样体现的呢？最直观的作用就是重生点压制击杀。例如在crossfire这张地图中，由于重生点规律明显、地形简单、且墙壁薄如纸、因此利用高斯枪+重生点预判就容易将对手焊死在重生点或者重生点附近，达到快速击杀和持续压制，这也是这张地图被称为gayfire的主要原因之一。下图就展示了在cf中敌人依次重生在3、4、5、6、7、8号重生位并且每次都预判成功的案例，短短6秒钟就能达成6次击杀。（值得一提的是为了方便演示，该示例中修改了源码，实际比赛中这种情况非常罕见）</p>
-    <el-image :src="require('@/assets/images/tutorial/advancedskills/spawn/gayfire.gif')" alt="" lazy></el-image>
+    <el-image :src="$asset('images/tutorial/advancedskills/spawn/gayfire.gif')" alt="" lazy></el-image>
     <p class="ImgCaption">
       图：在gayfire上连续刷点
     </p>
@@ -47,20 +47,21 @@
 </template>
 
 <script>
+import { asset } from '@/utils/asset.js';
 export default {
   data() {
     return {
-      url: require('@/assets/images/tutorial/advancedskills/spawn/crossfire.png'),
+      url: asset('images/tutorial/advancedskills/spawn/crossfire.png'),
       urlList: [
-        require('@/assets/images/tutorial/advancedskills/spawn/crossfire.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/stalkyard.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/lost_village2.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/stalkx.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/rapidcore.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/boot_camp.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/datacore.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/doublecross.png'),
-        require('@/assets/images/tutorial/advancedskills/spawn/endcamp.png'),
+        asset('images/tutorial/advancedskills/spawn/crossfire.png'),
+        asset('images/tutorial/advancedskills/spawn/stalkyard.png'),
+        asset('images/tutorial/advancedskills/spawn/lost_village2.png'),
+        asset('images/tutorial/advancedskills/spawn/stalkx.png'),
+        asset('images/tutorial/advancedskills/spawn/rapidcore.png'),
+        asset('images/tutorial/advancedskills/spawn/boot_camp.png'),
+        asset('images/tutorial/advancedskills/spawn/datacore.png'),
+        asset('images/tutorial/advancedskills/spawn/doublecross.png'),
+        asset('images/tutorial/advancedskills/spawn/endcamp.png'),
       ],
       spawnpoint: [1,2,3,4,5,6],
     }

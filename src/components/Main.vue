@@ -1,25 +1,23 @@
 <template>
-  <div>
-    <el-main>
+  <div class="ag-main-wrap">
+    <el-main class="ag-main">
       <router-view name="main"></router-view>
     </el-main>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      minHeight: window.screen.height,
-    };
-  },
-};
-</script>
-
 <style scoped>
-.el-main {
-  opacity: 100%;
-  margin: auto;
-  height: auto;
+.ag-main-wrap {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.ag-main {
+  width: 100%;
+  max-width: var(--ag-container);
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: clamp(18px, 3vw, 34px) clamp(14px, 3vw, 28px) 48px;
+  overflow: visible;
 }
 </style>

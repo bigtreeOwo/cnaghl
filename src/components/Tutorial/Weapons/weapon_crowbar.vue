@@ -7,12 +7,12 @@
       家喻户晓的物理学圣剑，半条命的标志之一，经典无需多言。与小手枪一样为出生自带的武器。
     </div>
     <div class="WpnImg">
-      <el-image alt="w_crowbar" :src="require('@/assets/images/tutorial/weapons/weaponusage/w_crowbar.png')" lazy></el-image>
+      <el-image alt="w_crowbar" :src="$asset('images/tutorial/weapons/weaponusage/w_crowbar.png')" lazy></el-image>
     </div>
     <p class="WpnImgCaption">武器w模</p>
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/Crowbar.gif')" alt="crowbar" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/Crowbar.gif')" alt="crowbar" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>
