@@ -35,7 +35,7 @@
       不同的人对鼠标的要求也是不一样的，但你依旧可以参考他人。
       以下是大部分被认为是"顶级玩家"使用的鼠标：
     </p>
-    <el-table class="mousetable" :data="mousebrandTable" border :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
+    <el-table class="mousetable" :data="mousebrandTable" border :header-cell-style="{ background: '#2a3123', color: '#f3f4ec' }" :cell-style="{ background: '#191c15', color: '#e7e9df' }">
       <el-table-column prop="player" label="玩家">
       </el-table-column>
       <el-table-column prop="brand" label="品牌">
@@ -117,7 +117,7 @@
     <p>
       以下是常驻玩家的灵敏度数据。
     </p>
-    <el-table class="mousetable" :data="sensTable" border :header-cell-style="{ background: '#4c5847', color: 'white' }" :cell-style="{ background: '#3e4537', color: 'white' }">
+    <el-table class="mousetable" :data="sensTable" border :header-cell-style="{ background: '#2a3123', color: '#f3f4ec' }" :cell-style="{ background: '#191c15', color: '#e7e9df' }">
       <el-table-column prop="player" label="玩家">
       </el-table-column>
       <el-table-column prop="dpi" label="dpi">

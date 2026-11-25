@@ -4,14 +4,14 @@
     <p class="WpnCode">武器代码：weapon_snark</p>
     <div class="SplitLine"></div>
     <div class="WpnDescrp">你不会指望这玩意能杀人吧</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_sqknest.png')" alt="w_sqknest" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_sqknest.png')" alt="w_sqknest" lazy></el-image></div>
     <p class="WpnImgCaption">蛇鲨巢，一份5颗</p>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_squeak.png')" alt="w_squeak" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_squeak.png')" alt="w_squeak" lazy></el-image></div>
     <p class="WpnImgCaption">放出来的蛇鲨</p>
 
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/snark.gif')" alt="snark" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/snark.gif')" alt="snark" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>

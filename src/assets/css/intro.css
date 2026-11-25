@@ -1,101 +1,172 @@
+/* ==========================================================================
+   开场页（Intro）— 适配窗口缩放的双栏布局
+   ========================================================================== */
+
+#screen {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 72px);
+  min-height: calc(100vh - var(--ag-header-h) - 140px);
+  padding: clamp(8px, 2vw, 24px) 0;
+  overflow: hidden;
+}
+
+.menu {
+  width: 100%;
+  min-width: 0;
+}
+
+/* 主标题 */
 #welcomehl {
-  width: 620px;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 0 clamp(10px, 2vw, 20px);
+  font-size: clamp(1.85rem, 4.4vw, 3.5rem);
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  color: #fff;
+  text-shadow: 1px 10px 10px rgba(255, 255, 255, 0.28),
+    -1px 10px 10px rgba(255, 255, 255, 0.28);
   animation: shake 20s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   animation-iteration-count: infinite;
-  text-shadow: 1px 10px 10px rgba(255, 255, 255, 0.75),
-    -1px 10px 10px rgba(255, 255, 255, 0.75);
+}
+
+#welcomehl sup {
+  font-size: 0.45em;
+  color: var(--ag-primary);
 }
 
 @keyframes shake {
-
   10%,
   90% {
-    transform: translate3d(-10px, 5px, 0);
+    transform: translate3d(-8px, 4px, 0);
   }
 
   20%,
   80% {
-    transform: translate3d(10px, -5px, 0);
+    transform: translate3d(8px, -4px, 0);
   }
 
   30%,
   50%,
   70% {
-    transform: translate3d(-10px, 5px, 0);
+    transform: translate3d(-6px, 3px, 0);
   }
 
   40%,
   60% {
-    transform: translate3d(10px, -5px, 0);
+    transform: translate3d(6px, -3px, 0);
   }
 }
 
+/* HEV 报时区域 */
 #time {
-  width: 670px;
-  position: absolute;
-  left: 60px;
-  margin-bottom: 30px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ffa500;
+  position: static;
+  width: 100%;
+  min-height: 1.8em;
+  margin: 0 0 14px;
+  font-size: clamp(0.95rem, 1.7vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--ag-primary);
 }
 
-#screen {
-  min-width: 1080px;
-  overflow: hidden;
+/* 菜单 */
+.menu ul {
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-a {
-  text-decoration: none;
-  color: #ffa500;
-}
-
-.menu {
-  width: 680px;
-  flex: 2;
-  bottom: 0;
-}
-
-.menu h1 {
-  text-align: left;
-  color: white;
-  margin: 190px 40px 40px;
-  font-size: 4rem;
+.menu li {
+  font-size: clamp(1.02rem, 1.9vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .menu a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 0;
   color: #fe7e21;
+  text-decoration: none;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.menu a::before {
+  content: "";
+  width: 0.55em;
+  height: 0.55em;
+  flex: 0 0 auto;
+  background: currentColor;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  opacity: 0.8;
 }
 
 .menu a:hover {
-  color: #ffc198;
+  color: var(--ag-primary-hover);
+  transform: translateX(4px);
 }
 
 .menu a:active {
   color: #fff2e9;
 }
 
-.menu ul {
-  display: inline-block;
-  list-style-type: none;
-}
-
-.menu li {
-  margin-top: 10px;
-  font-size: 2rem;
-  font-weight: bolder;
-}
-
+/* 右侧 Gordon */
 #gordonsmile {
-  flex: 1;
-  right: 0;
-  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
 }
 
 #gordonsmile .el-image {
-  width: 900px;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.55));
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 900px) {
+  #screen {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    min-height: auto;
+    padding: 20px 0 40px;
+    text-align: left;
+  }
+
+  #welcomehl {
+    max-width: 100%;
+  }
+
+  #gordonsmile {
+    order: -1;
+  }
+
+  #gordonsmile .el-image {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  #welcomehl {
+    font-size: 1.65rem;
+    text-shadow: none;
+  }
+
+  .menu li {
+    font-size: 1rem;
+  }
+
+  #gordonsmile .el-image {
+    max-width: 220px;
+  }
 }

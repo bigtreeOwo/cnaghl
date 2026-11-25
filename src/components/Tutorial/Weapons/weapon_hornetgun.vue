@@ -4,12 +4,12 @@
     <p class="WpnCode">武器代码：weapon_hornetgun</p>
     <div class="SplitLine"></div>
     <div class="WpnDescrp">来自XEN星的带有跟踪功能的生物武器。无聊的时候还可以调戏发射出来的蜜蜂，好用又好玩。最大弹药携带量为8发，随着时间推移会自动补充弹药。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_hgun.png')" alt="w_hgun" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_hgun.png')" alt="w_hgun" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
 
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/hornetgun.gif')" alt="hgun" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/hornetgun.gif')" alt="hgun" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>
@@ -19,7 +19,7 @@
 
     <div class="WpnSecdBlock">
 
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/hornetgun_2.gif')" alt="hgun_2" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/hornetgun_2.gif')" alt="hgun_2" lazy></el-image>
       <h1>次要攻击</h1>
       <div class="SplitLine"></div>
       <p>

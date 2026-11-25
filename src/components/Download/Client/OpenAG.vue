@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1><a href="https://openag.pro/" style="color: #ffa500" target="_blank">Openag(点我下载)</a></h1>
-    <el-image :src="require('@/assets/images/download/openag/OpenAG.png') " alt="openag" lazy></el-image>
+    <h1><a href="https://github.com/YaLTeR/OpenAG/releases" style="color: #ffa500" target="_blank">Openag(点我下载)</a></h1>
+    <el-image :src="$asset('images/download/openag/OpenAG.png') " alt="openag" lazy></el-image>
     <div>
       OpenAG是AG的开源客户端，是目前AG的主流版本。该版本在AG6.6的基础上加入了一系列功能，极大地提升了游戏体验，例如：
     </div>
@@ -25,7 +25,7 @@
       下载完成后解压其中的“ag”文件夹至你的半条命1根目录，与vavle文件夹以及hl.exe处于同一个目录
     </div>
     <br>
-    <el-image :src="require('@/assets/images/download/openag/OpenAGfolder.jpg')" alt="openagfolder" lazy></el-image>
+    <el-image :src="$asset('images/download/openag/OpenAGfolder.jpg')" alt="openagfolder" lazy></el-image>
     <br>
     <div>完成后在Steam游戏库中找到名为“OpenAG”的游戏，点击启动即可。</div>
   </div>

@@ -1,50 +1,60 @@
-.text {
-  font-size: 1.5rem !important;
-  color: white;
+/* ==========================================================================
+   游戏指令说明（Commands）— 去除固定高度与 min-width，代码块可横向滚动
+   ========================================================================== */
+
+.box-card h1 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.8rem);
+  color: var(--ag-primary);
 }
 
-.item {
-  padding: 10px 0 !important;
+.box-card h2 {
+  margin: 1.2em 0 0.5em;
+  font-size: clamp(1.05rem, 1.8vw, 1.28rem);
+  color: var(--ag-hazard);
 }
 
-.el-card {
-  color: white;
-  min-width: 1080px;
-}
-
-.box-card {
-  background: #3e4537;
-  min-width: 1080px;
-}
-
-.box-card .el-card__header {
-  background-color: #4b5745;
-  min-width: 1080px;
-  color: white;
-}
-
-.box-card .el-card__body {
-  background-color: #4b5745;
-  min-width: 1080px;
-  height: 300px;
-  overflow-y: scroll;
-}
-
-.Code {
-  width: auto;
-  height: auto;
+/* 代码 / 控制台输出块（pre、ul、div 共用） */
+.Code:not(.el-table) {
   display: block;
-  position: relative;
-  margin: auto;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  background-color: #4b5745;
-  font-size: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  border-radius: 5px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 16px auto;
+  padding: 14px 16px;
+  background: #0d0f0b;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius-sm);
+  font-family: var(--ag-font-mono);
+  font-size: clamp(0.8rem, 1.2vw, 0.94rem);
+  line-height: 1.8;
+  color: #d7e6c8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
 }
 
-.el-table__body tr:hover>td {
-  background-color: #958831 !important;
+ul.Code {
+  margin: 16px auto;
+  padding-left: 16px;
+  list-style: none;
+}
+
+ul.Code li {
+  margin-top: 10px;
+  color: var(--ag-primary);
+  font-family: var(--ag-font-sans);
+  font-weight: 700;
+}
+
+/* 表格形态的 Code 块 */
+.el-table.Code {
+  width: 100%;
+  margin: 16px 0;
+}
+
+@media (max-width: 768px) {
+  .Code:not(.el-table) {
+    padding: 12px;
+  }
 }

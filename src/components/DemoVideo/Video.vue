@@ -2,12 +2,12 @@
   <div>
     <h1>其他视频</h1>
     <el-card class="box-card">
-      <div slot="header">
+      <template #header><div>
         <h2>AG Movies</h2>
-      </div>
+      </div></template>
       <div class="flex-container">
         <div class="box" v-for="item in AGMovies" :key="item.id">
-          <a :href="biliBaseUrl + item.id" target="_blank"><el-image class="cover" :src="item.cover" alt="cover" lazy referrer="no-referrer|origin|unsafe-url"></el-image></a>
+          <a :href="biliBaseUrl + item.id" target="_blank"><el-image class="cover" :src="item.cover" alt="cover" lazy referrerpolicy="no-referrer|origin|unsafe-url"></el-image></a>
           <a :href="biliBaseUrl + item.id" target="_blank">
             <p class="title">{{ item.title }}</p>
           </a>
@@ -28,7 +28,7 @@ export default {
         "BV1T4411C7eK",
         "BV1t4411k7Aq",
         "BV1u4411C7wg",
-        "BV1ob411e7Uf",
+        "BV1T4411C7a1",
         "BV1t4411k7wK",
         "BV1aJ411N7tf",
         "BV1q4411y7zA",

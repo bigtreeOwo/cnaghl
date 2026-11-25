@@ -5,12 +5,12 @@
     <div class="SplitLine"></div>
     <div class="WpnDescrp">
       具有较为可观的爆炸伤害和范围的遥控炸弹，使用方法为放置一颗或多颗炸弹后使用遥控进行远程触发。可以埋在拐角处当老六，也可以直接扔到对手脸上当手雷使。最大携带量为5个。</div>
-    <div class="WpnImg"><el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/w_satchel.png')" alt="w_satchel" lazy></el-image></div>
+    <div class="WpnImg"><el-image :src="$asset('images/tutorial/weapons/weaponusage/w_satchel.png')" alt="w_satchel" lazy></el-image></div>
     <p class="WpnImgCaption">武器w模</p>
 
     <div class="SplitLine"></div>
     <div class="WpnPrimBlock">
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/satchel.gif')" alt="satchel" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/satchel.gif')" alt="satchel" lazy></el-image>
       <h1>主要攻击</h1>
       <div class="SplitLine"></div>
       <p>
@@ -20,7 +20,7 @@
 
     <div class="WpnSecdBlock">
 
-      <el-image :src="require('@/assets/images/tutorial/weapons/weaponusage/satchel_2.gif')" alt="satchel_2" lazy></el-image>
+      <el-image :src="$asset('images/tutorial/weapons/weaponusage/satchel_2.gif')" alt="satchel_2" lazy></el-image>
       <h1>次要攻击</h1>
       <div class="SplitLine"></div>
       <p>

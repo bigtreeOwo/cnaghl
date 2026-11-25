@@ -1,46 +1,73 @@
-#discription {
-  float: left;
-  width: 45%;
+/* ==========================================================================
+   客户端下载（Client）— 双栏栅格，窄屏自动堆叠
+   ========================================================================== */
+
+#client {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(18px, 3vw, 28px);
+  align-items: start;
 }
 
+#client > h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+#discription,
 #select {
-  float: right;
-  width: 50%;
-  background: pink;
+  float: none;
+  width: 100%;
+  min-width: 0;
 }
 
-.el-row {
-  margin: auto;
-  text-align: center;
+#discription .box-card,
+#select .box-card {
+  margin-bottom: 16px;
 }
 
-.el-button {
-  width: 150px;
-  background: #4b5745;
-  color: white;
-  border-radius: 0;
-  margin: 10px;
+#select .box-card > .el-card__body {
+  max-height: none;
+  overflow: visible;
 }
 
-.el-button.is-active,
-.el-button:active {
-  background: #ffa500;
-  color: white;
+#select .el-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0;
 }
 
-.el-button:hover,
-.el-button:focus {
-  background: #ffa500;
-  color: white;
+#select .el-button {
+  width: auto;
+  min-width: 118px;
+  margin: 0;
 }
 
-
-.text {
-  font-size: 1.5rem !important;
-  color: white;
+/* 详情页截图：限制在卡片宽度内，避免大图撑破布局 */
+#select .el-image,
+#discription .el-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 12px 0;
 }
 
-.item {
-  padding: 10px 0 !important;
+#select .el-image :deep(img),
+#discription .el-image :deep(img) {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
+#select :deep(p),
+#select :deep(div),
+#select :deep(li) {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  #client {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

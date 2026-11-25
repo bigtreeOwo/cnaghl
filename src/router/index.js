@@ -1,89 +1,118 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router';
 
 // Intro
-import Intro from '../components/Intro.vue'
+const Intro = () => import('../components/Intro.vue');
 
 // Index
-import Index from '../components/Index.vue'
+const Index = () => import('../components/Index.vue');
 
 // PlayAg
-import PlayAG from '@/components/PlayAG/PlayAG.vue'
+const PlayAG = () => import('@/components/PlayAG/PlayAG.vue');
 
 // Serverlist
-import Serverlist from '../components/Serverlist.vue'
+const Serverlist = () => import('../components/Serverlist.vue');
 
 // Video
-import MatchVideo from '@/components/DemoVideo/MatchVideo.vue'
-import Video from '@/components/DemoVideo/Video.vue'
+const MatchVideo = () => import('@/components/DemoVideo/MatchVideo.vue');
+const Video = () => import('@/components/DemoVideo/Video.vue');
 // Download
-import Model from '../components/Download/Model/Model.vue'
-import Sprite from '../components/Download/Sprite/Sprite.vue'
-import Wadtexture from '../components/Download/Wadtexture/Wadtexture.vue'
-import AGMODX from '../components/Download/Client/AGMODX.vue'
-import BugfixedHL from '../components/Download/Client/BugfixedHL.vue'
-import OpenAG from '../components/Download/Client/OpenAG.vue'
-import TrainingMod from '../components/Download/Client/TrainingMod.vue'
-import Client from '../components/Download/Client.vue'
+const Model = () => import('../components/Download/Model/Model.vue');
+const Sprite = () => import('../components/Download/Sprite/Sprite.vue');
+const Wadtexture = () =>
+  import('../components/Download/Wadtexture/Wadtexture.vue');
+const AGMODX = () => import('../components/Download/Client/AGMODX.vue');
+const BugfixedHL = () => import('../components/Download/Client/BugfixedHL.vue');
+const OpenAG = () => import('../components/Download/Client/OpenAG.vue');
+const TrainingMod = () =>
+  import('../components/Download/Client/TrainingMod.vue');
+const Client = () => import('../components/Download/Client.vue');
 
 // Tutorial Weapon
-import Weapon from '../components/Tutorial/Weapon.vue'
-import weapon_9mmAR from '../components/Tutorial/Weapons/weapon_9mmAR.vue'
-import weapon_9mmhandgun from '../components/Tutorial/Weapons/weapon_9mmhandgun.vue'
-import weapon_357 from '../components/Tutorial/Weapons/weapon_357.vue'
-import weapon_crossbow from '../components/Tutorial/Weapons/weapon_crossbow.vue'
-import weapon_crowbar from '../components/Tutorial/Weapons/weapon_crowbar.vue'
-import weapon_egon from '../components/Tutorial/Weapons/weapon_egon.vue'
-import weapon_gauss from '../components/Tutorial/Weapons/weapon_gauss.vue'
-import weapon_handgrenade from '../components/Tutorial/Weapons/weapon_handgrenade.vue'
-import weapon_hornetgun from '../components/Tutorial/Weapons/weapon_hornetgun.vue'
-import weapon_rpg from '../components/Tutorial/Weapons/weapon_rpg.vue'
-import weapon_satchel from '../components/Tutorial/Weapons/weapon_satchel.vue'
-import weapon_shotgun from '../components/Tutorial/Weapons/weapon_shotgun.vue'
-import weapon_snark from '../components/Tutorial/Weapons/weapon_snark.vue'
-import weapon_tripmine from '../components/Tutorial/Weapons/weapon_tripmine.vue'
+const Weapon = () => import('../components/Tutorial/Weapon.vue');
+const weapon_9mmAR = () =>
+  import('../components/Tutorial/Weapons/weapon_9mmAR.vue');
+const weapon_9mmhandgun = () =>
+  import('../components/Tutorial/Weapons/weapon_9mmhandgun.vue');
+const weapon_357 = () =>
+  import('../components/Tutorial/Weapons/weapon_357.vue');
+const weapon_crossbow = () =>
+  import('../components/Tutorial/Weapons/weapon_crossbow.vue');
+const weapon_crowbar = () =>
+  import('../components/Tutorial/Weapons/weapon_crowbar.vue');
+const weapon_egon = () =>
+  import('../components/Tutorial/Weapons/weapon_egon.vue');
+const weapon_gauss = () =>
+  import('../components/Tutorial/Weapons/weapon_gauss.vue');
+const weapon_handgrenade = () =>
+  import('../components/Tutorial/Weapons/weapon_handgrenade.vue');
+const weapon_hornetgun = () =>
+  import('../components/Tutorial/Weapons/weapon_hornetgun.vue');
+const weapon_rpg = () =>
+  import('../components/Tutorial/Weapons/weapon_rpg.vue');
+const weapon_satchel = () =>
+  import('../components/Tutorial/Weapons/weapon_satchel.vue');
+const weapon_shotgun = () =>
+  import('../components/Tutorial/Weapons/weapon_shotgun.vue');
+const weapon_snark = () =>
+  import('../components/Tutorial/Weapons/weapon_snark.vue');
+const weapon_tripmine = () =>
+  import('../components/Tutorial/Weapons/weapon_tripmine.vue');
 
 // Tutorial Command
-import Commands from '../components/Tutorial/Commands.vue'
+const Commands = () => import('../components/Tutorial/Commands.vue');
 
 // Tutorial BasicSkills
-import BasicSkill from '../components/Tutorial/BasicSkill.vue'
-import Devicesetting from '../components/Tutorial/BasicSkills/Devicesetting.vue'
-import Dropweapon from '../components/Tutorial/BasicSkills/Dropweapon.vue'
-import Fasterswitch from '../components/Tutorial/BasicSkills/Fasterswitch.vue'
-import Gausstrick from '../components/Tutorial/BasicSkills/Gausstrick.vue'
-import Headshot from '../components/Tutorial/BasicSkills/Headshot.vue'
-import Longjump from '../components/Tutorial/BasicSkills/Longjump.vue'
-import Quickbow from '../components/Tutorial/BasicSkills/Quickbow.vue'
+const BasicSkill = () => import('../components/Tutorial/BasicSkill.vue');
+const Devicesetting = () =>
+  import('../components/Tutorial/BasicSkills/Devicesetting.vue');
+const Dropweapon = () =>
+  import('../components/Tutorial/BasicSkills/Dropweapon.vue');
+const Fasterswitch = () =>
+  import('../components/Tutorial/BasicSkills/Fasterswitch.vue');
+const Gausstrick = () =>
+  import('../components/Tutorial/BasicSkills/Gausstrick.vue');
+const Headshot = () =>
+  import('../components/Tutorial/BasicSkills/Headshot.vue');
+const Longjump = () =>
+  import('../components/Tutorial/BasicSkills/Longjump.vue');
+const Quickbow = () =>
+  import('../components/Tutorial/BasicSkills/Quickbow.vue');
 
 // Tutorial AdvancedSkills
-import AdvancedSkill from '../components/Tutorial/AdvancedSkill.vue'
-import Bunnyhop from '../components/Tutorial/AdvancedSkills/Bunnyhop.vue'
-import Gaussjump from '../components/Tutorial/AdvancedSkills/Gaussjump.vue'
-import Spawnpoint from '../components/Tutorial/AdvancedSkills/Spawnpoint.vue'
+const AdvancedSkill = () => import('../components/Tutorial/AdvancedSkill.vue');
+const Bunnyhop = () =>
+  import('../components/Tutorial/AdvancedSkills/Bunnyhop.vue');
+const Gaussjump = () =>
+  import('../components/Tutorial/AdvancedSkills/Gaussjump.vue');
+const Spawnpoint = () =>
+  import('../components/Tutorial/AdvancedSkills/Spawnpoint.vue');
 
-import Mapknowledge from '../components/Tutorial/AdvancedSkills/Mapknowledge.vue'
+const Mapknowledge = () =>
+  import('../components/Tutorial/AdvancedSkills/Mapknowledge.vue');
 
 //MapKnowledge maps
-import Crossfire from '../components/Tutorial/AdvancedSkills/MapStrategy/Crossfire.vue'
-import Lost_village2 from '../components/Tutorial/AdvancedSkills/MapStrategy/Lost_village2.vue'
-import Stalkx from '../components/Tutorial/AdvancedSkills/MapStrategy/Stalkx.vue'
-import Stalkyard from '../components/Tutorial/AdvancedSkills/MapStrategy/Stalkyard.vue'
+const Crossfire = () =>
+  import('../components/Tutorial/AdvancedSkills/MapStrategy/Crossfire.vue');
+const Lost_village2 = () =>
+  import('../components/Tutorial/AdvancedSkills/MapStrategy/Lost_village2.vue');
+const Stalkx = () =>
+  import('../components/Tutorial/AdvancedSkills/MapStrategy/Stalkx.vue');
+const Stalkyard = () =>
+  import('../components/Tutorial/AdvancedSkills/MapStrategy/Stalkyard.vue');
 
 // Tournament
-import Tournament from '../components/Tournament.vue'
+const Tournament = () => import('../components/Tournament.vue');
 
 // 登录注册
-import Login from '../components/Login/Login.vue'
-import Register from '../components/Register/Register.vue'
+const Login = () => import('../components/Login/Login.vue');
+const Register = () => import('../components/Register/Register.vue');
 
 //401 403
-import Auth from '../components/Auth.vue'
-import NotFound from '../components/NotFound.vue'
+const Auth = () => import('../components/Auth.vue');
+const NotFound = () => import('../components/NotFound.vue');
 
-Vue.use(VueRouter)
-const router = new VueRouter({
-  mode: 'history',
+const router = createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -364,51 +393,60 @@ const router = new VueRouter({
       components: { main: NotFound },
     },
   ],
-})
+});
+
+// 页面标题映射（按前缀匹配，具体路径优先）
+const TITLE_MAP = {
+  '/intro': 'CN-AGHL',
+  '/index': '主页 - CN-AGHL',
+  '/playag': '开始玩AG - CN-AGHL',
+  '/server': '服务器列表 - CN-AGHL',
+  '/matchvideo': '比赛视频 - CN-AGHL',
+  '/video': '其他视频 - CN-AGHL',
+  '/tournament': '赛事 - CN-AGHL',
+  '/login': '登录 - CN-AGHL',
+  '/register': '注册 - CN-AGHL',
+  '/model': '自定义模型 - CN-AGHL',
+  '/sprite': '自定义spr - CN-AGHL',
+  '/wadtexture': '自定义纹理 - CN-AGHL',
+  '/client': '游戏客户端 - CN-AGHL',
+  '/commands': '游戏指令说明 - CN-AGHL',
+  '/weapon': '武器使用 - CN-AGHL',
+  '/basicskill': '基础技巧 - CN-AGHL',
+  '/advancedskill': '进阶技巧 - CN-AGHL',
+};
+
+router.afterEach((to) => {
+  let title = 'CN-AGHL';
+  // 先尝试精确匹配，再退化为最长前缀匹配
+  if (TITLE_MAP[to.path]) {
+    title = TITLE_MAP[to.path];
+  } else {
+    const matchedPrefix = Object.keys(TITLE_MAP)
+      .filter((prefix) => prefix !== '/' && to.path.startsWith(prefix))
+      .sort((a, b) => b.length - a.length)[0];
+    if (matchedPrefix) title = TITLE_MAP[matchedPrefix];
+  }
+  document.title = title;
+});
 
 router.beforeEach((to, from, next) => {
-  // console.log(to.path);
-  // console.log(from.path);
-  // console.log(localStorage.getItem('user-token'));
-
-  let needLoginPaths = ['/playag']; // 需要登录查看的页面路径
-  let noLoginPaths = ['/login', '/register']; // 登录后不能访问的页面
-
-  // if (
-  //   needLoginPaths.includes(to.path) &&
-  //   localStorage.getItem('user-token') === null
-  // ) {
-  //   console.log('权限验证不通过')
-  //   next('/403')
-  // } else {
-  //   console.log('权限验证通过')
-  //   next()
-  // }
-
-  // if (
-  //   noLoginPaths.includes(to.path) &&
-  //   localStorage.getItem('user-token') !== null
-  // ) {
-  //   console.log("已登录但尝试访问登陆页面");
-  //   next('/index')
-  // }
+  const needLoginPaths = ['/playag']; // 需要登录查看的页面路径
+  const noLoginPaths = ['/login', '/register']; // 登录后不能访问的页面
 
   if (
     needLoginPaths.includes(to.path) &&
     localStorage.getItem('user-token') === null
   ) {
-    // console.log('权限验证不通过');
     next('/403');
   } else if (
     noLoginPaths.includes(to.path) &&
     localStorage.getItem('user-token') !== null
   ) {
-    // console.log('已登录但尝试访问登陆页面');
     next('/index');
   } else {
-    // console.log('权限验证通过');
     next();
   }
-})
+});
 
-export default router
+export default router;

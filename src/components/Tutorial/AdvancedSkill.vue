@@ -1,23 +1,23 @@
 <template>
   <div>
     <el-card class="box-card">
-      <div slot="header">
+      <template #header><div>
         <h1>进阶技巧</h1>
-      </div>
+      </div></template>
 
       <div id="skillnav">
         <el-menu default-active="/advancedskill/bunnyhop" @open="handleOpen" @close="handleClose" router>
           <el-menu-item index="/advancedskill/bunnyhop">
-            <span slot="title">连跳</span>
+            <template #title><span>连跳</span></template>
           </el-menu-item>
           <el-menu-item index="/advancedskill/gaussjump">
-            <span slot="title">高斯跳</span>
+            <template #title><span>高斯跳</span></template>
           </el-menu-item>
           <el-menu-item index="/advancedskill/spawnpoint">
-            <span slot="title">重生点</span>
+            <template #title><span>重生点</span></template>
           </el-menu-item>
           <el-menu-item index="/advancedskill/Mapknowledge">
-            <span slot="title">地图攻略</span>
+            <template #title><span>地图攻略</span></template>
           </el-menu-item>
         </el-menu>
         <div id="skilldescription">

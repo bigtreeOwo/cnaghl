@@ -1,22 +1,55 @@
-.mapselect {
+/* ==========================================================================
+   地图攻略（Mapknowledge）— 地图选择条与示意图自适应
+   ========================================================================== */
+
+.mapselect.el-menu {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0;
+  background: transparent !important;
+  border: none;
+}
+
+.mapselect .map {
+  height: 40px;
+  line-height: 40px;
+  margin: 0;
+  padding: 0 18px;
+  border: 1px solid var(--ag-border);
+  border-radius: 8px;
+  background: var(--ag-surface-2) !important;
+  color: var(--ag-text-muted) !important;
+  font-size: 0.94rem;
+  transition: border-color 0.16s ease, color 0.16s ease,
+    background-color 0.16s ease;
+}
+
+.mapselect .map:hover,
+.mapselect .map:focus {
+  border-color: var(--ag-primary);
+  background: rgba(255, 156, 26, 0.12) !important;
+  color: var(--ag-primary) !important;
+}
+
+.mapselect .map.is-active {
+  border-color: var(--ag-primary) !important;
+  background: rgba(255, 156, 26, 0.18) !important;
+  color: var(--ag-primary) !important;
+  font-weight: 600;
 }
 
 a {
+  color: var(--ag-primary);
   text-decoration: none;
-  color: white;
-}
-
-.map {
-  border: 1px solid white;
-  border-radius: 10px;
 }
 
 .respawnpoint {
-  width: 40vw;
-  margin: auto 20% !important;
+  display: block;
+  width: min(100%, 760px);
+  margin: 16px auto !important;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  overflow: hidden;
 }

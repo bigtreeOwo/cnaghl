@@ -5,7 +5,7 @@
       AG中的许多武器是有攻击后摇的，例如9mmAR的榴弹、十字弩等。因此为了填补攻击后摇带来的火力空窗期，玩家往往会换出其他武器进行攻击。然而<span style="font-weight: bold;">使用默认的武器切换方式实在是太慢太麻烦了</span>，例如在满装备下要切出蜂巢枪，则要按4下“4”键才能切换，这将会让你在比赛中吃大亏。所以学会快速切枪是很有必要的。下图展示的是依次使用榴弹、RPG、霰弹枪、十字弩和357左轮来轮番对敌人进行输出。
     </p>
 
-    <el-image :src="require('@/assets/images/tutorial/basicskills/FS.gif')" alt="FS" lazy></el-image>
+    <el-image :src="$asset('images/tutorial/basicskills/FS.gif')" alt="FS" lazy></el-image>
     <p class="ImgCaption">
       图：丝滑小连招带走敌人
     </p>

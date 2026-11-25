@@ -1,256 +1,338 @@
-.el-menu {
-  width: 10%;
-  float: left;
-  background: #3e4537;
-  border: white 1px solid;
+/* ==========================================================================
+   进阶技巧（AdvancedSkill + AdvancedSkills/*）— 侧栏 + 内容自适应布局
+   ========================================================================== */
+
+#skillnav {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: clamp(16px, 2.5vw, 28px);
+  align-items: start;
+  width: 100%;
 }
 
-.el-menu-item {
-  background: #4b5745;
-  border: white 1px solid;
-  margin-top: 10px;
-  color: white;
+#skillnav .el-menu {
+  width: 100%;
+  float: none;
+  padding: 8px;
+  background: var(--ag-surface);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  position: sticky;
+  top: calc(var(--ag-header-h) + 16px);
+}
+
+#skillnav .el-menu-item {
+  height: 44px;
+  line-height: 44px;
+  margin: 4px 0;
+  padding: 0 12px !important;
+  border: 1px solid transparent;
+  border-radius: var(--ag-radius-sm);
+  background: transparent;
+  color: var(--ag-text-muted);
   text-align: center;
-  font-size: medium;
+  font-size: 0.95rem;
+  transition: background-color 0.16s ease, color 0.16s ease,
+    border-color 0.16s ease;
 }
 
-.el-submenu__title:hover,
-.el-menu-item:focus,
-.el-menu-item:hover {
-  background-color: #ffa500 !important;
-  color: white !important;
-  box-shadow: 2px 2px 10px !important;
+#skillnav .el-menu-item:hover,
+#skillnav .el-menu-item:focus {
+  background-color: rgba(255, 156, 26, 0.12) !important;
+  color: #fff !important;
+  border-color: rgba(255, 156, 26, 0.35);
+  box-shadow: none !important;
 }
 
-.el-menu .el-menu-item.is-active {
-  background-color: #ffa500 !important;
-  color: white !important;
-  border-bottom-color: #ffa500 !important;
-}
-
-.el-submenu .el-submenu__title {
-  color: white !important;
+#skillnav .el-menu .el-menu-item.is-active {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 156, 26, 0.24),
+    rgba(255, 156, 26, 0.05)
+  ) !important;
+  color: var(--ag-primary) !important;
+  border-color: rgba(255, 156, 26, 0.5) !important;
+  font-weight: 600;
 }
 
 #skilldescription {
-  width: 80%;
-  margin-left: 15vw;
-  border-radius: 5px;
-  border: #ffffff 2px solid;
-  background: #4b5745;
+  width: 100%;
+  min-width: 0;
+  margin-left: 0;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  background: var(--ag-surface-2);
+  overflow: hidden;
 }
 
 #skilldescription:hover {
-  box-shadow: 4px 4px 15px;
+  border-color: var(--ag-border-strong);
 }
 
-#Spawnpointexample {
-  height: 800px;
-  width: 100%;
+/* ===== 技巧正文 ===== */
+.AGTricksContent {
   position: relative;
-  background: url('@/assets/images/tutorial/advancedskills/spawn/spawnpointexample.png')
-    no-repeat;
-  background-size: contain;
-  margin-left: 300px;
-  /* border: 1px solid white; */
+  padding: clamp(16px, 2.6vw, 30px);
+  overflow: hidden;
 }
 
-#Spawnpointexample button {
-  float: left;
+.AGTricksContent h1 {
+  margin: 0 0 18px;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  text-align: center;
+  color: var(--ag-primary);
 }
 
-#Spawnpointexample #currentspawn {
-  position: absolute;
-  font-size: 1.5rem;
-  left: 800px;
-  top: 580px;
+.AGTricksContent h2 {
+  margin: 1.2em 0 0.6em;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  color: var(--ag-hazard);
 }
 
-#Spawnpointexample #predictspawn {
-  position: absolute;
-  font-size: 1.5rem;
-  left: 700px;
-  top: 650px;
+.AGTricksContent p {
+  margin: 0 0 12px;
+  font-size: clamp(0.95rem, 1.35vw, 1.06rem);
+  line-height: 1.9;
+  color: #dfe2d6;
+}
+
+.AGTricksContent hr {
+  margin: 22px 0;
+}
+
+.AGTricksContent .el-image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 14px auto;
+  overflow: hidden;
+  border-radius: var(--ag-radius-sm);
+  background-color: #0d0f0b;
+}
+
+.AGTricksContent .ImgCaption {
+  display: block;
+  margin: 6px auto 18px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--ag-text-muted);
+}
+
+.AGTricksContent .Code {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 18px auto;
+  padding: 14px 16px;
+  background-color: #0d0f0b;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius-sm);
+  font-family: var(--ag-font-mono);
+  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  line-height: 1.8;
+  color: #d7e6c8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+/* ===== 重生点演示例图 =====
+   图片实际尺寸 742×886，坐标按原 800×800 设计画布换算为百分比，
+   容器保持图片原始比例，标记点才能与地图严格对齐 */
+#Spawnpointexample {
+  position: relative;
+  width: min(100%, 742px);
+  aspect-ratio: 742 / 886;
+  height: auto;
+  margin: clamp(16px, 3vw, 28px) auto;
+  background: url("@/assets/images/tutorial/advancedskills/spawn/spawnpointexample.png")
+    no-repeat center / 100% 100%;
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius-sm);
+  overflow: hidden;
 }
 
 .point {
-  background: transparent;
   position: absolute;
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
   display: none;
+  margin: 0;
+  padding: 0 4px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-family: inherit;
+  font-size: clamp(12px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .currentpos {
-  display: inline;
-  border: 5px solid red;
+  display: inline-block;
+  border: 3px solid #ff4d4d;
+  border-radius: 4px;
   cursor: pointer;
 }
 
 .predictpos {
-  display: inline;
-  border: 5px solid green;
+  display: inline-block;
+  border: 3px solid #4ade80;
+  border-radius: 4px;
 }
 
+#Spawnpointexample #currentspawn,
+#Spawnpointexample #predictspawn {
+  position: absolute;
+  margin: 0;
+  max-width: 62%;
+  font-size: clamp(0.68rem, 1.6vw, 0.95rem);
+  line-height: 1.5;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.62);
+  padding: 2px 8px;
+  border-radius: 4px;
+  white-space: normal;
+}
+
+#Spawnpointexample #currentspawn {
+  left: 2%;
+  top: auto;
+  bottom: 8%;
+}
+
+#Spawnpointexample #predictspawn {
+  left: 2%;
+  top: auto;
+  bottom: 2%;
+}
+
+/* 重生点百分比坐标（基于原 800 x 800 设计画布换算） */
 #Spawnpointexample :nth-child(1) {
-  left: 490px;
-  top: 370px;
+  left: 61.25%;
+  top: 46.25%;
 }
 
 #Spawnpointexample :nth-child(2) {
-  left: 420px;
-  top: 660px;
+  left: 52.5%;
+  top: 82.5%;
 }
 
 #Spawnpointexample :nth-child(3) {
-  left: 10px;
-  top: 755px;
+  left: 1.25%;
+  top: 94.375%;
 }
 
 #Spawnpointexample :nth-child(4) {
-  left: 125px;
-  top: 470px;
+  left: 15.625%;
+  top: 58.75%;
 }
 
 #Spawnpointexample :nth-child(5) {
-  left: 190px;
-  top: 190px;
+  left: 23.75%;
+  top: 23.75%;
 }
 
 #Spawnpointexample :nth-child(6) {
-  left: 250px;
-  top: 190px;
+  left: 31.25%;
+  top: 23.75%;
 }
 
 #Spawnpointexample :nth-child(7) {
-  left: 235px;
-  top: 660px;
+  left: 29.375%;
+  top: 82.5%;
 }
 
 #Spawnpointexample :nth-child(8) {
-  left: 95px;
-  top: 760px;
+  left: 11.875%;
+  top: 95%;
 }
 
 #Spawnpointexample :nth-child(9) {
-  left: 170px;
-  top: 10px;
+  left: 21.25%;
+  top: 1.25%;
 }
 
 #Spawnpointexample :nth-child(10) {
-  left: 270px;
-  top: 140px;
+  left: 33.75%;
+  top: 17.5%;
 }
 
 #Spawnpointexample :nth-child(11) {
-  left: 10px;
-  top: 80px;
+  left: 1.25%;
+  top: 10%;
 }
 
 #Spawnpointexample :nth-child(12) {
-  left: 10px;
-  top: 355px;
+  left: 1.25%;
+  top: 44.375%;
 }
 
 #Spawnpointexample :nth-child(13) {
-  left: 10px;
-  top: 390px;
+  left: 1.25%;
+  top: 48.75%;
 }
 
 #Spawnpointexample :nth-child(14) {
-  left: 10px;
-  top: 270px;
+  left: 1.25%;
+  top: 33.75%;
 }
 
 #Spawnpointexample :nth-child(15) {
-  left: 340px;
-  top: 0px;
+  left: 42.5%;
+  top: 0%;
 }
 
 #Spawnpointexample :nth-child(16) {
-  left: 520px;
-  top: 275px;
+  left: 65%;
+  top: 34.375%;
 }
 
 #Spawnpointexample :nth-child(17) {
-  left: 545px;
-  top: 90px;
+  left: 68.125%;
+  top: 11.25%;
 }
 
-.AGTricksContent {
-  position: relative;
-  padding-bottom: 10px;
-  overflow: hidden;
+/* ===== 响应式 ===== */
+@media (max-width: 900px) {
+  #skillnav {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #skillnav .el-menu {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  #skillnav .el-menu-item {
+    flex: 1 1 calc(33.333% - 6px);
+    min-width: 120px;
+    margin: 0;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 8px !important;
+    font-size: 0.9rem;
+  }
 }
 
-.AGTricksContent p {
-  margin-left: 1rem;
-  margin-bottom: 10px;
-  font-family: 微软雅黑;
-  font-size: 1.5rem;
-}
+@media (max-width: 520px) {
+  #skillnav .el-menu-item {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 0;
+  }
 
-.AGTricksContent .el-image {
-  width: 350px;
-  height: 315px;
-  display: block;
-  position: relative;
-  margin: auto;
-  overflow: hidden;
-  background-color: black;
-}
+  .AGTricksContent {
+    padding: 14px;
+  }
 
-.AGTricksContent .ImgCaption {
-  display: inline-block;
-  position: relative;
-  margin: 10px 10px 10px 625px;
-  font-family: 微软雅黑;
-  font-size: 16px;
-  text-align: center;
-}
-
-.AGTricksContent .Code {
-  width: 900px;
-  height: auto;
-  display: block;
-  position: relative;
-  margin: auto;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-bottom: 10px;
-  background-color: black;
-  font-size: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  border-radius: 5px;
-}
-
-.text {
-  font-size: 1.5rem !important;
-  color: white;
-}
-
-.item {
-  padding: 10px 0 !important;
-}
-
-.el-card {
-  color: white;
-  min-width: 1080px;
-}
-
-.box-card {
-  background: #3e4537;
-  min-width: 1080px;
-}
-
-.box-card .el-card__header {
-  background-color: #4b5745;
-  color: white;
-}
-
-.box-card .el-card__body {
-  background-color: #3e4537;
-  color: white;
-  height: auto;
+  #Spawnpointexample #currentspawn,
+  #Spawnpointexample #predictspawn {
+    white-space: normal;
+    max-width: 46%;
+  }
 }

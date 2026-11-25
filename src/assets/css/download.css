@@ -1,179 +1,248 @@
+/* ==========================================================================
+   下载页（Model / Sprite / Wadtexture）— 卡片式栅格，随窗口缩放自适应
+   ========================================================================== */
+
+/* ===== 横向资源卡（模型 / spr） ===== */
 .ItemBlockMdl {
-  width: 1200px;
-  height: 250px;
-  position: relative;
-  left: 50%;
-  margin-left: -600px;
-  margin-bottom: 35px;
-  background-color: #4b5745;
-  border: #ffffff 2px solid;
+  display: grid;
+  grid-template-columns: minmax(0, 200px) minmax(0, 1fr) 56px;
+  grid-template-rows: auto auto auto;
+  gap: 8px clamp(16px, 2.5vw, 26px);
+  align-items: start;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto 22px;
+  padding: clamp(14px, 2.4vw, 22px);
+  background: var(--ag-surface-2);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  transition: border-color 0.18s ease, transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .ItemBlockMdl:hover {
-  box-shadow: 4px 4px 15px;
+  border-color: var(--ag-border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--ag-shadow-sm);
 }
 
 .ItemBlockMdl .ImgDiv {
-  width: 230px;
-  height: 230px;
-  display: inline-block;
-  margin-left: 10px;
-  margin-top: 10px;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  width: 100%;
+  height: 200px;
+  margin: 0;
+  border-radius: var(--ag-radius-sm);
   overflow: hidden;
-  background-color: brown;
+  background-color: #0d0f0b;
+}
+
+.ItemBlockMdl .ImgDiv img,
+.ItemBlockMdl .ImgDiv :deep(img) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .ItemBlockMdl .ItemTitle {
-  display: inline-block;
-  position: absolute;
-  width: 600px;
-  height: 30px;
-  margin-left: 50px;
-  margin-top: 25px;
-  font-family: "微软雅黑";
-  font-size: 35px;
+  grid-column: 2;
+  grid-row: 1;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--ag-primary);
 }
 
 .ItemBlockMdl .SplitLine {
-  display: inline-block;
-  position: absolute;
-  width: 850px;
-  height: 4px;
-  margin-left: 50px;
-  margin-top: 80px;
-  background-color: #3e4537;
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  background: var(--ag-border-strong);
 }
 
 .ItemBlockMdl .ItemDesrcp {
-  display: inline-block;
-  position: absolute;
-  width: 850px;
-  height: 30px;
-  margin-left: 70px;
-  margin-top: 100px;
-  font-family: "微软雅黑";
-  font-size: 18px;
+  grid-column: 2;
+  grid-row: 3;
+  width: auto;
+  height: auto;
+  margin: 4px 0 0;
+  font-size: clamp(0.9rem, 1.3vw, 0.98rem);
+  line-height: 1.8;
+  color: #d8dbce;
+}
+
+.ItemBlockMdl .ItemDesrcp a {
+  color: var(--ag-primary);
+}
+
+.ItemBlockMdl > a {
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: center;
+  justify-self: center;
 }
 
 .ItemBlockMdl .DLButton {
-  display: inline-block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 870px;
-  margin-top: 180px;
-  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  margin: 0;
   background-image: url("@/assets/images/download/DLbutton.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: transform 0.18s ease, filter 0.18s ease;
 }
 
 .ItemBlockMdl .DLButton:hover {
   background-image: url("@/assets/images/download/DLbutton2.png");
+  transform: scale(1.08);
 }
 
+/* ===== 纹理资源卡（多图） ===== */
 .ItemBlockWad {
-  width: 1200px;
-  height: 500px;
-  position: relative;
-  left: 50%;
-  margin-left: -600px;
-  margin-bottom: 35px;
-  background-color: #4b5745;
-  border: #ffffff 2px solid;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px clamp(12px, 2vw, 20px);
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto 26px;
+  padding: clamp(14px, 2.4vw, 24px);
+  background: var(--ag-surface-2);
+  border: 1px solid var(--ag-border);
+  border-radius: var(--ag-radius);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .ItemBlockWad:hover {
-  box-shadow: 4px 4px 15px;
+  border-color: var(--ag-border-strong);
+  box-shadow: var(--ag-shadow-sm);
 }
 
 .ItemBlockWad .ImgDiv {
-  width: 360px;
-  height: 216px;
-  display: inline-block;
-  margin-left: 27px;
-  margin-top: 20px;
-  overflow: hidden;
-  background-color: brown;
-}
-
-.ItemBlockWad img {
-  width: 360px;
+  flex: 0 1 300px;
+  width: 300px;
+  max-width: 100%;
   height: auto;
+  aspect-ratio: 5 / 3;
+  margin: 0;
+  border-radius: var(--ag-radius-sm);
+  overflow: hidden;
+  background-color: #0d0f0b;
 }
 
-.ItemBlockWad .SplitLine {
+.ItemBlockWad .ImgDiv img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  position: absolute;
-  width: 1000px;
-  height: 4px;
-  margin-left: 100px;
-  margin-top: 80px;
-  background-color: #3e4537;
 }
 
 .ItemBlockWad .ItemTitle {
-  display: block;
-  position: absolute;
-  width: 1200px;
-  height: 30px;
-  margin-top: 20px;
-  font-family: "微软雅黑";
-  font-size: 35px;
-  text-align: center;
+  flex: 1 1 100%;
+  order: 2;
+  width: auto;
+  height: auto;
+  margin: 6px 0 0;
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  line-height: 1.4;
+  color: var(--ag-primary);
+}
+
+.ItemBlockWad .SplitLine {
+  flex: 1 1 100%;
+  order: 3;
+  width: 100%;
+  height: 1px;
+  margin: 0;
+  background: var(--ag-border-strong);
 }
 
 .ItemBlockWad .ItemDesrcp {
-  display: block;
-  position: absolute;
-  width: 900px;
-  height: 30px;
-  margin-left: 150px;
-  margin-top: 100px;
-  font-family: "微软雅黑";
-  font-size: 18px;
+  flex: 1 1 100%;
+  order: 4;
+  width: auto;
+  height: auto;
+  margin: 0;
+  font-size: clamp(0.9rem, 1.3vw, 0.98rem);
+  line-height: 1.8;
+  color: #d8dbce;
+}
+
+.ItemBlockWad .ItemDesrcp a {
+  color: var(--ag-primary);
+}
+
+.ItemBlockWad > a {
+  order: 5;
+  margin-left: auto;
 }
 
 .ItemBlockWad .DLButton {
-  display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  margin-left: 1120px;
-  margin-top: 190px;
-  overflow: hidden;
+  width: 48px;
+  height: 48px;
+  margin: 0;
   background-image: url("@/assets/images/download/DLbutton.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: transform 0.18s ease;
 }
 
 .ItemBlockWad .DLButton:hover {
   background-image: url("@/assets/images/download/DLbutton2.png");
+  transform: scale(1.08);
 }
 
+/* ===== 响应式 ===== */
+@media (max-width: 760px) {
+  .ItemBlockMdl {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    grid-template-rows: auto auto auto auto;
+  }
 
-.text {
-  font-size: 1.5rem !important;
-  color: white;
+  .ItemBlockMdl .ImgDiv {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .ItemBlockMdl .ItemTitle {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .ItemBlockMdl .SplitLine {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .ItemBlockMdl .ItemDesrcp {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+
+  .ItemBlockMdl > a {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .ItemBlockWad .ImgDiv {
+    flex: 1 1 calc(50% - 10px);
+    width: calc(50% - 10px);
+  }
 }
 
-.item {
-  padding: 10px 0 !important;
-}
-
-.el-card {
-  color: white;
-  min-width: 900px;
-}
-
-.box-card {
-  background: #3e4537;
-  min-width: 1080px;
-}
-
-.box-card .el-card__header {
-  background-color: #4b5745;
-  color: white;
-}
-
-.box-card .el-card__body {
-  background-color: #3e4537;
-  color: white;
-  height: auto;
+@media (max-width: 480px) {
+  .ItemBlockWad .ImgDiv {
+    flex: 1 1 100%;
+    width: 100%;
+  }
 }
