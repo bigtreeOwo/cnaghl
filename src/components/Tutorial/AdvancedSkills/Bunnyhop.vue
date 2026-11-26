@@ -49,6 +49,31 @@
       <br>
       <strong style="color:red">view_angle</strong>和<strong style="color:blue">wishdir</strong>之间的夹角只能是0°、45°、90°、135°、180°的其中一种角度
     </p>
+    <p>
+      <strong style="color: red">3.1 引擎限制的是“投影”，不是速度本身</strong>
+      <br>
+      每一个物理帧中，引擎只检查当前速度在 wishdir 上的投影（点乘）：<code>proj = vel · wishdir</code>。
+      只要投影小于服务器允许的最大速度（AG 中为 320 u/s），就允许沿 wishdir 补上一段加速度，
+      补的量由剩余空间和本帧最大加速度共同决定：
+    </p>
+    <pre class="bunnyhop-formula">addspeed = clamp(RUN_SPEED - dot(vel, wishdir), 0, MAX_ACCEL × frametime)
+vel     = vel + wishdir × addspeed</pre>
+    <p>
+      因此被限制的只是“速度在输入方向上的分量”，速度的模长完全可以超过 320，这正是连跳能不断提速的原因。
+      在锐角范围内，wishdir 与 vel 的夹角越接近 90°，投影越小、可补的加速度越大；一旦夹角超过 90°，新速度会偏离原方向，模长反而下降。
+      而 wishdir 始终垂直于 view_angle，所以必须让鼠标与 A/D 同步转动，才能把 wishdir 一直“斜着”压在速度的前侧。
+      <br>
+      <span class="bunnyhop-source__inline">引用来源：Adrian Biagioli（Flafla2）《Bunnyhopping from the Programmer's Perspective》，2015-02-14</span>
+    </p>
+    <p>
+      <strong style="color: red">3.2 摩擦与“落地即起跳”</strong>
+      <br>
+      贴地时，引擎每帧都会按摩擦系数削减速度：<code>drop = speed × friction × frametime</code>。
+      据该文说明，在落地的那一帧引擎不会施加摩擦，玩家只有在这一帧内按下跳跃，才能带着空中获得的速度重新起跳；
+      一旦错过，就会先被地面摩擦减速。连跳之所以难，正是因为要精确卡住这一帧；自动连跳（一直按住空格）就是替你稳定地卡帧。
+      <br>
+      <span class="bunnyhop-source__inline">引用来源：Adrian Biagioli（Flafla2）《Bunnyhopping from the Programmer's Perspective》，2015-02-14</span>
+    </p>
 
     <!-- 动态示意图：按 A/D 并同向转动视角，wishdir 与视角垂直，速度持续增加 -->
     <div class="bunnyhop-demo">
@@ -92,6 +117,26 @@
         示意图（循环播放）：按 A/D 的同时向同一方向转动鼠标，wishdir 始终垂直于视角并保持与速度成锐角；
         空中不按 W，速度的大小和方向随之改变，达到设定的目标速度后重新播放
       </p>
+    </div>
+
+    <!-- 原理内容引用来源，醒目展示，避免与正文混淆 -->
+    <div class="bunnyhop-source">
+      <p class="bunnyhop-source__title">引用来源（本页原理内容出处）</p>
+      <ul>
+        <li>
+          Adrian Biagioli（Flafla2）.
+          <a href="https://adrianb.io/2015/02/14/bunnyhop.html" target="_blank" rel="noopener noreferrer">
+            《Bunnyhopping from the Programmer's Perspective》
+          </a>
+          .2015-02-14.本页 3.1、3.2 中关于“只限制速度在输入方向上的投影”“向量投影与点乘”“摩擦只在贴地时施加、落地帧不施加摩擦”的说明、公式与代码均参考该文；该文内还引用了 Quake III 与 Source SDK 的移动代码。
+        </li>
+        <li>
+          <a href="https://wiki.sourceruns.org/en/common/Bunnyhopping" target="_blank" rel="noopener noreferrer">
+            SourceRuns Wiki：Bunnyhopping
+          </a>
+          （A/D 与鼠标同向转动、空中不按 W 的操作说明）。
+        </li>
+      </ul>
     </div>
 
     <iframe class="ag-media" src="http://player.bilibili.com/player.html?bvid=BV1Fs411M77h&cid=1443550509&p=1&high_quality=1&danmaku=0&autoplay=0&high" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
@@ -519,6 +564,78 @@ export default {
   line-height: 1.6;
   color: var(--ag-text-dim);
   text-align: center;
+}
+
+/* 正文公式块：等宽字体，窄屏可横向滚动 */
+.bunnyhop-formula {
+  max-width: 720px;
+  margin: 10px auto 14px;
+  padding: 10px 14px;
+  overflow-x: auto;
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  color: var(--ag-text);
+  background: #10120e;
+  border: 1px solid var(--ag-border);
+  border-left: 3px solid var(--ag-primary);
+  border-radius: var(--ag-radius-sm);
+  white-space: pre;
+}
+
+/* 正文中的行内代码与变量名 */
+.AGTricksContent code {
+  padding: 1px 5px;
+  font-family: 'Cascadia Code', Consolas, 'Courier New', monospace;
+  font-size: 0.88em;
+  color: var(--ag-primary);
+  background: rgba(255, 156, 26, 0.1);
+  border-radius: 4px;
+}
+
+/* 引用来源：橙色强调卡片，与正文明显区分 */
+.bunnyhop-source {
+  width: 100%;
+  max-width: 720px;
+  margin: 18px auto;
+  padding: 12px 16px 12px 18px;
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: var(--ag-text-muted);
+  background: rgba(255, 156, 26, 0.08);
+  border: 1px solid rgba(255, 156, 26, 0.35);
+  border-left: 4px solid var(--ag-primary);
+  border-radius: var(--ag-radius-sm);
+}
+
+.bunnyhop-source__title {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: var(--ag-primary);
+}
+
+.bunnyhop-source ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.bunnyhop-source li + li {
+  margin-top: 6px;
+}
+
+.bunnyhop-source a {
+  color: var(--ag-primary);
+  text-decoration: underline;
+  word-break: break-all;
+}
+
+/* 段落末尾的行内出处标注，保证引用来源足够醒目 */
+.bunnyhop-source__inline {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ag-primary);
 }
 
 /* 示意图控件：播放倍率滑块 + 目标速度输入框 */
